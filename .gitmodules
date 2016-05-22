@@ -1,0 +1,6 @@
+[submodule "casper-pelican-theme"]
+	path = casper-pelican-theme
+	url = git@github.com:mstuttgart/casper-pelican-theme.git
+[submodule "pelican-plugins"]
+	path = pelican-plugins
+	url = https://github.com/getpelican/pelican-plugins.git

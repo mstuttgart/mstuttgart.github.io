@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: http://mstuttgart.github.io/sitemap.xml
