@@ -44,8 +44,8 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # Blogroll
 SOCIAL =  (
-    # ('Perfil Github', 'https://github.com/mstuttgart'),
-    # s('Perfil Linkedin', 'https://www.linkedin.com/in/michellstut'),
+    ('Perfil Github', 'https://github.com/mstuttgart'),
+    ('Perfil Linkedin', 'https://www.linkedin.com/in/michellstut'),
     )
 
 PLUGIN_PATHS = ["pelican-plugins",]
