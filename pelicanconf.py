@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 AUTHOR = u'Michell Stuttgart'
-SITENAME = u'Código Avulso'
+SITENAME = u'Michell Stuttgart'
 SITEURL = 'http://localhost:8000'
 SITE_LOGO = u'https://lh3.googleusercontent.com/-f22OLAfy4EU/VyO0Hy10aOI/AAAAAAAAF5s/nsk-BrJzP_Mlh7JPHrtlR7l7vAucn2MJgCCo/s151/logo.png'
 AUTHOR_PIC_URL = u'https://lh3.googleusercontent.com/-2DmtcIOqPIc/VyPVyYGo09I/AAAAAAAAF58/VBWeR-ejVhECPk4YR6hiHuQJz_RzM_3mgCCo/s601/IMG-20141231-WA0004%2B1.jpg'
