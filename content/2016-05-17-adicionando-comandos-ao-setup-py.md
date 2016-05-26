@@ -8,11 +8,11 @@ Summary: Neste tutorial veremos como adicionar comando personalizados ao arquivo
 
 Fala pessoal, tudo certo?
 
-Nas últimas semanas, estive trabalhando em meu projeto [Pynocchio](https://github.com/pynocchio/pynocchio-comic-reader), um leitor de arquivos `.crb` e `.cbz`, normalmente utilizados em arquivos com imagens de histórias em quadrinhos/mangás. Esse projeto foi contruido utilizando a API [PySiDe](https://pt.wikipedia.org/wiki/PySide), que é um *biding* do framework [QT](https://pt.wikipedia.org/wiki/Qt) para Python.
+Nas últimas semanas, estive trabalhando em meu projeto [Pynocchio](https://github.com/pynocchio/pynocchio-comic-reader), um leitor de arquivos `.crb` e `.cbz`, normalmente utilizados em arquivos com imagens de histórias em quadrinhos/mangás. Esse projeto foi contruido utilizando a API [PySide](https://pt.wikipedia.org/wiki/PySide), que é um *biding* do framework [QT](https://pt.wikipedia.org/wiki/Qt) para Python.
 
-Durante o desenvolvimento, eu muitas vezes precisava transformar os arquivos de interface (de extensão `.ui`) em código Python e/ou gerar arquivos de tradução, entre outros comandos. Inicialmente, realizava estas operações usando *shell script*, porém isso deixava a estrutura do meu projeto cheio de *scripts*. Então, me perguntei se não haveria uma maneira mais interessante de "guardar" esses comandos que tanto utilizava.
+Durante o desenvolvimento, muitas vezes precisei transformar os arquivos de interface (de extensão `.ui`) em código Python e/ou gerar arquivos de tradução, entre outros comandos. Inicialmente, realizava estas operações usando *shell script*, porém isso deixava a estrutura do meu projeto cheio de *scripts*. Então, me perguntei se não haveria uma maneira mais interessante de "guardar" esses comandos que tanto utilizava.
 
-Como vimos na [primeira do tutorial sobre Unittest](http://codigoavulso.com.br/python-com-unittest-travis-ci-coveralls-e-landscape-parte-1-de-4.html), é possível executar os arquivos de testes do nosso projeto com o comando
+Como vimos na [primeira do tutorial sobre Unittest](http://mstuttgart.com.br/python-com-unittest-travis-ci-coveralls-e-landscape-parte-1-de-4.html), é possível executar os arquivos de testes do nosso projeto com o comando
 
 ```bash
 python setup.py test
@@ -30,25 +30,19 @@ from setuptools import setup, find_packages
 setup(
     name='nomedomodulo'
     version='0.1.1'
-    url='https://github.com/mstuttgart/python-sigep',
+    url='https://github.com/mstuttgart/nomedomodulo',
     license='MIT License',
     author='Michell Stuttgart',
-    author_email='michellstut@gmail.com',
-    keywords='correios sigep sigepweb frete rastreamento development api cep',
     description=u'Interface python para uso dos serviços fornecidos pelo '
                 u'SIGEPWeb dos Correios ',
     packages=find_packages(),
     include_package_data=True,
-    install_requires=[
-        'requests==2.10.0',
-    ],
-    platforms=['any'],
     test_suite='test',
 )
 
 ```
 
-Através deste arquivo, é possível instalar o em nosso sistema e registrá-lo no [PiPy](https://pypi.python.org/pypi), para ser instalado pelo `pip`. Um ponto que muitos desenvolvedores talvez não saibam e que possui documentação um tanto esparsa pela internet (principalmente em português), é a possibilidade de adicionar comandos personalizados ao `setup.py`.
+Um ponto é que possui documentação um tanto esparsa pela internet (principalmente em português), é a possibilidade de adicionar comandos personalizados ao `setup.py`.
 
 ### Criando comandos personalizados
 
@@ -73,11 +67,40 @@ setup(
 )
 
 ```
-No tutorial anterior, instalamos o módulo `coveralls` que serve para criar relatórios sobre os testes do seu projeto. Neste tutorial, a título de exemplo, iremos adicionar o comando para gerar esses relatórios em nosso `setup.py`. Caso deseje usar o `coveralls` em seu projeto, ele pode ser instalado pelo comando:
+No [tutorial anterior](http://mstuttgart.com.br/gerando-relatorios-de-testes-com-coveralls.html), instalamos o módulo `coveralls` que serve para criar relatórios sobre os testes do seu projeto. Neste tutorial, a título de exemplo, iremos adicionar o comando para gerar esses relatórios em nosso `setup.py`. Caso deseje usar o `coveralls` em seu projeto, ele pode ser instalado pelo comando:
 
 ```bash
 pip install coveralls
 ```
 
+Agora iremos adicionar os comandos usados no tutorial no `setup.py`do nosso projeto. Para isso, precisamos criar uma classe que herda de `distutils.cmd.Command`. A classe também possui alguns atributos uteis como `description`, onde podemos definir uma descrição para o comando e `user_options`, que recebe uma lista de tuplas que serão os parâmetros do comando.
 
+```python
+# -*- coding: utf-8 -*-
+from setuptools import setup, find_packages
+import distutils.cmd
 
+class BuildProFileCommand(distutils.cmd.Command):
+
+  description = "Compile PySide pro files"
+
+    # The format is (long option, short option, description).
+    user_options = [
+        ('tipo=', None, 'Tipo de saída do relatorio: no terminal, em html ou xml'),
+    ]
+
+setup(
+    name='codigo-avulso-test-tutorial',
+    version='0.1.1'
+    url='https://github.com/mstuttgart/codigo-avulso-test-tutorial',
+    license='MIT License',
+    author='Michell Stuttgart',
+    author_email='michellstut@gmail.com',
+    keywords='tutorial test unittest codigoavulso',
+    description=u'Tutorial de teste unitário em Python para o blog Código Avulso',
+    packages=find_packages(),
+    install_requires=[],
+    test_suite='test',
+)
+
+```

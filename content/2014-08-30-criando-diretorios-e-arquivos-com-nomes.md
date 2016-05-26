@@ -1,9 +1,9 @@
-Title: Criando diretórios e arquivos usando expressões regulares
+Title: Como criar diretórios e arquivos usando expressões regulares
 Date: 2014-08-30T05:47:00-07:00
 Category: Tutorial
 Tags: linux, tutorial, expressão regular
 Author: Michell Stuttgart
-Summary: Criando diretórios e arquivos usando expressões regulares
+Summary: Como criar diretórios e arquivos usando expressões regulares pelo terminal
 
 Olá pessoal, tudo bem? Todo programador linux sabe como o uso do terminal pode ser uma ajuda insubstituível na realização de algumas tarefas. Neste post eu irei compartilhar algumas coisa que descobri usando o terminal.
 
