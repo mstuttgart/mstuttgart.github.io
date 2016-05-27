@@ -14,7 +14,7 @@ Fala pessoal, tudo tranquilo?
 
 Meu caro leitor(a), você já passou por uma situação onde precisava transferir um diretório de um repositório para outro, sem perder o histórico de contribuições?
 
-Semanas atrás me deparei com esse desafio e achei interessante compatilhar com você a solução que encontrei. 
+Semanas atrás me deparei com esse desafio e achei interessante compatilhar com você a solução que encontrei.
 
 #### Analisando o problema
 
@@ -66,7 +66,7 @@ git push
 
 Neste caso em especial, eu apenas copiei o conteúdo do diretório *dirB* em um repositório diferente. Entretanto, a principal utilidade desse método é quando desejamos transferir o diretório para um novo repositório, sendo o mesmo posteriormente removido do repositório antigo. Porque assim, todas as novas colaborações para o conteúdo de *dirB* devem, a partir de agora, enviadas para o *novo_repo*.
 
-Apenas para complementear o *post*. Eu fiz uso deste método recentemente, em um dos projetos que contribuo. O repositório [colour-schemes](https://github.com/daylerees/colour-schemes) possui temas de vários editores usados em desenvolvimento (Sublime Text, Atom, Kate e etc), tendo cada um seu respectivo diretório com seus temas.
+Apenas para complementar o *post*. Eu fiz uso deste método recentemente, em um dos projetos que contribuo. O repositório [colour-schemes](https://github.com/daylerees/colour-schemes) possui temas de vários editores usados em desenvolvimento (Sublime Text, Atom, Kate e etc), tendo cada um seu respectivo diretório com seus temas.
 
 Sou usuário da IDE [PyCharm](https://www.jetbrains.com/pycharm/), então fiz alguns ajustes nos temas do diretório *jetbrains* (empresa dona do [PyCharm](https://www.jetbrains.com/pycharm/)) presentes nesse repositório. Foram 55 temas ajustados (me custou algumas horas de trabalho haha) mas o resultado foi muito satisfatório. Após terminar os ajustes, enviei um *pull request* para o repositório original. Porém o que me frustrou, foi o fato dos responsáveis pelo repositório demorarem muito tempo (muito mesmo) para revisar e aprovar os *pull requests*. Sendo assim, decidi criar um repositório contendo apenas os temas do [PyCharm](https://www.jetbrains.com/pycharm/) já com minhas alterações, de modo que outros desenvolvedores pudessem usá-los. Então utilizei o método acima, clonei o meu fork do repositório original (que possuia os minhas modificações) e executei o filtro apenas para o diretório *jetbrains*. Em seguida enviei para [este meu repositório](https://github.com/mstuttgart/pycharm-colour-scheme). Compare o conteúdo desse repositório com o meu [fork do repositório original](https://github.com/mstuttgart/colour-schemes/tree/feature/pycharm_themes/jetbrains).
 
