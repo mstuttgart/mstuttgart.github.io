@@ -1,4 +1,4 @@
-Title: Como transferir um diretório entre repositórios usando git
+Title: Como mover um subdiretório de um repositório para outro usando git
 Date: 2016-05-26 15:13:46
 Category: Git
 Tags: linux, tutorial, git, github, dicas
