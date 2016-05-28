@@ -1,0 +1,15 @@
+language: python
+
+branches:
+  only:
+  - master
+
+install:
+- pip install -r requeriments.txt
+
+script:
+- make publish github
+- 'make github 2> /dev/null'
+env:
+  global:
+    secure: l7o7MittuHcm7ZWYhR/xfAnOUs02mLJPtd3wlupH8Dh6DRImAQEoPgob8hCbtFOPqzmGRGm+/3Jl3IFtV19kzp2FnSSuK8GC1EavMpZnyJMERODrG+Y6vXE7obuuI1O4nu12hVjzufNMFOSSEFkPaXfyZj0a3CpvqLqCA0yvo6HNFFYXYNhohrE5OtAa9ulHH6w6Th1ebBEGpMk2fvGYLmL0jN2qh/6c8V3kyzh3DXOUCw4AG7qQaJrHASPlHvzmjxIYErW7M9zJr1KxayuA+qgnI1vG4nLF01pRHUCqhEdxb0a43mbr2avcPm/09jGjwJVHW85ZQjjAX3FXBOcuAYymet586cUOwQClO1FuPekSt0Lg9Gy4MiVWOai/mQ/P6wMCYFDDtzcrDAjFdLLl+qWbRRkO3UaOZXFCLe5AvsKdMERGvhX69hKPwLbgCNK+OCz+s0I4ZfFFmaeESZ0kHT9IgNF3s8LFVSAxRvGlCv4+co8N+2839PEKzfev+YuUHh2sHebxVUk9xbqgQvQxq6eTnhGCF1OTk5c+YfRRqwCS2yyvg6rVAoLom0y3KSzzvHMw/zdgvPFDlKjY9IVcPhu6YxiECDSn8w4QwszKSoMa77edC/k/4zM50Qle7qJAcMmearerLgNpF0Bdi7SIwnD3iqr36RSTGHYtPwOK/bI=
