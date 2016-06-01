@@ -44,12 +44,12 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # Blogroll
 SOCIAL =  (
-    ('Perfil Github', 'https://github.com/mstuttgart'),
-    ('Perfil Linkedin', 'https://www.linkedin.com/in/michellstut'),
+    ('Github', 'https://github.com/mstuttgart'),
+    ('Linkedin', 'https://www.linkedin.com/in/michellstut'),
     )
 
 PLUGIN_PATHS = ["pelican-plugins",]
-PLUGINS = ['neighbors','minification','sitemap',]
+PLUGINS = ['neighbors','minification','sitemap', 'subcategory']
 
 SITEMAP = {
     'format': 'xml',

@@ -137,7 +137,6 @@ ifdef NAME
 	echo "Tags:"         >> $(OUTPUT_FILE)
 	echo "Author:"       >> $(OUTPUT_FILE)
 	echo "Summary:"      >> $(OUTPUT_FILE)
-	${EDITOR} $(OUTPUT_FILE) &
 else
 	@echo 'Variable NAME is not defined.'
 	@echo 'Do make newpost NAME='"'"'Post Name'"'"
