@@ -1,5 +1,5 @@
-Title: Como distribuir seu projeto Python com PyPI
-Slug: como-distribuir-seu-projeto-python-com-pypi
+Title: Como distribuir sua aplicação Python com PyPI
+Slug: como-distribuir-sua-aplicacao-python-com-pypi
 Date: 2016-06-01 13:47:24
 Category: Python
 Tags: python, pypi, tutorial, desenvolvimento, pypi, pip
