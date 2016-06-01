@@ -1,7 +1,7 @@
 Title: Backup e Restore de um banco de dados PostgreSQL
 Date: 2016-03-18 11:59:51 -0300
-Category: Tutorial
-Tags: linux, tutorial, banco de dados
+Category: Banco de Dados
+Tags: linux, tutorial, banco de dados, backup, restore, postgresql
 Author: Michell Stuttgart
 Summary: Aprenda a executar de maneira simples o backup e restore de um banco de dados postgres
 
