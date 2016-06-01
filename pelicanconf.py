@@ -49,7 +49,7 @@ SOCIAL =  (
     )
 
 PLUGIN_PATHS = ["pelican-plugins",]
-PLUGINS = ['neighbors','minification','sitemap', 'subcategory']
+PLUGINS = ['neighbors','minification','sitemap']
 
 SITEMAP = {
     'format': 'xml',
