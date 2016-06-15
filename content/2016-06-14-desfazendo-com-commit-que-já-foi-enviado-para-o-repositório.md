@@ -39,6 +39,10 @@ ou apenas
 git revert f44db3
 ```
 
+Pode ser que durante o processo de *revert* você tenha que realizar alguns ajustes ou correções nos arquivos que serão modificados. Quando isso acontecer, realize as modificações, execute o comando `git add .` para adicionar os arquivos que você editou e em seguida execute `git revert --continue` para que o processo de reversão continue.
+
+Assim que realizar a reversão, basta enviar suas modificações para o repositório remoto utilizando o comando `git push`. Desse modo os outros desenvolvedores já terão acesso a versão corrigida do código e o histórico permacerá o mesmo, adicionando apenas o *commit* com os detalhes do *revert*.
+
 É isso pessoal. Para saber mais detalhes do commando, basta dar uma olhada na documentação oficial [aqui](https://git-scm.com/docs/git-revert). Qualquer dúvida é só deixar um comentário.
 
 Obrigado por ler e até o próximo *post* pessoal. Até mais!
