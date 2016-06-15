@@ -21,12 +21,22 @@ Outro mode de uso consiste em passarmos um intervalo como parâmetro contendo os
 ```bash
 git revert -n master~5..master~2
 ```
-No exemplo acima, vamos reverter o intervalo que vai do quinto *commit* (incluindo o mesmo) mais recente ao terceiro *commit* mais recente. Repare que o intervalor funciona da seguiten forma: `[commit antigo, commit recent[`. O intervalo inclui o *commit* mais antigo e vai até o *commit* mais recente, NÃO incluindo este último.
+
+No exemplo acima, vamos reverter o intervalo que vai do quinto *commit* (incluindo o mesmo) mais recente ao terceiro *commit* mais recente. Repare que o intervalor funciona da seguiten forma: 
+
+>> [commit antigo, commit recent[
+
+O intervalo inclui o *commit* mais antigo e vai até o *commit* mais recente, NÃO incluindo este último.
 
 Outra possibilidade é utilizar a *hash* dos *commits* seja passando uma *hash* unica ou um intervalo. Por exemplo:
 
 ```bash
-git revert -n f44db377210fad4f1980663f58d4be9fa9c09e36..f167fc86d574a25393d50f11e620a9364cf6257f
+git revert -n f44db3..f167fc
+```
+ou apenas
+
+```bash
+git revert f44db3
 ```
 
 É isso pessoal. Para saber mais detalhes do commando, basta dar uma olhada na documentação oficial [aqui](https://git-scm.com/docs/git-revert). Qualquer dúvida é só deixar um comentário.
