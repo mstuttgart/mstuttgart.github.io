@@ -56,7 +56,7 @@ O comando acima aplica um filtro para subdiretórios (--subdirectory-filter) usa
 
 Após executar o comando, verifique o conteúdo da pasta *repo_antigo*. Agora os únicos arquivos e diretórios presentes são os que estavam dentro do diretório *dirB*. Se usarmos o comando `git log`, veremos que apenas os *commits* relacionados ao conteúdo de *dirB* permaneceram no histórico. Vale lembrar aqui que os outros *commits* não foram removidos do repositório remoto original, o histórico foi filtrado apenas localmente.
 
-O próximo passo agora é subir tudo isso para o *novo_repo*. Para isso, precisamos primeiro substituir a url do *repo_antigo* pela url do nosso *repo_novo* e em seguida realizar o *push*. Valçe lembrar que se seu *repo_novo* já possuir algum *commit* (normalmente adicionando um arquivo README.md e um arquivo LICENSE) será necessário execura um `git pull` antes do *push* ou sobreescrever o commit inicial do novo repositório usando `git push -f`.
+O próximo passo agora é subir tudo isso para o *novo_repo*. Para isso, precisamos primeiro substituir a url do *repo_antigo* pela url do nosso *repo_novo* e em seguida realizar o *push*. Vale lembrar que se seu *repo_novo* já possuir algum *commit* (normalmente adicionando um arquivo README.md e um arquivo LICENSE) será necessário execura um `git pull` antes do *push* ou sobreescrever o commit inicial do novo repositório usando `git push -f`.
 
 ```bash
 git remote set-url origin https://github.com/usuario/novo_repo.git
