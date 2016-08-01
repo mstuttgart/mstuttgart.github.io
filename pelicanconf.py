@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 AUTHOR = u'Michell Stuttgart'
 SITENAME = u'Código Avulso'
-SITEURL = 'http://localhost:8000'
+SITEURL = ''
 SITE_LOGO = u'images/logo.png'
 AUTHOR_PIC_URL = u'https://lh3.googleusercontent.com/-2DmtcIOqPIc/VyPVyYGo09I/AAAAAAAAF58/VBWeR-ejVhECPk4YR6hiHuQJz_RzM_3mgCCo/s601/IMG-20141231-WA0004%2B1.jpg'
 AUTHOR_LOCATION = u'Brasil'
