@@ -29,7 +29,7 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 GITHUB_URL = 'https://github.com/mstuttgart'
-#DISQUS_SITENAME = 'codigoavulso'
+DISQUS_SITENAME = 'codigoavulso'
 # USE_OPEN_GRAPH = 'True'
 RELATED_POSTS_MAX = 10
 GOOGLE_ANALYTICS = 'UA-75274475-1'

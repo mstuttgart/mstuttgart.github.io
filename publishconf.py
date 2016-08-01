@@ -20,4 +20,5 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
 
+#DISQUS_SITENAME = 'codigoavulso'
 GOOGLE_ANALYTICS = 'UA-75274475-1'
