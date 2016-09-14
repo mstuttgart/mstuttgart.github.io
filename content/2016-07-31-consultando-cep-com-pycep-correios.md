@@ -9,19 +9,19 @@ Boa tarde, pessoal. Tudo certo?
 
 Neste *post* irei falar um pouco sobre um pequeno projeto meu. Trata-se do [PyCEP Correios](https://github.com/mstuttgart/pycep-correios).
 
-O [PyCEP Correios](https://github.com/mstuttgart/pycep-correios) é uma api desenvolvida em Python que realiza a busca dos dados de um dado CEP diretamente no webservice dos correios, sendo essa a principal diferença em relação a outras api's de consulta de CEP. O retorno dessa consulta é um *dict* contentdo os dados do endereço pertencente ao CEP. Este projeto foi iniciado por mim para fins de estudo, porém ele pode ser utilizado normalmente em projetos mais sérios.
+O [PyCEP Correios](https://github.com/mstuttgart/pycep-correios) é uma api desenvolvida em Python que realiza a busca dos dados de um dado CEP diretamente no *webservice* dos Correios, sendo essa a principal diferença em relação a outras api's de consulta de CEP. O retorno dessa consulta é um *dict* contendo os dados do endereço pertencente ao CEP. Este projeto foi iniciado por mim para fins de estudo, porém ele pode ser utilizado normalmente em projetos mais sérios.
 
 ### Instalação
 
 O PyCEP Correios pode ser facilmente instalado com o comando a seguir (apenas para python3):
 
 ```bash
-pip install pycep-correios
+pip3 install pycep-correios
 ```
 
 ### Como usar
 
-Consultar o endereço de um CEP é muito simples com o [PyCEP Correios](https://github.com/mstuttgart/pycep-correios). Não importa se o CEP fornecido possui hífen ou ponto. O PyCEPCorreios trata a entrada garantindo uma entrada válida para o *webservice* dos Correios.
+Consultar o endereço de um CEP é muito simples com o [PyCEP Correios](https://github.com/mstuttgart/pycep-correios). Não importa se o CEP fornecido possui hífen ou ponto. O [PyCEP Correios](https://github.com/mstuttgart/pycep-correios) trata a entrada garantindo uma entrada válida para o *webservice* dos Correios.
 
 Veja os exemplos a seguir:
 
@@ -40,7 +40,7 @@ print(endereco['outro'])
 
 ```
 
-Outro exemplo, usando o CEP anterior, porém com hífen e ponto.
+Outro exemplo, usando o CEP anterior, porém com hífen "-" e ponto ".".
 
 ```python
 from pycep_correios.correios import Correios
@@ -69,6 +69,6 @@ except CorreiosCEPInvalidCEPException as exc:
 
 ### Conclusão
 
-É isso pessoal. Este *post* foi feito simplemesnte para apresentação do [PyCEP Correios](https://github.com/mstuttgart/pycep-correios). Eu recentemente migrei toda api para utilização do Python 3.4. A api usada para consulta (*suds*) foi substituída pela *requests*, já que esse ultimo tem um desenvolvimento ativo. Espero que o módulo seja útil a vocês. Se alguém possuir alguma crítica ou sugestão sinta-se livre para comentar.
+É isso pessoal. Este *post* foi feito simplemesnte para apresentação do [PyCEP Correios](https://github.com/mstuttgart/pycep-correios). Eu recentemente migrei toda api para Python 3.4. A api usada para consulta (*suds*) foi substituída pela *requests*, já que esse ultimo tem um desenvolvimento ativo. Espero que o módulo seja útil a vocês. Se alguém possuir alguma crítica ou sugestão sinta-se livre para comentar.
 
 Obrigado por ler até aqui! Até o próximo *post*.
