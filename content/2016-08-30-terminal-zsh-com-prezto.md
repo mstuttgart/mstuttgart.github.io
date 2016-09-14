@@ -1,7 +1,7 @@
 Title: Personalize o seu terminal com prezto + zsh
-Date: 2016-08-30 20:27:15
+Date: 2016-09-14 20:27:15
 Category: Linux
-Tags:zhs, prezto, linux, bash, terminal
+Tags:zhs, prezto, linux, bash, terminal, zsh
 Author: Michell Stuttgart
 Summary: Neste tutorial veremos como personalizar nosso terminal com zsh + prezto
 
@@ -127,9 +127,9 @@ zstyle ':prezto:module:prompt' theme 'nomedotema'
 
 #### Conclusão
 
-Além do `prezto`, existem outras opções de *frameworks* como o [Oh my Zsh!](https://github.com/robbyrussell/oh-my-zsh). Porém, apensar do mesmo possuir um número superior de temas e plugins, o `prezto` é de longe o mais rápido. Utilizo ele a anos e é uma ferramenta valiosa, principalmente para que é desenvolvedor.
+Além do `prezto`, existem outras opções de *frameworks* como o [Oh my Zsh!](https://github.com/robbyrussell/oh-my-zsh). Porém, apensar do mesmo possuir um número superior de temas e plugins, o `prezto` é de longe o mais rápido. Utilizo ele a um bom tempo e o mesmo tem sido uma das minhas principais ferramentas de desenvolvimento.
 
-É isso pessoal. Espero que gostem de utilizar o Zsh. Até o próximo post!
+É isso pessoal. Espero que vocês gostem de utilizar o Zsh. Até o próximo post!
 
 #### Referências
 
