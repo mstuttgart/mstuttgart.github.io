@@ -1,7 +1,7 @@
 Title: Abrangência de Listas e Dicionários
 Date: 2017-01-12 22:12:39
 Category: Python
-Tags: python,tutorial,list,abrangência,list comprehensions
+Tags: python,tutorial,list comprehensions
 Author: Michell Stuttgart
 Summary: Neste tutorial, aprenderemos a utilizar abrangência de lista ou *list comprehensions*, um recurso muito interessante que o Python nos fornece para trabalharmos com lista.
 
