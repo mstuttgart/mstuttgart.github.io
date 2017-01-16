@@ -121,3 +121,7 @@ novo_dicionario = {chave: 2 * valor for chave, valor in dicionario.items() if ch
 Chegamos ao final de mais um tutorial! Sempre temos de ter em mente que tão importante quanto escrever um código que funciona, é mantê-lo (seja por você ou por outro programador). Neste ponto, a abrangência de lista (e outras estruturas de dados) nos ajudam a escrever um código claro e fácil de dar manutenção.
 
 Até o próximo tutorial pessoal!
+
+### Referências
+
+* Python eficaz: 59 maneiras de programar melhor em Python; Slatkin, Brett; Novatec Editora, 2016.
