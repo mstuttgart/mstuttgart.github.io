@@ -124,4 +124,4 @@ Até o próximo tutorial pessoal!
 
 ### Referências
 
-* Python eficaz: 59 maneiras de programar melhor em Python; Slatkin, Brett; Novatec Editora, 2016.
+* [Python eficaz: 59 maneiras de programar melhor em Python; Slatkin, Brett; Novatec Editora, 2016.](https://novatec.com.br/livros/python-eficaz/)
