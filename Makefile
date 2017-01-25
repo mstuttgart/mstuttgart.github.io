@@ -27,6 +27,13 @@ DROPBOX_DIR=~/Dropbox/Public/
 
 GITHUB_PAGES_BRANCH=master
 
+AUTHOR="Michell Stuttgart"
+EMAIL="michellstut@gmail.com"
+GITHUB_USER="mstuttgart"
+LINKEDIN_USER="michellstut"
+FACEBOOK_USER="michell.stuttgart"
+SITE="http://codigoavulso.com.br"
+
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
 	PELICANOPTS += -D
@@ -131,12 +138,18 @@ OUTPUT_FILE := ${INPUTDIR}/$(shell date +'%Y-%m-%d')-${SLUG}.${EXT}
 EDITOR := haroopad
 newpost:
 ifdef NAME
-	echo "Title: $(NAME)" > $(OUTPUT_FILE)
-	echo "Date: $(DATE)" >> $(OUTPUT_FILE)
-	echo "Category:"     >> $(OUTPUT_FILE)
-	echo "Tags:"         >> $(OUTPUT_FILE)
-	echo "Author:"       >> $(OUTPUT_FILE)
-	echo "Summary:"      >> $(OUTPUT_FILE)
+	echo "Title: $(NAME)"              > $(OUTPUT_FILE)
+	echo "Slug: $(NAME)"              >> $(OUTPUT_FILE)
+	echo "Date: $(DATE)"              >> $(OUTPUT_FILE)
+	echo "Category:"                  >> $(OUTPUT_FILE)
+	echo "Tags:"                      >> $(OUTPUT_FILE)
+	echo "Author: $(AUTHOR)"          >> $(OUTPUT_FILE)
+	echo "Email: $(EMAIL)"            >> $(OUTPUT_FILE)
+	echo "Github: $(GITHUB_USER)"     >> $(OUTPUT_FILE)
+	echo "Linkedin: $(FACEBOOK_USER)" >> $(OUTPUT_FILE)
+	echo "Facebook: $(FACEBOOK_USER)" >> $(OUTPUT_FILE)
+	echo "Site: $(SITE)"              >> $(OUTPUT_FILE)
+	echo "Summary:"                   >> $(OUTPUT_FILE)
 else
 	@echo 'Variable NAME is not defined.'
 	@echo 'Do make newpost NAME='"'"'Post Name'"'"
