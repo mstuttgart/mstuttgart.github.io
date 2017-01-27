@@ -116,7 +116,7 @@ O *MkDocs* possui um comando onde ele compila o site e já o envia para o *githu
 
 Chegamos ao fim de mais um tutorial. Este foi bem curto, apenas para apresentar o *mkdocs*. Futuramente, pretendo fazer outro tutorial explicando como realizar o deploy no *github-pages* e inclusive, como automatizar esse processo.
 
-Eu recentemente utilizei o *MkDocs* no site/documentação do meu leitor de quadrinhos *Pynocchio* [aqui](pynocchio.github.io).
+Eu recentemente utilizei o *MkDocs* no site/documentação do meu leitor de quadrinhos *Pynocchio* [aqui](https://pynocchio.github.io/).
 
 É isso pessoal! Obrigado por ler até aqui. Até o próximo *post*!
 
