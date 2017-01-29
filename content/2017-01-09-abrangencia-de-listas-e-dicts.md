@@ -12,7 +12,7 @@ A utilização de listas em Python é algo trivial. A facilidade provida pela li
 A abrangência de listas, ou do inglês *list comprehensions*, é um  termo utilizado para descrever uma sintaxe compacta que o Python nos oferece para criamos uma lista baseada em outra lista. Pareceu confuso? Ok, vamos aos exemplos!
 
 #### Exemplo 1
-Vamos suport que temos a seguinte lista de valores:
+Vamos supor que temos a seguinte lista de valores:
 
 ```python
 valores = [1, 2, 3, 4, 5]
