@@ -49,7 +49,7 @@ Dentro da pasta *my-projet* teremos a seguinte estrutura de diretórios:
 │   └── index.md
 └── mkdocs.yml
 ```
-Todas as páginas do seu site serão armazenados na dentro da pasta *docs*. Inclusive dentro dessa mesma pasta existe o arquivo *index.md*. Este arquivo será a página principal do site. Além do diretório *docs*, também tempos o arquivo *mkdocs.yml*, que é o arquivo de configuração utilizado pelo *MkDocs*.
+Todas as páginas do seu site serão armazenadas dentro da pasta *docs*. Inclusive dentro dessa mesma pasta existe o arquivo *index.md*. Este arquivo será a página principal do site. Além do diretório *docs*, também temos o arquivo *mkdocs.yml*, que é o arquivo de configuração utilizado pelo *MkDocs*.
 
 #### Servidor de Desenvolvimento
 
