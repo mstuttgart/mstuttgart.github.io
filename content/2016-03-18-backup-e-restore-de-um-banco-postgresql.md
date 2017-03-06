@@ -3,7 +3,7 @@ Date: 2016-03-18 11:59:51 -0300
 Category: Banco de Dados
 Tags: linux, tutorial, banco de dados, backup, restore, postgresql
 Author: Michell Stuttgart
-Summary: Aprenda a executar de maneira simples o backup e restore de um banco de dados postgres
+Summary: Aprenda a executar de maneira simples o backup e restore de um banco de dados PostgreSQL
 
 Quando trabalhamos com alguma aplicações que faz uso de um banco de dados, muitas vezes precisamos realizar um `backup` do nosso banco (antes de alguma atualização importante na aplicação) ou executar o `restore` desse banco caso seja necessário.
 
