@@ -9,7 +9,7 @@ Github: mstuttgart
 Linkedin: michell.stuttgart
 Facebook: michell.stuttgart
 Site: http://codigoavulso.com.br
-Summary: Aprenda de maneira simples a duplicar um banco de dados PostgreSQL.
+Summary: Aprenda de maneira simples a duplicar um banco de dados com PostgreSQL.
 
 Fala pessoal, tudo bem?
 

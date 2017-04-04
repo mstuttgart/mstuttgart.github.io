@@ -1,4 +1,4 @@
-Title: Adicionando comandos ao setup.py
+Title: Python - Adicione comandos ao setup.py
 Date: 2016-05-17 22:48:00
 Category: Python
 Tags: python, setup, tutorial, PySide, Qt

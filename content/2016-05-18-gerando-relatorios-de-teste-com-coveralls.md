@@ -1,4 +1,4 @@
-Title: Coveralls - Gerando relatórios de testes
+Title: Coveralls - Como gerar relatórios de testes
 Slug: gerando-relatorios-de-testes-com-coveralls
 Date: 2016-05-18 11:28:55
 Category: Python

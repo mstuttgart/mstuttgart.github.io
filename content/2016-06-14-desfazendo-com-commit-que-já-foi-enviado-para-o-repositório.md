@@ -1,4 +1,4 @@
-Title: Git - Desfazendo um commit com git revert
+Title: Git - Como desfazer um commit com git revert
 Slug: desfazendo-um-commit-que-ja-foi-enviado-para-o-repositorio
 Date: 2016-06-14 14:02:11
 Category: Git

@@ -1,4 +1,4 @@
-Title: Icones para Ubuntu, Linux Mint e derivados
+Title: Linux - Ícones para Ubuntu, Linux Mint e derivados
 Slug: icones-para-ubuntu-linux-mint-e-derivados
 Date: 2014-06-20T09:34:00-07:00
 Category: Temas
