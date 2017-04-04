@@ -1,4 +1,4 @@
-Title: Encontrando os divisores de n
+Title: C++ - Encontrando os divisores de n
 Date: 2014-05-07T20:21:00-07:00
 Category: Algoritmo
 Tags: Java, Tutorial, C++, Programação, Algoritmo

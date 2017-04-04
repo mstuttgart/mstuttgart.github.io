@@ -1,4 +1,5 @@
-Title: Dica de leitura: Guia Mangá de Banco de Dados
+Title: Dica de leitura - Guia Mangá de Banco de Dados
+Slug: dica-de-leitura-guia-manga-de-banco-de-dados
 Date: 2016-03-20 14:41:29 -0300
 Category: Livro
 Tags: livro, banco de dados

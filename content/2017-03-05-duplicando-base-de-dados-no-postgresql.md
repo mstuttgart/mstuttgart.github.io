@@ -1,4 +1,4 @@
-Title: Duplicando banco de dados no PostgreSQL
+Title: PostgreSQL - Duplicando banco de dados
 Slug: duplicando-banco-de-dados-no-postgresql
 Date: 2017-03-05 20:30:53
 Category: Banco de Dados
@@ -45,4 +45,3 @@ O parâmetro *owner* é muito útil quando alguma aplicação utiliza um usuári
 Agora, se executarmos novamente o comando `psql -l`, veremos o banco de dados original e o novo banco recém-criado.
 
 É isso pessoal! Até o próximo *post*.
-

@@ -1,4 +1,5 @@
-Title: Personalize o seu terminal com prezto + zsh
+Title: Linux - Personalize o seu terminal com ZSH + Prezto
+Slug: personalize-o-seu-terminal-com-prezto-zsh
 Date: 2016-09-14 20:27:15
 Category: Linux
 Tags:zhs, prezto, linux, bash, terminal, zsh

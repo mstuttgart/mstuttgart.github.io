@@ -1,4 +1,5 @@
-Title: Consultando CEP com pycep-correios
+Title: Python - Consultando CEP com pycep-correios
+Slug: consultando-cep-com-pycep-correios
 Date: 2016-07-31 16:28:36
 Category: Python
 Tags: correios, python, api, cep

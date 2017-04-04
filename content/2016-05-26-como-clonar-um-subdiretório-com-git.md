@@ -1,4 +1,5 @@
-Title: Como mover um subdiretório de um repositório para outro usando git
+Title: Git - Como mover um subdiretório entre repositórios
+Slug: como-mover-um-subdiretorio-de-um-repositorio-para-outro-usando-git
 Date: 2016-05-26 15:13:46
 Category: Git
 Tags: linux, tutorial, git, github, dicas

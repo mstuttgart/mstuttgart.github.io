@@ -1,4 +1,4 @@
-Title: Transforme strings em objetos Python com literal_eval
+Title: Python - Transforme strings em objetos com literal_eval
 Slug: transforme-strings-em-objetos-python-com-literal_eval
 Date: 2017-03-29 20:53:56
 Category: Python
@@ -67,4 +67,3 @@ Apesar das limitação de tipo de estruturas aceitas pelo `literal_eval` (não q
 
 * Documentação (em inglês): [https://docs.python.org/3/library/ast.html](https://docs.python.org/3/library/ast.html)
 * Um pouco mais da comparação entre os dois comandos (em inglês): [http://stackoverflow.com/questions/15197673/using-pythons-eval-vs-ast-literal-eval](http://stackoverflow.com/questions/15197673/using-pythons-eval-vs-ast-literal-eval)
-

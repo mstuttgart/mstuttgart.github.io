@@ -1,4 +1,4 @@
-Title: Ambiente de desenvolvimento: Arduino + Sublime Text
+Title: Arduíno - Ambiente de desenvolvimento com Sublime Text
 Date: 2014-06-03T17:18:00-07:00
 Category: Tutorial
 Tags: Arduino, Tutorial, C++, Sublime Text, Software

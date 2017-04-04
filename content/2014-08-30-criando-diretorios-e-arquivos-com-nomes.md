@@ -1,4 +1,5 @@
-Title: Como criar diretórios e arquivos usando expressões regulares
+Title: Linux - Crie diretórios e arquivos usando expressões regulares
+Slug: como-criar-diretorios-e-arquivos-usando-expressoes-regulares
 Date: 2014-08-30T05:47:00-07:00
 Category: Tutorial
 Tags: linux, tutorial, expressão regular

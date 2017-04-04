@@ -1,4 +1,5 @@
-Title: Mint-X KDE colors
+Title: Linux - Mint-X KDE colors
+Slug: mint-x-kde-colors
 Date: 2016-07-07 13:04:11
 Category: Temas
 Tags: linux, linux mint, kde, colors themes, temas, cores

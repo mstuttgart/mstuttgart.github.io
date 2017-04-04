@@ -1,4 +1,5 @@
-Title: Desfazendo um commit que já foi enviado para o repositório
+Title: Git - Desfazendo um commit com git revert
+Slug: desfazendo-um-commit-que-ja-foi-enviado-para-o-repositorio
 Date: 2016-06-14 14:02:11
 Category: Git
 Tags: git, github, tutorial
@@ -22,7 +23,7 @@ Outro mode de uso consiste em passarmos um intervalo como parâmetro contendo os
 git revert -n master~5..master~2
 ```
 
-No exemplo acima, vamos reverter o intervalo que vai do quinto *commit* (incluindo o mesmo) mais recente ao terceiro *commit* mais recente. Repare que o intervalor funciona da seguiten forma: 
+No exemplo acima, vamos reverter o intervalo que vai do quinto *commit* (incluindo o mesmo) mais recente ao terceiro *commit* mais recente. Repare que o intervalor funciona da seguiten forma:
 
 >> [commit antigo, commit recent[
 
@@ -46,4 +47,3 @@ Assim que realizar a reversão, basta enviar suas modificações para o reposit�
 É isso pessoal. Para saber mais detalhes do commando, basta dar uma olhada na documentação oficial [aqui](https://git-scm.com/docs/git-revert). Qualquer dúvida é só deixar um comentário.
 
 Obrigado por ler e até o próximo *post* pessoal. Até mais!
-

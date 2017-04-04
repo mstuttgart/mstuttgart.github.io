@@ -1,4 +1,5 @@
-Title: Abrangência de Listas e Dicionários
+Title: Python - Abrangência de Listas e Dicionários
+Slug: abrangencia-de-listas-e-dicionarios
 Date: 2017-01-12 22:12:39
 Category: Python
 Tags: python,tutorial,list comprehensions

@@ -1,4 +1,4 @@
-Title: Como distribuir sua aplicação Python com PyPI
+Title: Python - Como distribuir sua aplicação com PyPI
 Slug: como-distribuir-sua-aplicacao-python-com-pypi
 Date: 2016-06-01 13:47:24
 Category: Python

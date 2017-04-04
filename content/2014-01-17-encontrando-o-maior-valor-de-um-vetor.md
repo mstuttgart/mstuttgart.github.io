@@ -1,4 +1,4 @@
-Title: Encontrando o maior valor de um vetor
+Title: C++ - Encontrando o maior valor de um vetor
 Date: 2014-01-17T20:21:00-07:00
 Category: Algoritmo
 Tags: Java, Tutorial, C++, Programação, Algoritmo

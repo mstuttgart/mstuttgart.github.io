@@ -1,4 +1,4 @@
-Title: Fontes de texto serrilhadas no KDE
+Title: Linux - Fontes de texto serrilhadas no KDE
 Date: 2014-06-03T10:15:00-07:00
 Category: Tutorial
 Tags: KDE, Tutorial, Linux Mint

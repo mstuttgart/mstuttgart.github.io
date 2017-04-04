@@ -1,4 +1,4 @@
-Title: Como configurar seu ambiente de desenvolvimento com Ubuntu Make
+Title: Linux - Configure seu ambiente de desenvolvimento com Ubuntu Make
 Slug: configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make
 Date: 2016-03-29 18:46:01 -0300
 Category: Desenvolvimento
