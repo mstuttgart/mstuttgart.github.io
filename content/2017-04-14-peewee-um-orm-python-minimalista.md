@@ -11,7 +11,10 @@ Facebook: michell.stuttgart
 Site: http://codigoavulso.com.br
 Summary: Conheça o Peewee, um prático e minimalista ORM Python
 
-[Peewee](http://peewee.readthedocs.io/en/latest/index.html) ém um ORM destinado a criar e gerenciar tabelas de banco de dados relacionais através de objetos Python. O que ele faz é, basicamente, transformar classes Python em tabelas no banco de dados escolhido, além de permitir construir *querys* usando diretamente objetos Python ao invés de SQL.
+[Peewee](http://peewee.readthedocs.io/en/latest/index.html) é um ORM destinado a criar e gerenciar tabelas de banco de dados relacionais através de objetos Python. Segundo a [wikipedia](https://pt.wikipedia.org/wiki/Mapeamento_objeto-relacional) um ORM é:
+>>> Mapeamento objeto-relacional (ou ORM, do inglês: Object-relational mapping) é uma técnica de desenvolvimento utilizada para reduzir a impedância da programação orientada aos objetos utilizando bancos de dados relacionais. As tabelas do banco de dados são representadas através de classes e os registros de cada tabela são representados como instâncias das classes correspondentes.
+
+O que o ORM faz é, basicamente, transformar classes Python em tabelas no banco de dados, além de permitir construir *querys* usando diretamente objetos Python ao invés de SQL.
 
 O Peewee é destinado a projetos de pequeno/médio porte, se destacando por simplicidade quando comparado a outros ORM mais conhecidos, como o SQLAlchemy. Uma analogia utilizada pelo autor da API e que acho muito interessante é que Peewee está para o SQLAlchemy assim como SQLite está para o PostgreSQL.
 
