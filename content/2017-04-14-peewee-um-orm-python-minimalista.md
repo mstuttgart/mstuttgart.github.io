@@ -149,7 +149,7 @@ book_4 = {
 
 books = [book_1, book_2, book_3, book_4]
 
-# Inserimos os dois livros na tabela 'Book'
+# Inserimos os quatro livros na tabela 'Book'
 Book.insert_many(books).execute()
 
 ```
