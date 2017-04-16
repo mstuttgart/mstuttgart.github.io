@@ -184,7 +184,7 @@ Também podemos utilizar outras comandos do SQL como `limit` e `group`.
 
 ### Alterando dados no banco
 
-Alterar dados também se torna bem simples. No exemplo anterior, se verificarmos o resultado da consulta dos livros do autor "H. G. Wells", iremos nos deparar com o livro de título "Vinte Mil Léguas Submarinas". Se você, caro leitor, gosta de contos de ficção-científica, sabe que esta obra foi escrito por "Julio Verne", coincidentemente um dos autores que também estão cadastrados em nosso banco. Sendo assim, vamos alterar o autor do respectivo livro.
+Alterar dados também se torna bem simples. No exemplo anterior, se verificarmos o resultado da consulta dos livros do autor "H. G. Wells", iremos nos deparar com o livro de título "Vinte Mil Léguas Submarinas". Se você, caro leitor, gosta de contos de ficção-científica, sabe que esta obra foi escrito por "Julio Verne", coincidentemente um dos autores que também estão cadastrados em nosso banco. Sendo assim, vamos corrigir o autor do respectivo livro.
 
 Primeiro vamos buscar o registro do autor e do livro:
 
