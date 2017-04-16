@@ -121,7 +121,7 @@ Vamos popular nosso banco com alguns autores e seus livros. Isso pode ser feito 
 
 ```python
 
-# Inserimos o novo autor na tabela 'Author'
+# Inserimos um autor de nome "H. G. Wells" na tabela 'Author'
 author_1 = Author.create(name='H. G. Wells')
 
 book_1 = {
@@ -134,6 +134,7 @@ book_2 = {
     'author': author_1,
 }
 
+# Inserimos um autor de nome "Julio Verne" na tabela 'Author'
 author_2 = Author.create(name='Julio Verne')
 
 book_3 = {
