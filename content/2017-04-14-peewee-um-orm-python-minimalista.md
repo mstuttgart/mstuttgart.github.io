@@ -16,9 +16,11 @@ Summary: Conheça o Peewee, um prático e minimalista ORM Python
 
 O que o ORM faz é, basicamente, transformar classes Python em tabelas no banco de dados, além de permitir construir *querys* usando diretamente objetos Python ao invés de SQL.
 
-O Peewee é destinado a projetos de pequeno/médio porte, se destacando por simplicidade quando comparado a outros ORM mais conhecidos, como o SQLAlchemy. Uma analogia utilizada pelo autor da API e que acho muito interessante é que Peewee está para o SQLAlchemy assim como SQLite está para o PostgreSQL.
+O Peewee é destinado a projetos de pequeno/médio porte, se destacando pela simplicidade quando comparado a outros ORM mais conhecidos, como o SQLAlchemy. Uma analogia utilizada pelo autor da API e que acho muito interessante é que Peewee está para o SQLAlchemy assim como SQLite está para o PostgreSQL.
 
-En relação aos recursos por ele oferecidos, destacamos que ele possui suporte nativo a SQLite, PostgreSQL e MySQL, embora seja necessário a instalação de *drivers* para utilizá-lo com PostgreSQL e MySQL. Suporta Python 2.6+ e Python 3.4+. Neste tutorial, utilizaremos o SQLite, por sua simplicidade e pelo Python já possuir suporte nativo.
+Em relação aos recursos por ele oferecidos, podemos citar que ele possui suporte nativo a SQLite, PostgreSQL e MySQL, embora seja necessário a instalação de *drivers* para utilizá-lo com PostgreSQL e MySQL e suporta tanto Python 2.6+ quanto Python 3.4+. 
+
+Neste tutorial, utilizaremos o SQLite, por sua simplicidade de uso e por não precisar de nenhuma configuração.
 
 ### Instalação
 
@@ -47,9 +49,13 @@ Diferente de outros bancos de dados que funcionam através um servidor, o SQLite
  sudo apt-get install sqlitebrowser
 ```
 
-A título de exemplo, vamos criar um banco destinado a guardar nome de livros e seus respectivos autores. Comecemos primeiro com a classe que representa os autores.
+A título de exemplo, vamos criar um banco destinado a armazenar nomes de livros e de seus respectivos autores. Comecemos primeiro com a classe que representa os autores.
 
 ```python
+import peewee
+
+db = peewee.SqliteDatabase('codigo_avulso.db')
+
 class Author(peewee.Model):
     """
     Classe que representa a tabela Author
@@ -66,9 +72,13 @@ class Author(peewee.Model):
         database = db
 
 ```
-Em seguida, criamos a classe que representa os livros. Ela possui uma relação de "muitos para um", com a tabela de autores, ou seja, cada livro possui apenas um autor, mas um autor possui vários pode possuir vários livros.
+Em seguida, criamos a classe que representa os livros. Ela possui uma relação de "muitos para um" com a tabela de autores, ou seja, cada livro possui apenas um autor, mas um autor pode possuir vários livros.
 
 ```python
+import peewee
+
+db = peewee.SqliteDatabase('codigo_avulso.db')
+
 class Book(peewee.Model):
     """
     Classe que representa a tabela Book
@@ -109,7 +119,7 @@ if __name__ == '__main__':
 
 ```
 
-Após executarmos o código, será criado no mesmo diretório do nosso arquivo `main.py`, um arquivo de nome `codigo_avulso.db`, contendo as tabelas `Author` e `Book`. A estrutura do diretório ficou assim:
+Após executarmos o código, será criado um arquivo de nome `codigo_avulso.db` no mesmo diretório do nosso arquivo `main.py`, contendo as tabelas `Author` e `Book`. A estrutura do diretório ficou assim:
 
 ```bash
 .
@@ -120,7 +130,7 @@ Após executarmos o código, será criado no mesmo diretório do nosso arquivo `
 
 ### Inserindo dados no banco
 
-Vamos popular nosso banco com alguns autores e seus livros. Isso pode ser feito pelo método `create`, quando desejamos inserir um registro ou pelo método `insert_many` quando desejamos inserir vários registros de uma vez em uma mesma tabela.
+Agora, vamos popular nosso banco com alguns autores e seus respectivos livros. Isso pode ser feito de dois modos. Através do método `create`, quando desejamos inserir um registro apenas; ou pelo método `insert_many`, quando desejamos inserir vários registros de uma vez em uma mesma tabela.
 
 ```python
 
@@ -159,7 +169,7 @@ Book.insert_many(books).execute()
 
 ### Consultando dados no banco
 
-O Peewee possui comandos que realizam a função dos conhecidos `SELECT` e `WHERE` para realizar consultas no banco. Podemos fazer essa consulta de duas maneiras. Se desejamos o primeiro registro que corresponda a nossa pesquisa, podemos utilizar o método `get()`.
+O Peewee possui comandos destinados a realizar consultas no banco. De maneira semelhante aos conhecidos `SELECT` e `WHERE`. Podemos fazer essa consulta de duas maneiras. Se desejamos o primeiro registro que corresponda a nossa pesquisa, podemos utilizar o método `get()`.
 
 ```python
 book = Book.get(Book.title == "Volta ao Mundo em 80 Dias").get()
@@ -183,11 +193,11 @@ for book in books:
 
 ```
 
-Também podemos utilizar outras comandos do SQL como `limit` e `group`.
+Também podemos utilizar outras comandos do SQL como `limit` e `group` (para mais detalhes, ver a documentação [aqui](http://peewee.readthedocs.io/en/latest/index.html).
 
 ### Alterando dados no banco
 
-Alterar dados também se torna bem simples. No exemplo anterior, se verificarmos o resultado da consulta dos livros do autor "H. G. Wells", iremos nos deparar com o livro de título "Vinte Mil Léguas Submarinas". Se você, caro leitor, gosta de contos de ficção-científica, sabe que esta obra foi escrito por "Julio Verne", coincidentemente um dos autores que também estão cadastrados em nosso banco. Sendo assim, vamos corrigir o autor do respectivo livro.
+Alterar dados também é bem simples. No exemplo anterior, se observarmos o resultado da consulta dos livros do autor "H. G. Wells", iremos nos deparar com o livro de título "Vinte Mil Léguas Submarinas". Se você, caro leitor, gosta de contos de ficção-científica, sabe que esta obra foi escrito por "Julio Verne", coincidentemente um dos autores que também estão cadastrados em nosso banco. Sendo assim, vamos corrigir o autor do respectivo livro.
 
 Primeiro vamos buscar o registro do autor e do livro:
 
@@ -207,7 +217,7 @@ book.save()
 
 ### Deletando dados do banco
 
-Assim como as opeações anteriores, deletar registros do banco é muito simples. Como exemplo, vamos deletar o livro "Guerra dos Mundos" do nosso banco de dados.
+Assim como as opeações anteriores, tambpem pode deletar registros do banco de maneira bem prática. Como exemplo, vamos deletar o livro "Guerra dos Mundos" do nosso banco de dados.
 
 ```python
 # Buscamos o livro que desejamos excluir do banco
@@ -220,9 +230,11 @@ Simples não?
 
 ### Conclusão
 
-É isso pessoal. Este tutorial foi uma introdução bem enxuta sobre o Peewee. Ainda existem muitos tópicos que não abordei aqui, como a criação de *primary_key*, de campos *many2many* entre outros recursos, pois foge do escopo deste tutorial. Se você gostou do ORM, aconselho a dar uma olhada também na sua documentação, para conseguir extrair todo o potencial da ferramenta. O Peewee também possui suporte ao flamework *flask*, então dependendo do tamanho do projeto, pode ser uma alternativa interessante no lugar de ORM mais complexos como o SQLAlchemy.
+É isso pessoal. Este tutorial foi uma introdução bem enxuta sobre o Peewee. Ainda existem muitos tópicos que não abordei aqui, como a criação de *primary_key*, de campos *many2many* entre outros recursos, pois foge do escopo deste tutorial. Se você gostou do ORM, aconselho a dar uma olhada também na sua documentação, para conseguir extrair todo o potencial da ferramenta. A utilização de um ORM evita que o desenvolvedor perca tempo escrevendo *query* SQL e foque totalmente no desenolvimento de código. 
 
-É isso pessoal. Obrigado pelo leitura e até o próximo tutorial!
+O Peewee também possui suporte ao flamework *flask*, então dependendo do tamanho do projeto, pode ser uma alternativa interessante no lugar de ORM mais complexos como o SQLAlchemy.
+
+É isso pessoal. Obrigado pela leitura e até o próximo tutorial!
 
 ### Referências
 
