@@ -169,7 +169,7 @@ Book.insert_many(books).execute()
 
 ### Consultando dados no banco
 
-O Peewee possui comandos destinados a realizar consultas no banco. De maneira semelhante aos conhecidos `SELECT` e `WHERE`. Podemos fazer essa consulta de duas maneiras. Se desejamos o primeiro registro que corresponda a nossa pesquisa, podemos utilizar o método `get()`.
+O Peewee possui comandos destinados a realizar consultas no banco. De maneira semelhante ao conhecido `SELECT`. Podemos fazer essa consulta de duas maneiras. Se desejamos o primeiro registro que corresponda a nossa pesquisa, podemos utilizar o método `get()`.
 
 ```python
 book = Book.get(Book.title == "Volta ao Mundo em 80 Dias").get()
@@ -193,7 +193,7 @@ for book in books:
 
 ```
 
-Também podemos utilizar outras comandos do SQL como `limit` e `group` (para mais detalhes, ver a documentação [aqui](http://peewee.readthedocs.io/en/latest/index.html).
+Também podemos utilizar outras comandos do SQL como `limit` e `group` (para mais detalhes, ver a documentação [aqui](http://peewee.readthedocs.io/en/latest/index.html)).
 
 ### Alterando dados no banco
 
@@ -217,7 +217,7 @@ book.save()
 
 ### Deletando dados do banco
 
-Assim como as opeações anteriores, tambpem pode deletar registros do banco de maneira bem prática. Como exemplo, vamos deletar o livro "Guerra dos Mundos" do nosso banco de dados.
+Assim como as operações anteriores, também podemos deletar registros do banco de maneira bem prática. Como exemplo, vamos deletar o livro "Guerra dos Mundos" do nosso banco de dados.
 
 ```python
 # Buscamos o livro que desejamos excluir do banco
