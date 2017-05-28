@@ -68,7 +68,7 @@ O próximo passo agora é subir tudo isso para o *novo_repo*. Para isso, precisa
 ```bash
 git remote set-url origin https://github.com/usuario/novo_repo.git
 git fetch origin
-git push
+git push -f origin nomedabranch
 ```
 
 Neste caso em especial, eu apenas copiei o conteúdo do diretório *dirA* em um repositório diferente. Entretanto, a principal utilidade desse método é quando desejamos transferir o diretório para um novo repositório, sendo o mesmo posteriormente removido do repositório antigo. Porque assim, todas as novas colaborações para o conteúdo de *dirA* devem, a partir de agora, enviadas para o *novo_repo*.
