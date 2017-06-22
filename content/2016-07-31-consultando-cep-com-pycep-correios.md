@@ -13,7 +13,7 @@ Atualização do *post* antigo. Neste *post* irei falar um pouco sobre a nova ve
 O [PyCEPCorreios](https://github.com/mstuttgart/pycep-correios) é uma api desenvolvida em Python que realiza a busca dos dados de um dado CEP diretamente no *webservice* dos Correios, sendo essa a principal diferença em relação a outras api's de consulta de CEP. O retorno dessa consulta é um *dict* contendo os dados do endereço pertencente ao CEP. Este projeto foi iniciado por mim para fins de estudo, porém ele pode ser utilizado normalmente em projetos mais sérios.
 
 **Obs:** A versão *2.0.0* trouxe melhorias consideráveis no código com o objetivo de tornar a API mais
-fácel de ser utilizada. Porém, ela é imcopatível com a versão 1.7.0 e anteriores. Houve
+fácil de ser utilizada. Porém, ela é incompatível com as versões anteriores. Houve
 grandes melhorias na documentação, código e testes da API. Sendo assim,
 decidi republicar esse *post* com novas informações sobre a lib.
 
@@ -27,7 +27,7 @@ pip3 install pycep-correios
 
 ### Como usar
 
-Consultar o endereço de um CEP é muito simples com o [PyCEP Correios](https://github.com/mstuttgart/pycep-correios). Não importa se o CEP fornecido possui hífen ou ponto. O [PyCEP Correios](https://github.com/mstuttgart/pycep-correios) trata a entrada garantindo uma entrada válida para o *webservice* dos Correios.
+Consultar o endereço de um CEP é muito simples com a [PyCEPCorreios](https://github.com/mstuttgart/pycep-correios). Não importa se o CEP fornecido possui hífen ou ponto. A [PyCEPCorreios](https://github.com/mstuttgart/pycep-correios) trata a entrada garantindo uma entrada válida para o *webservice* dos Correios.
 
 Veja os exemplos a seguir:
 
@@ -46,7 +46,7 @@ print(endereco['cep'])
 
 ```
 
-Um exemplo alternativo, enviamos um CEP incorreto, com o numero de dígitos inferior a 8.
+Um exemplo alternativo, enviamos um CEP incorreto, com a quantidade de dígitos inferior a 8.
 
 ```python
 from pycep_correios
@@ -60,16 +60,15 @@ except CEPInvalido as exc:
 ```
 
 Para outras exceções devemos utilizar as exceções da biblioteca *requests*, no qual a
-PyCEPCorreios faz uso para comunicação com o *webservice*.
+PyCEPCorreios faz uso para comunicação com o *webservice*. As antigas exceções da biblioteca também foram removidas a fim de evitar redundância com as exceções da *requests* e toda a API agora possui comandos e documtação em postugues.
 
 A PyCEPCorreios também possui funções para validar e formatar números de CEP. Para mais exemplos, veja a documentação [aqui](https://pycep-correios.readthedocs.io/pt/latest/usage.html). Abaixo, segue alguns *links* úteis.
 
-* Repositório: https://github.com/mstuttgart/pycep-correios
-* PyPi: https://pypi.python.org/pypi/pycep-correios
-* Documentação: https://pycep-correios.readthedocs.io/pt/latest/
+* Repositório: [https://github.com/mstuttgart/pycep-correios](https://github.com/mstuttgart/pycep-correios)
+* PyPi: [https://pypi.python.org/pypi/pycep-correios](https://pypi.python.org/pypi/pycep-correios)
+* Documentação: [https://pycep-correios.readthedocs.io/pt/latest/](https://pycep-correios.readthedocs.io/pt/latest/)
 
-Se deseja contribuir, por favor dê uma olhada em https://pycep-correios.readthedocs.io/pt/latest/contributing.html. Contribuições
-são sempre bem-vindas.
+Se deseja contribuir, por favor dê uma olhada na documentação [aqui](https://pycep-correios.readthedocs.io/pt/latest/contributing.html). Contribuições são sempre bem-vindas.
 
 ### Conclusão
 
