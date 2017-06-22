@@ -60,7 +60,7 @@ except CEPInvalido as exc:
 ```
 
 Para outras exceções devemos utilizar as exceções da biblioteca *requests*, no qual a
-PyCEPCorreios faz uso para comunicação com o *webservice*. As antigas exceções da biblioteca também foram removidas a fim de evitar redundância com as exceções da *requests* e toda a API agora possui comandos e documtação em postugues.
+PyCEPCorreios faz uso para comunicação com o *webservice*. As antigas exceções da biblioteca também foram removidas a fim de evitar redundância com as exceções da *requests* e toda a API agora possui comandos e documentação em postuguês.
 
 A PyCEPCorreios também possui funções para validar e formatar números de CEP. Para mais exemplos, veja a documentação [aqui](https://pycep-correios.readthedocs.io/pt/latest/usage.html). Abaixo, segue alguns *links* úteis.
 
