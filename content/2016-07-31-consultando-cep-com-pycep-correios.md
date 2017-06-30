@@ -12,18 +12,21 @@ Atualização do *post* antigo. Neste *post* irei falar um pouco sobre a nova ve
 
 O [PyCEPCorreios](https://github.com/mstuttgart/pycep-correios) é uma api desenvolvida em Python que realiza a busca dos dados de um dado CEP diretamente no *webservice* dos Correios, sendo essa a principal diferença em relação a outras api's de consulta de CEP. O retorno dessa consulta é um *dict* contendo os dados do endereço pertencente ao CEP. Este projeto foi iniciado por mim para fins de estudo, porém ele pode ser utilizado normalmente em projetos mais sérios.
 
-**Obs:** A versão *2.0.0* trouxe melhorias consideráveis no código com o objetivo de tornar a API mais
+**UPDATE:** A versão *2.0.0* trouxe melhorias consideráveis no código com o objetivo de tornar a API mais
 fácil de ser utilizada. Porém, ela é incompatível com as versões anteriores. Houve
 grandes melhorias na documentação, código e testes da API. Sendo assim,
 decidi republicar esse *post* com novas informações sobre a lib.
 
+**UPDATE:** A versão *2.1.0* trouxe suporte para python 2.7+
+
 ### Instalação
 
-O PyCEP Correios pode ser facilmente instalado com o comando a seguir (apenas para python3):
+O PyCEP Correios pode ser facilmente instalado com o comando a seguir (~apenas para python3~):
 
 ```bash
 pip3 install pycep-correios
 ```
+**UPDATE**: Atualmente, a PyCEPCorreios possui suporte para Python 2.7+ e 3.3+.
 
 ### Como usar
 
@@ -32,17 +35,20 @@ Consultar o endereço de um CEP é muito simples com a [PyCEPCorreios](https://g
 Veja os exemplos a seguir:
 
 ```python
-import pycep_correios
+>>> import pycep_correios
 
-endereco = pycep_correios.consultar_cep('37503130')
-
-print(endereco['end'])
-print(endereco['bairro'])
-print(endereco['cidade'])
-print(endereco['complemento'])
-print(endereco['complemento2'])
-print(endereco['uf'])
-print(endereco['cep'])
+>>> endereco = pycep_correios.consultar_cep('37503130')
+>>> print(endereco)
+{
+    'bairro': 'Santo Antônio',
+    'cep': '37503130',
+    'cidade': 'Itajubá',
+    'end': 'Rua Geraldino Campista',
+    'id': '0',
+    'uf': 'MG',
+    'complemento': '',
+    'complemento2': '- até 214/215',
+}
 
 ```
 
