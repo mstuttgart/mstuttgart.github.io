@@ -21,7 +21,7 @@ decidi republicar esse *post* com novas informações sobre a lib.
 
 ### Instalação
 
-O PyCEP Correios pode ser facilmente instalado com o comando a seguir (~apenas para python3~):
+O PyCEP Correios pode ser facilmente instalado com o comando a seguir:
 
 ```bash
 pip3 install pycep-correios
