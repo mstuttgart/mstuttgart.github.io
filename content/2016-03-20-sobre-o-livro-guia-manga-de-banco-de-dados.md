@@ -26,7 +26,7 @@ Todos os conceitos envolvendo banco de dados são abordados de uma maneira simpl
 
 Eu cursei a disciplina de Banco de Dados durante minha graduação e consegui relembrar muito pontos importantes sobre Banco de Dados e até mesmo aprender coisas novas, graças ao ponto de vista utilizado pelo livro (bem diferente do usado em uma sala de aula). Então, se você é um estudante de TI, um entusiasta da tecnologia, curte ler quadrinhos ou mesmo ficou curioso, eu recomendo o livro.
 
-Caso se interesse, o site da Novatec possui um link com amostra do livro  [aqui](http://novatec.com.br/download/amostras/amostra-manga-banco-de-dados.pdf) e o mesmo pode ser adquirido [aqui](http://novatec.com.br/livros/mangabd/).
+Caso se interesse, o site da Novatec possui um link com amostra do livro  [aqui](https://s3.novatec.com.br/capitulos/capitulo-9788575221631.pdf) e o mesmo pode ser adquirido [aqui](https://novatec.com.br/livros/manga-banco-de-dados/).
 
 Este livro abriu minha curiosidade para comprar o guia mangá de outras temas e pretendo fazer análise de cada um deles assim que terminar de lê-los.
 
