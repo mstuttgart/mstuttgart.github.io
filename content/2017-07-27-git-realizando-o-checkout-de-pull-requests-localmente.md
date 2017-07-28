@@ -63,8 +63,8 @@ e realizar os testes.
 
 No caso em que desejamos inserir modificações no conteúdo do *Pull Request*, nós realizamos os seguintes passos: 
 
-* Rrealizamos as modifições desejadas
-* Executamos o *commit* e o *push* da nova *branch*.
+* Realizamos as modifições desejadas;
+* Executamos o *commit* e o *push* da nova *branch*;
 * Finalmente, criamos um novo *Pull Request* com essa mesma *branch* recém-criada.
 
 #### Conclusão
