@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 AUTHOR = u'Michell Stuttgart'
 SITENAME = u'Código Avulso'
 SITEURL = 'http://codigoavulso.com.br'
-SITE_LOGO = 'http://codigoavulso.com.br/images/logo.png'
+SITE_LOGO = u'http://res.cloudinary.com/diu8g9l0s/image/upload/v1400201393/pythonclub/logo_275x130.png'
 AUTHOR_PIC_URL = u'https://lh3.googleusercontent.com/-2DmtcIOqPIc/VyPVyYGo09I/AAAAAAAAF58/VBWeR-ejVhECPk4YR6hiHuQJz_RzM_3mgCCo/s601/IMG-20141231-WA0004%2B1.jpg'
 AUTHOR_LOCATION = u'Brasil'
 AUTHOR_BIO = u'Sou graduado em Engenharia da Computação pela Universidade Federal de Itajubá (UNIFEI) e entusiasta da filosofia do software livre, contribuidor de diversos projetos Open Source (incluindo projetos próprios) e feliz usuário linux.'
