@@ -5,7 +5,7 @@
 # Site
 title: Michell Stuttgart
 subtitle: $ sudo apt install faith hope love
-description: 
+description:
 keywords: python git development
 author: Michell Stuttgart
 language: pt-br
@@ -92,7 +92,7 @@ theme_config:
     Home: /
     Blog: /archives/
     Sobre: /about/
-    Projetos: http://github.com/mstuttgart
+    Pesquisar: /search/
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
