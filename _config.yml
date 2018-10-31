@@ -91,6 +91,7 @@ theme_config:
   nav:
     Home: /
     Blog: /archives/
+    Categorias: /categories/
     Sobre: /about/
     Pesquisar: /search/
 
