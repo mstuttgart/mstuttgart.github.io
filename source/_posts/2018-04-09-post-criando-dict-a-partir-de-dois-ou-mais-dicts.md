@@ -146,7 +146,7 @@ O método *deepcopy* realiza uma cópia recursiva de cada elemento de **dict_3**
 # valor não foi alterado
 ```
 
-## Conlusão
+## Conclusão
 
 Este artigo tenta demonstrar de maneira simples a criação de *dicts*, utilizando os diversos recursos que a linguagem oferece bem como os prós e contras de cada abordagem. 
 
