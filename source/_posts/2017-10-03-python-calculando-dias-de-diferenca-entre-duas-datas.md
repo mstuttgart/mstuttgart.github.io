@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Calculando diferença de dias entre duas datas"
+title: "Python: Calculando diferença de dias entre duas datas"
 date: 2017-10-03 07:16:57
 description: "Aprenda a calcular a quantidade de dias entre duas datas."
 main-class: 'python'

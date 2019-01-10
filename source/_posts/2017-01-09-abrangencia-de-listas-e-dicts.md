@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Abrangência de Listas e Dicionários"
+title: "Python: Abrangência de Listas e Dicionários"
 date: 2017-01-12 22:12:39
 description: 'Neste tutorial, aprenderemos a utilizar abrangência de lista em Python.'
 main-class: 'python'

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Peewee - Um ORM Python minimalista"
+title: "Python: Peewee - Um ORM Python minimalista"
 date: 2017-07-27 19:44:30
 description: "Conheça o Peewee - Um ORM Python minimalista."
 main-class: 'python'

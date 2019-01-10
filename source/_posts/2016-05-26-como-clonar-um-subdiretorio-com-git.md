@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Como mover subdiretórios entre repositórios"
+title: "Git: Como mover subdiretórios"
 description: 'Vamos aprender a mover diretorios entre repositórios sem perder o histórico de commits'
 date: 2017-05-14 15:13:46
 main-class: 'git'
@@ -22,7 +22,7 @@ Semanas atrás me deparei com esse desafio e achei interessante compatilhar com 
 Na situação descrita acima, a *priori*, temos duas possíveis soluções:
 
 1. Criar um novo repositório e copiar o diretório desejado do antigo repositório para o novo.
-1. Clonar o repositório original, e no repositório clonado remover todos os outros diretórios e arquivos, deixando apenas diretório desejado.
+2. Clonar o repositório original, e no repositório clonado remover todos os outros diretórios e arquivos, deixando apenas diretório desejado.
 
 As duas opções resolvem nosso problema, porém ambas possuem alguns incovenientes.
 

@@ -1,5 +1,5 @@
 ---
-title: " Transforme strings em objetos com literal_eval"
+title: "Python: Transforme strings em objetos com literal_eval"
 date: 2017-03-29 20:53:56
 tags:
 - python
