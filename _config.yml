@@ -80,14 +80,14 @@ theme: cactus
 
 # _config.yml
 theme_config:
-  colorscheme: white
+  colorscheme: dark
   social_links:
     github: https://github.com/mstuttgart
     linkedin: https://www.linkedin.com/in/mstuttgart/
     mail: mailto:michellstut@gmail.com
   projects_url: http://github.com/mstuttgart
   logo:
-    enabled: false
+    enabled: true
   nav:
     Home: /
     Blog: /archives/
