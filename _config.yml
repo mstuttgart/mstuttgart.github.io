@@ -80,7 +80,7 @@ theme: cactus
 
 # _config.yml
 theme_config:
-  colorscheme: dark
+  colorscheme: white
   social_links:
     github: https://github.com/mstuttgart
     linkedin: https://www.linkedin.com/in/mstuttgart/
