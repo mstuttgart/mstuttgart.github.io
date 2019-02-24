@@ -26,7 +26,7 @@ Olá pessoal, tudo bem? Todo programador linux sabe como o uso do terminal pode 
 
 Para começar, quando desejamos criar um diretório pelo terminal, usamos o seguinte comando:
 
-```bash
+```powershell
 mkdir nome_do_diretorio
 ```
 
@@ -35,7 +35,7 @@ Algo muito prático. Mas e se precisarmos criar 10 diretórios com o seguinte fo
 Certamente a realização dessa tarefa pelo ambiente gráfico é algo muito cansativo e lento. Então vamos fazer uso do terminal do linux para resolver essa situação.
 Você talvez não saiba (eu pelo menos não sabia.. hehe), que o comando `mkdir` aceita expressões regulares. Então, vamos usar-las para resolver nosso problema.
 
-```bash
+```powershell
 mkdir minha_pasta_{1-10}
 ```
 
@@ -48,13 +48,13 @@ Trata-se de um comando útil para quando desejamos criar um grande numero de arq
 
 Para deletarmos os diretorios que acabamos de criar também podemos usar a mesma expressão regular.
 
-```bash
+```powershell
 rm -rf minha_pasta_{1-10}
 ```
 ## Exemplo 2
 
 Vamos criar 100 arquivos com o seguinte formato de nome: `file_”numero_do_arquivo”.txt`. Basta no terminal, usarmos o comando `touch`.
-```bash
+```powershell
 touch file_{1-100}.txt
 ```
 Apos executarmos o comando, `100` arquivos do tipo `.txt` serão criados seguindo a regra de nome que desejamos.
@@ -63,7 +63,7 @@ Apos executarmos o comando, `100` arquivos do tipo `.txt` serão criados seguind
 
 Vamos criar um conjunto de arquivos cujos nomes seguem o formato: `file_a.txt`, `file_b.txt`, … `file_z.txt`. Basta executar o seguinte comando no terminal:
 
-```bash
+```powershell
 touch file_{a-z}.txt
 ```
 Resultado:
@@ -74,7 +74,7 @@ Resultado:
 
 Vamos criar um conjunto de arquivo cujo nomes seguem o seguinte formato: `file_a1.txt`, `file_a2.txt`, `file_a3.txt`, …, `file_a9.txt`, `file_b1.txt`, `file_b2.txt`, …, `file_b9.txt`. Basta executar o seguinte comando no terminal:
 
-```bash
+```powershell
 touch file_{a-b}{1-9}.txt
 ```
 A seguir temos os arquivos que foram criados pela execução da expressão regular.
@@ -88,7 +88,7 @@ Mais um exemplo com a criação de diretórios.
 
 Vamos criar um conjunto de 10 diretórios com o nome no formato: `folder_10`, `folder_11`, `folder_12`, `folder_19`, `folder_20`, `folder_21`, ..., `folder_29`, ..., `folder_90`, ..., `folder_99`. Basta executar o seguinte comando no terminal:
 
-```bash
+```powershell
 mkdir folder_{1-9}{0-9}
 ```
 
