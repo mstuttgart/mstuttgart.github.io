@@ -38,12 +38,6 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
-highlight:
-  theme: monokai
-  enable: true
-  line_number: false
-  auto_detect: false
-  tab_replace:
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -80,19 +74,29 @@ theme: cactus
 
 # _config.yml
 theme_config:
-  colorscheme: dark
-  highlight: gruvbox
+  colorscheme: white
+  highlight: gruvbox-dark
+  page_width: 59
+  posts_overview:
+    show_all_posts: false
+    post_count: 10
   social_links:
     github: https://github.com/mstuttgart
     linkedin: https://www.linkedin.com/in/mstuttgart/
     mail: mailto:michellstut@gmail.com
   projects_url: http://github.com/mstuttgart
+  gravatar:
+    email: michellstut@gmail.com
   nav:
     Home: /
     Blog: /archives/
     Categorias: /categories/
     Sobre: /about/
     Pesquisar: /search/
+
+google_analytics:
+  enabled: true
+  id: 'UA-75274475-1'
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
