@@ -87,6 +87,9 @@ theme_config:
   projects_url: http://github.com/mstuttgart
   gravatar:
     email: michellstut@gmail.com
+  disqus:
+    enabled: true
+    shortname: codigoavulso
   nav:
     Home: /
     Blog: /archives/
@@ -97,6 +100,11 @@ theme_config:
 google_analytics:
   enabled: true
   id: 'UA-75274475-1'
+
+disqus_enabled: true
+disqus_shortname: codigoavulso
+
+rss:
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
