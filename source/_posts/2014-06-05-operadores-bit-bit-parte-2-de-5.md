@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2# Operadores Bit-a-Bit: Operador OR"
+title: "#2 Operadores Bit-a-Bit: Operador OR"
 date: 2014-06-05T11:19:00-07:00
 description: "Exemplos de operações lógicas usando o operador OR"
 main-class: 'c'
