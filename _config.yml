@@ -99,6 +99,8 @@ google_analytics:
 disqus_enabled: true
 disqus_shortname: codigoavulso
 
+gravatar_email: michellstut@gmail.com
+
 rss:
 
 # Deployment
