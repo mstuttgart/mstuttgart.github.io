@@ -85,6 +85,16 @@ theme_config:
     linkedin: https://www.linkedin.com/in/mstuttgart/
     mail: mailto:michellstut@gmail.com
   projects_url: http://github.com/mstuttgart
+  favicon:
+    desktop:
+      url: /images/favicon.ico
+      gravatar: false
+  logo:
+    enabled: true
+    width: 50
+    height: 50
+    url: /images/logo.png
+    gravatar: false
   nav:
     Home: /
     Blog: /archives/
@@ -98,8 +108,6 @@ google_analytics:
 
 disqus_enabled: true
 disqus_shortname: codigoavulso
-
-gravatar_email: michellstut@gmail.com
 
 rss: atom.xml
 
