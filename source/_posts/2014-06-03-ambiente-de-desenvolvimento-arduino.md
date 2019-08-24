@@ -13,7 +13,7 @@ introduction: "Aprendar a configurar Sublime Text para desenvolver para Arduino.
 
 Há algum tempo, tive o prazer de participar de um minicurso abordando o básico sobre o desenvolvimento usando a plataforma Arduino. Após a instalação das bibliotecas necessárias, também foi necessário instalar a Arduino IDE, um ambiente de desenvolvimento próprio para programação nessa plataforma.
 
-![](/assets/img/mstuttgart/snapshot_3.png)
+![](/images/mstuttgart/snapshot_3.png)
 
 Apesar da IDE oferecer suporte a todos os recursos do Arduino, o seu editor de texto era simples demais, sem funções que são comuns a muitos editores, como auto-completar, fechamento automático de *{}* e entre outras coisas básicas. Uma vez que eu estou acostumado a editores de texto mais avançados, acabei me sentindo bastante desconfortável e parti em busca de outra alternativa. Foi então que descobri a combinação `SublimeText + Stino`.
 
@@ -56,7 +56,7 @@ irá aparecer.
 
 Agora você pode desenvolver seus programas usando o Sublime Text e utilizar as opções do menu Arduino, como compilar, fazer upload do seu código, selecionar o modelo do Arduino, a porta usada para comunicação e todos os outros recursos que a Arduino IDE possuía e muito mais. Você verá também que a velocidade de compilação e upload usando o Sublime Text é muito maior do que a realizada pela Arduino IDE.
 
-![](/assets/img/mstuttgart/snapshot_4.png)
+![](/images/mstuttgart/snapshot_4.png)
 
 É isso pessoal. Agora você já pode se divertir com Arduino desenvolvendo seus códigos em um editor de texto profissional.
 

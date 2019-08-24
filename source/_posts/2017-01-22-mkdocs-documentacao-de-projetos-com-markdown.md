@@ -70,7 +70,7 @@ INFO    -  Cleaning site directory
 Um ponto interessante deste servidor de desenvolvimento é que ele atualiza automaticamente o conteúdo exibido na página sem necessidade de reiniciá-lo. Sendo necessário apenas atualizar a página do navegador.
 Uma vez que o servidor esteja sendo executado, podemos acessar o site de documentação no navegador pelo seguinte endereço: *http://localhost:8000/* ou *http://127.0.0.1:8000*
 
-![](/assets/img/mstuttgart/snapshot_46.png)
+![](/images/mstuttgart/snapshot_46.png)
 
 ### Adicionado Novas Páginas
 
@@ -83,7 +83,7 @@ pages:
 ```
 Em seguida, criamos um arquivo `about.md` dentro da pasta `docs` e atualizamos a página no navegador para que o menu aparecera no topo do site, nos permitindo navegar entre as páginas.
 
-![](/assets/img/mstuttgart/snapshot_47.png)
+![](/images/mstuttgart/snapshot_47.png)
 
 ### Outras Configurações
 Para trocarmos o nome do site, basta alterarmos o nome presente na tag `site_name`. Também podemos trocar o tema do site através da tag `theme`. O *MkDocs* vem com alguns temas próprios, que são os temas `mkdocs` (utilizado neste tutorial) e o `readthedocs` (utilizado muito em documentação de api Python). Também existem temas feitos por terceiros, que podem ser encontrados [aqui](https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes). Para utilizá-los siga as instruções de instalação de cada tema.

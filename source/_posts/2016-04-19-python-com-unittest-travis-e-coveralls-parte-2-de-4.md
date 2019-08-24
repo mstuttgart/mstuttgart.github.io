@@ -35,7 +35,7 @@ Antes de inicarmos nosso trabalho de configuração do `Travis CI`, vamos aprend
 
 Após a execução do teste, recebemos um email nos informando se o teste foi bem sucedido ou se houve alguma falha. O serviço é totalmente gratuito para projetos *opensource*.
 
-![Alt Text](/assets/img/mstuttgart/snapshot_24.png)
+![Alt Text](/images/mstuttgart/snapshot_24.png)
 
 #### Criando uma conta
 
@@ -43,19 +43,19 @@ Para utilizarmos o `Travis CI` em nosso projeto, precisamos primeiro realizar no
 
 Logo no topo direito da página, temos o botão abaixo, para nos inscrevermos usando nossa conta no Github.
 
-![](/assets/img/mstuttgart/snapshot_25.png)
+![](/images/mstuttgart/snapshot_25.png)
 
 Ao pressionar o botão, você será direcionado para a página a seguir:
 
-![](/assets/img/mstuttgart/snapshot_26.png)
+![](/images/mstuttgart/snapshot_26.png)
 
 Realize o login com seu usuário/senha do `Github`. Assim que realizar o login, na canto superior direito da tela, clique no seu nome de usuário e, em seguida, em `"Accounts"`. Com isso, uma tela com todos os repositórios que você tem permissão de escrita (repositórios pessoais, de organização, forks e etc) será exibida.
 
-![](/assets/img/mstuttgart/snapshot_27.png)
+![](/images/mstuttgart/snapshot_27.png)
 
 Agora vamos ativar o serviço para o repositório que criei na primeira parte do tutorial: [codigo-avulso-test-tutorial](https://github.com/mstuttgart/codigo-avulso-test-tutorial). Basta clicar no botão "X" ao lado esquerdo do nome do seu repositório. Ele ficará assim:
 
-![](/assets/img/mstuttgart/snapshot_28.png)
+![](/images/mstuttgart/snapshot_28.png)
 
 Bom, a partir de agora, seu repositório está pronto para o usar o `Travis CI`, porém antes precisamos configurar os parâmetros de teste do nosso projeto.
 
@@ -129,11 +129,11 @@ O próximo passo é é adicionar uma `badge` para o nosso repositório. Isso nã
 
 Na tela onde você ativou o `Travis CI` para seu reposiorio, clique no símbolo da engrenagem.
 
-![](/assets/img/mstuttgart/snapshot_28.png)
+![](/images/mstuttgart/snapshot_28.png)
 
 Na nova tela, podemos realizar algumas configurações, como por exemplo se o `Travis CI` será executado para *push* e para *pull requests* e também podemos pegar a `badge`. Ao clicarmos no botão logo ao lado do nome do repositório, uma janela será exibida.
 
-![](/assets/img/mstuttgart/snapshot_30.png)
+![](/images/mstuttgart/snapshot_30.png)
 
 Selecione a *branch* a ser observada pelo Travis CI, escolha a opção `Markdown` e copie o código que aparecerá na caixa de texto para o arquivo `README.md` do seu repositório. O meu `README.md` ficou assim:
 
@@ -146,7 +146,7 @@ Tutorial de teste unitário em Python para o blog [Código Avulso](http://codigo
 
 Com esses passos, quando algum *push* ou *pull request* for enviado ao repositório, o `Travis CI` executará os testes, garantindo assim o funcionamento estável do nosso código e nos avisando caso alguma modificação venha causar algum erro em nossa aplicação.
 
-![](/assets/img/mstuttgart/snapshot_31.png)
+![](/images/mstuttgart/snapshot_31.png)
 
 Vale lembrar que o tempo para *deploy* pode variar, dependendo da quantidade de testes do seu projeto, quantidade de dependências a serem instaladas e etc.
 

@@ -15,7 +15,7 @@ introduction: "Aprenda a tornar a sua aplicação Python disponível para outros
 
 Imagine a seguinte situação: você passou alguns dias (ou mesmo meses) desenvolvendo uma módulo python, escreveu testes, implementou funcionalidades e depois de alguns ajustes, chegou a hora de liberar seu software para que outros desenvolvedores possam utilizá-lo. Qual o melhor modo de distribuí-lo?
 
-![](/assets/img/mstuttgart/snapshot_44.png)
+![](/images/mstuttgart/snapshot_44.png)
 
 Caro leitor, se você costuma programar em Python (seja profissionalmente ou não) provavelmente já instalou outros módulos usando o [PyPI](https://pypi.python.org/pypi), através do comando abaixo:
 

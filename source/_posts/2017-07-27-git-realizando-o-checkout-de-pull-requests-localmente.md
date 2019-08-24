@@ -29,7 +29,7 @@ Este tutorial exige um certo nível de conhecimento prévio com *git*. Como por 
 
 O primeiro passo é descobrir o ID do *Pull Request*. Ele normalmente fica do lado direito do título, precedido pelo símbolo `#`.
 
-![](/assets/img/mstuttgart/snapshot_48.png)
+![](/images/mstuttgart/snapshot_48.png)
 
 Na imagem de exemplo, logo acima, podemos observar que o ID do *Pull request* é `39`. De posse dessa informação, vamos então realizar uma cópia local do *Pull Request*. Isso pode ser feito com o seguinte comando:
 

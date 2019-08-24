@@ -23,11 +23,11 @@ Na versão 17.1, o [Linux Mint](http://www.linuxmint.com.br) trouxe um conjunto 
 
 Abaixo segue alguns *screenshots* do tema e de sua respectiva `KDE Color`.
 
-* Aqua: ![](/assets/img/mstuttgart/kde-colors/aqua.png)
-* Green (*default*): ![](/assets/img/mstuttgart/kde-colors/green.png)
-* Pink: ![](/assets/img/mstuttgart/kde-colors/pink.png)
-* Teal: ![](/assets/img/mstuttgart/kde-colors/teal.png)
-* Yellow: ![](/assets/img/mstuttgart/kde-colors/yellow.png)
+* Aqua: ![](/images/kde-colors/aqua.png)
+* Green (*default*): ![](/images/kde-colors/green.png)
+* Pink: ![](/images/kde-colors/pink.png)
+* Teal: ![](/images/kde-colors/teal.png)
+* Yellow: ![](/images/kde-colors/yellow.png)
 
 Segue os links de *downloads* de cada tema.
 

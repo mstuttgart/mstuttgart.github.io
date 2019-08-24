@@ -8,7 +8,9 @@ tags:
 categories: Python
 ---
 
-Neste tutorial, será abordado o processo de criação de um *dict* ou dicionário, a partir de um ou mais *dicts* em Python. Como já é de costume da linguagem, isso pode ser feito de várias maneiras diferentes.
+Neste tutorial, será abordado o processo de criação de um *dict* ou dicionário, a partir de um ou mais *dicts* em Python. 
+
+Como já é de costume da linguagem, isso pode ser feito de várias maneiras diferentes.
 
 ## Abordagem inicial
 
@@ -46,9 +48,9 @@ Assim, temos que **new_dict** será:
 }
 ```
 
-Este metodo funciona bem, porém temos de chamar o metodo *update* para cada *dict* que desejamos mesclar em **new_dict**. Não seria interessante se fosse possível passar todos os *dicts* necessários já na inicialização de **new_dict**?
+Este método funciona bem, porém temos de chamar o método *update* para cada *dict* que desejamos mesclar em **new_dict**. Não seria interessante se fosse possível passar todos os *dicts* necessários já na inicialização de **new_dict**?
 
-## Novidades do Python 3
+### Novidades do Python 3
 
 O Python 3 introduziu uma maneira bem interessante de se fazer isso, utilizando os operadores `**`.
 
@@ -105,7 +107,7 @@ new_dict = {
 
 ```
 
-Como no exemplo anterior, podemos imaginar que foi realizado uma cópia de todos os elementos de **dict_3**, porém isso não é totalmente verdade. O que realmente aconteceu é que foi feita uma cópia *superficial* dos valores de **dict_3**, ou seja, apenas os valores de *primeito nível* foram duplicados. Observe o que acontece quando alteramos o valor do *dict* presente na chave **c**.
+Como no exemplo anterior, podemos imaginar que foi realizado uma cópia de todos os elementos de **dict_3**, porém isso não é totalmente verdade. O que realmente aconteceu é que foi feita uma cópia *superficial* dos valores de **dict_3**, ou seja, apenas os valores de *primeiro nível* foram duplicados. Observe o que acontece quando alteramos o valor do *dict* presente na chave **c**.
 
 ```python
 >> new_dict['c']['d'] = 11
@@ -119,7 +121,7 @@ Como no exemplo anterior, podemos imaginar que foi realizado uma cópia de todos
 
 No caso da chave **c**, ela contem uma referência para outra estrutura de dados (um *dict*, no caso). Quando alteramos algum valor de **dict_3['c']**, isso reflete em todos os *dict* que foram inicializados com **dict_3**. Em outras palavras, deve-se ter cuidado ao inicializar um *dict* a partir de outros **dicts** quando os mesmos possuírem valores complexos, como *list*, *dict* ou outros objetos (os atributos deste objeto não serão duplicados).
 
-De modo a contornar este incoveniente, podemos utilizar o método *deepcopy* da *lib* nativa [copy](https://docs.python.org/2/library/copy.html). Agora, ao inicializarmos **new_dict**:
+De modo a contornar este inconveniente, podemos utilizar o método *deepcopy* da *lib* nativa [copy](https://docs.python.org/2/library/copy.html). Agora, ao inicializarmos **new_dict**:
 
 ```python
 import copy
@@ -149,6 +151,8 @@ O método *deepcopy* realiza uma cópia recursiva de cada elemento de **dict_3**
 ## Conclusão
 
 Este artigo tenta demonstrar de maneira simples a criação de *dicts*, utilizando os diversos recursos que a linguagem oferece bem como os prós e contras de cada abordagem. 
+
+## Referências
 
 Para mais detalhes e outros exemplos, deem uma olhada neste *post* do forum da Python Brasil [aqui](https://groups.google.com/forum/#!topic/python-brasil/OhUqYQ32M7E).
 

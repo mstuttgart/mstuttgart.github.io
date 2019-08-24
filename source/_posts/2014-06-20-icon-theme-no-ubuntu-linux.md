@@ -18,7 +18,7 @@ introduction: "Conjunto de temas de ícones para Ubuntu, Linux Mint e derivados.
 
 Versão do tema de ícone [Numix](https://numixproject.org/) com ícones arredondados.
 
-![](/assets/img/mstuttgart/snapshot_5.png)
+![](/images/mstuttgart/snapshot_5.png)
 
 Inicialmente, adicionamos o repositório do tema. Abra o terminal e digite:
 
@@ -34,7 +34,7 @@ Para conhecer a página do projeto, clique [aqui](https://numixproject.org/).
 
 Um dos meus temas de ícones preferidos.
 
-![](/assets/img/mstuttgart/snapshot_6.png)
+![](/images/mstuttgart/snapshot_6.png)
 
 ```bash
 sudo add-apt-repository ppa:noobslab/icons
@@ -48,7 +48,7 @@ Para conhecer a página do projeto, clique [aqui](https://github.com/skwerlman/A
 
 Temas de ícones Humanity em diversas cores.
 
-![](/assets/img/mstuttgart/snapshot_7.png)
+![](/images/mstuttgart/snapshot_7.png)
 
 ```bash
 sudo add-apt-repository ppa:ravefinity-project/ppa

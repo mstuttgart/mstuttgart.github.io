@@ -92,7 +92,7 @@ firefox htmlcov/index.html
 
 Abaixo temos o `index.html` aberto. Nele podemos ver a lista dos arquivos que estão cobertos pelo `Coveralls`.
 
-![](/assets/img/mstuttgart/snapshot_41.png)
+![](/images/mstuttgart/snapshot_41.png)
 
 Vamos analisar os dados do arquivo `circulo.py`. Assim, temos as seguintes colunas:
 
@@ -103,11 +103,11 @@ Vamos analisar os dados do arquivo `circulo.py`. Assim, temos as seguintes colun
 
 Na imagem abaixo, logo após clicarmos em `codigo_avulso_test_tutorial/circulo.py`, podemos ver os pontos do código que devem ser testados.
 
-![](/assets/img/mstuttgart/snapshot_42.png)
+![](/images/mstuttgart/snapshot_42.png)
 
 Ao clicarmos nos três botões no cabeçalho da página:
 
-![](/assets/img/mstuttgart/snapshot_43.png)
+![](/images/mstuttgart/snapshot_43.png)
 
 A página irá destacar, respectivamente, os trechos cobertos por testes, trechos sem testes ou que foram excluídos do `Coveralls`.
 

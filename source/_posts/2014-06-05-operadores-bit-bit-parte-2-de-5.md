@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "#2 Operadores Bit-a-Bit: Operador OR"
+title: "#2 - Operadores Bit-a-Bit: Operador OR"
 date: 2014-06-05T11:19:00-07:00
 description: "Exemplos de operações lógicas usando o operador OR"
 main-class: 'c'
@@ -14,7 +14,9 @@ categories:
 introduction: "Exemplos de operações lógicas usando o operador OR."
 ---
 
-No tutorial anterior, realizamos um estudo sobre o `operador AND` e seus exemplos de uso. Se você ainda não leu, veja aqui. Agora vamos prosseguir estudando o `operador OR` e mostrando alguns exemplos de uso do mesmo.
+No tutorial [anterior](https://mstuttgart.github.io/2014/06/05/2014-06-04-operadores-bit-bit-parte-1-de-5/), realizamos um estudo sobre o `operador AND` e seus exemplos de uso.
+
+Agora vamos prosseguir mostrando alguns exemplos de uso do `operador OR`.
 
 ## Operador OR
 

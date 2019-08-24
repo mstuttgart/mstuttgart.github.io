@@ -3,14 +3,11 @@ layout: post
 title: "Python: Abrangência de Listas e Dicionários"
 date: 2017-01-12 22:12:39
 description: 'Neste tutorial, aprenderemos a utilizar abrangência de lista em Python.'
-main-class: 'python'
 tags:
 - python
 - tutorial
 categories: Python
-introduction: 'Neste tutorial, aprenderemos a utilizar abrangência de lista em Python.'
 ---
-
 
 A utilização de listas em Python é algo trivial. A facilidade provida pela linguagem aliada a simplicidade da estrutura de dados *list* a torna, ao lado dos dicionários *dict*, uma das estrutura de dados mais utilizadas em Python. Aqui neste tutorial irei compartilhar algo que aprendi trabalhando com listas e dicionário em Python, mais especificamente no que diz respeito a *abrangência* de listas (e dicionários).
 

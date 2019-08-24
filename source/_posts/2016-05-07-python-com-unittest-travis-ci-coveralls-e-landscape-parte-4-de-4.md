@@ -23,7 +23,7 @@ Na [terceira](python-com-unittest-travis-ci-coveralls-e-landscape-parte-3-de-4.h
 
 [Landscape](https://landscape.io/) é uma ferramenta online semelhante ao já conhecido [PyLint](https://www.pylint.org/), ou seja, é um verificador de *bugs*, estilo e de qualidade de código para [Python](https://www.python.org/).
 
-![](/assets/img/mstuttgart/snapshot_32.png)
+![](/images/mstuttgart/snapshot_32.png)
 
 Quando ativamos a análise do `Landscape` em nosso repositório, ele é executado após cada *push* ou *pull request* e realiza uma varredura em nosso código fonte [Python](https://www.python.org/) atrás de possíveis *bugs*, como por exemplo variáveis sendo usadas antes de serem declaradas, nomes reservados sendo usados como nomes de variáveis e etc. Ele também verifica se a formatação do seu código esta seguindo a [PEP8](https://www.python.org/dev/peps/pep-0008/) e aponta possíveis falhas de *design* em seu código.
 
@@ -35,7 +35,7 @@ Semelhante as ferramentas dos tutoriais anteriores, o `Landscape` é totalmente 
 
 O processo de inscrição é simples. No topo da página temos a permissão de nos inscrevermos usando a conta do `Github`. Realize a inscrição e vamos as configurações.
 
-![](/assets/img/mstuttgart/snapshot_33.png)
+![](/images/mstuttgart/snapshot_33.png)
 
 #### Ativando o serviço
 
@@ -43,19 +43,19 @@ De todas as ferramentas apresentadas, esta é a mais simples de configurar. O ú
 
 Assim que realizar o cadastro, vamos nos deparar com uma tela contendo a listagem dos nosso repositórios que estão utilizando o serviço. Se você nunca usou o serviço provavelmente não terá nenhum repositório, então faça o seguinte: clique no botão `Sync with Github now`, para realizar a sincronização com a sua conta do [Github](https://github.com). Assim que a sincronização estiver completa, clique no botão `Add repository`.
 
-![](/assets/img/mstuttgart/snapshot_34.png)
+![](/images/mstuttgart/snapshot_34.png)
 
 Ao clicar, seremos levados a uma tela com a listagem de todos os repositórios que temos permissão de escrita. Procure o repositório que deseja ativar o serviço (lembrando que o `Landscape` funciona apenas para projetos `Python`) e o selecione (basta clicar sobre o nome do repositório).
 
-![](/assets/img/mstuttgart/snapshot_35.png)
+![](/images/mstuttgart/snapshot_35.png)
 
 Adicione o repositório clicando no botão verde `Add Repository`, logo abaixo da lista. Seremos novamente redirecionados a tela inicial, agora com o repositório escolhido já visível.
 
-![](/assets/img/mstuttgart/snapshot_36.png)
+![](/images/mstuttgart/snapshot_36.png)
 
  Inclusive, a partir desse momento, o `Coveralls` já irá iniciar a análise do seu projeto. Clique no nome do repositório para ver mais detalhes da analise.
 
-![](/assets/img/mstuttgart/snapshot_37.png)
+![](/images/mstuttgart/snapshot_37.png)
 
  No caso do meu projeto de teste, temos que a "saúde" do código está em `100%`, ou seja, nenhuma parte do código apresenta erros de estilo, *bugs* e está utilizando boas práticas de programação em todo seu escopo.
 
@@ -69,11 +69,11 @@ Como último passo, agora somente nos resta adicionar uma `badge` no arquivo `RE
 
 Na página com o resultado da análise (onde é exibido a porcentagem de "saúde" do seu projeto), podemos pegar a `badge` do `Landscape`. No canto superior direito da tela, você encontra os botões abaixo:
 
-![](/assets/img/mstuttgart/snapshot_38.png)
+![](/images/mstuttgart/snapshot_38.png)
 
 Clique na `badge` (onde está escrito *health*) e a seguinte janela será exibida:
 
-![](/assets/img/mstuttgart/snapshot_39.png)
+![](/images/mstuttgart/snapshot_39.png)
 
 Selecione o texto da opção `Markdown` e cole-o no `README.md` do seu repositório. O meu `README.md` ficou assim:
 
@@ -91,7 +91,7 @@ Também é possível configurar o `Landscape` para que o mesmo exclua algum dire
 
 Abaixo podemos ver as três `badges` que adicionamos em nosso projeto. Clique [aqui](https://github.com/mstuttgart/codigo-avulso-test-tutorial) para acessar o repositório.
 
-![](/assets/img/mstuttgart/snapshot_40.png)
+![](/images/mstuttgart/snapshot_40.png)
 
 #### Conclusão
 

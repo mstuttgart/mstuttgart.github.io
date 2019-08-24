@@ -55,4 +55,3 @@ O operador SHIFT ainda possui diversos exemplos de uso, então não deixe de pro
 Espero que essa série de tutoriais tenha lhe ajudado a entender mais sobre essas ferramentas interessante s que são os operadores Bit-a-Bit.
 
 Obrigado por ler! Até o próximo post.
-t+

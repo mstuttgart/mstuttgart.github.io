@@ -19,7 +19,7 @@ Um dado valor **p**, onde **p** diferente de **zero**, é chamado divisor de **n
 
 ### Exemplo
 
-A divisão 6/2 possui quociente 3 e resto 0\. Desse modo, temos:
+A divisão 6/2 possui quociente 3 e resto 0. Desse modo, temos:
 
 * O dividendo n é 6;
 * O divisor p é 2;
@@ -52,13 +52,15 @@ int main(){
 
         // Calculamos o resto da divisao   
         // de n por i, sendo que i vai de 1 a n  
-        resto = n%i;
+        resto = n % i;
 
         // Se o resto for nulo (0), i e divisor de n.   
         // Imprimos o valor.
-        if(resto == 0)
-        	cout << i << " ";
+        if(resto == 0){
+            cout << i << " ";
+        }
     }
+
     cout << endl;  
     return 0;  
 }

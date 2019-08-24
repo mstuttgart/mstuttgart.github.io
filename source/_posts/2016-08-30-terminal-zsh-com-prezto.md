@@ -74,7 +74,7 @@ sudo chsh -s /usr/bin/zsh
 
 e abrir uma nova aba ou janela de terminal. Você pode também trocar o *prompt* diretamente na tela de configurações do seu terminal, conforme a imagem abaixo:
 
-![http://jr0cket.co.uk/2013/09/hey-prezto-zsh-for-command-line-heaven.html](/assets/img/mstuttgart/snapshot_45.png)
+![http://jr0cket.co.uk/2013/09/hey-prezto-zsh-for-command-line-heaven.html](/images/mstuttgart/snapshot_45.png)
 
 Imagem retirada do seguinte tutorial: [aqui](http://jr0cket.co.uk/2013/09/hey-prezto-zsh-for-command-line-heaven.html).
 

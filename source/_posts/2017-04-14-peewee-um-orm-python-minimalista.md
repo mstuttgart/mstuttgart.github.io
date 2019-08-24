@@ -3,19 +3,17 @@ layout: post
 title: "Python: Peewee - Um ORM Python minimalista"
 date: 2017-07-27 19:44:30
 description: "Conheça o Peewee - Um ORM Python minimalista."
-main-class: 'python'
 tags:
 - python
 - orm
 - banco de dados
 - peewee
 categories: Python
-introduction: "Conheça o Peewee, um prático e minimalista ORM Python."
 ---
 
 [Peewee](http://peewee.readthedocs.io/en/latest/index.html) é um ORM destinado a criar e gerenciar tabelas de banco de dados relacionais através de objetos Python. Segundo a [wikipedia](https://pt.wikipedia.org/wiki/Mapeamento_objeto-relacional), um ORM é:
 
-> Mapeamento objeto-relacional (ou ORM, do inglês: Object-relational mapping) é uma técnica de desenvolvimento utilizada para reduzir a impedância da programação orientada aos objetos utilizando bancos de dados relacionais. As tabelas do banco de dados são representadas através de classes e os registros de cada tabela são representados como instâncias das classes correspondentes.
+> Mapeamento objeto-relacional (ou ORM, do inglês: Object-relational mapping) é uma técnica de desenvolvimento > utilizada para reduzir a impedância da programação orientada aos objetos utilizando bancos de dados relacionais. As tabelas do banco de dados são representadas através de classes e os registros de cada tabela são representados como instâncias das classes correspondentes.
 
 O que um ORM faz é, basicamente, transformar classes Python em tabelas no banco de dados, além de permitir construir *querys* usando diretamente objetos Python ao invés de SQL.
 
@@ -29,11 +27,11 @@ Neste tutorial, utilizaremos o SQLite, por sua simplicidade de uso e pelo Python
 
 O Peewee pode ser facilmente instalado com o gerenciador de pacotes *pip* (recomendo a instalação em um virtualenv):
 
-```bash
+```
 pip install peewee
 ```
 
-### Criando o banco de dados
+## Criando o banco de dados
 
 Para criar o banco de dados é bem simples. Inicialmente passamos o nome do nosso banco de dados (a extensão `*.db` indica um arquivo do SQLite).
 
@@ -47,15 +45,14 @@ db = peewee.SqliteDatabase('codigo_avulso.db')
 
 Diferente de outros bancos de dados que funcionam através um servidor, o SQLite cria um arquivo de extensão `*.db`, onde todos os nossos dados são armazenados.
 
-**DICA**: caso deseje ver as tabelas existentes no arquivo `codigo_avulso.db`, instale o aplicativo `SQLiteBrowser`. Com ele fica fácil monitorar as tabelas criadas e acompanhar o tutorial.
-
+>    Caso deseje ver as tabelas existentes no arquivo `codigo_avulso.db`, instale o aplicativo `SQLiteBrowser`. Com ele fica fácil monitorar as tabelas criadas e acompanhar o tutorial.
 ```shell
  sudo apt-get install sqlitebrowser
 ```
 
 A título de exemplo, vamos criar um banco destinado a armazenar nomes de livros e de seus respectivos autores. Iremos chamá-lo de `models.py`.
 
-Incialmente, vamos criar a classe base para todos os nossos `models`. Esta é uma abordagem recomendada pela documentação e é considerada uma boa prática. Também adicionaremos um log para acompanharmos as mudanças que são feitas no banco:
+Inicialmente, vamos criar a classe base para todos os nossos `models`. Esta é uma abordagem recomendada pela documentação e é considerada uma boa prática. Também adicionaremos um log para acompanharmos as mudanças que são feitas no banco:
 
 ```python
 # models.py
@@ -97,7 +94,6 @@ class Author(BaseModel):
 Se observamos a model `Author`, veremos que não foi especificado nenhuma coluna como *primary key* (chave primaria), sendo assim o Peewee irá criar um campo chamado `id` do tipo inteiro com auto incremento para funcionar como chave primária.
 Em seguida, no mesmo arquivo `models.py` criamos a classe que representa os livros. Ela possui uma relação de "muitos para um" com a tabela de autores, ou seja, cada livro possui apenas um autor, mas um autor pode possuir vários livros.
 
-
 ```python
 # models.py
 
@@ -132,7 +128,7 @@ if __name__ == '__main__':
     except peewee.OperationalError:
         print("Tabela 'Book' ja existe!")
 ```
-
+excerpt
 Agora executamos o `models.py`:
 
 ```
@@ -149,7 +145,20 @@ A estrutura do diretório ficou assim:
 
 Após executarmos o código, será criado um arquivo de nome `codigo_avulso.db` no mesmo diretório do nosso arquivo `models.py`, contendo as tabelas `Author` e `Book`.
 
-## Inserindo dados no banco
+## Realizando o CRUD
+
+Agora vamos seguir com as 4 principais operações que podemos realizar em um banco de dados, também conhecida como CRUD.
+
+A sigla `CRUD` é comumente utilizada para designar as quatro operações básicas que pode-se executar em um banco de dados, sendo elas: 
+
+    - Create (criar um novo registro no banco)
+    - Read (ler/consultar um registro)
+    - Update (atualizar um registro)
+    - Delete (excluir um registro do banco)
+
+Iremos abordar cada uma dessas operações.
+
+### Create: Inserindo dados no banco
 
 Agora, vamos popular nosso banco com alguns autores e seus respectivos livros. Para isso criamos um arquivo `create.py`. A estrutura do diretório ficou assim:
 
@@ -200,7 +209,7 @@ Book.insert_many(books).execute()
 
 ```
 
-## Consultando dados no banco
+### Read: Consultando dados no banco
 
 O Peewee possui comandos destinados a realizar consultas no banco. De maneira semelhante ao conhecido `SELECT`. Podemos fazer essa consulta de duas maneiras. Se desejamos o primeiro registro que corresponda a nossa pesquisa, podemos utilizar o método `get()`.
 
@@ -212,7 +221,7 @@ from models import Author, Book
 book = Book.get(Book.title == "Volta ao Mundo em 80 Dias").get()
 print(book.title)
 
-# Resultado:
+# Resultado
 # * Volta ao Munto em 80 Dias
 ```
 
@@ -248,7 +257,7 @@ A estrutura do diretório ficou assim:
 ├── read.py
 ```
 
-## Alterando dados no banco
+### Update: Alterando dados no banco
 
 Alterar dados também é bem simples. No exemplo anterior, se observarmos o resultado da consulta dos livros do autor "H. G. Wells", iremos nos deparar com o livro de título "Vinte Mil Léguas Submarinas". Se você, caro leitor, gosta de contos de ficção-científica, sabe que esta obra foi escrito por "Julio Verne", coincidentemente um dos autores que também estão cadastrados em nosso banco. Sendo assim, vamos corrigir o autor do respectivo livro.
 
@@ -286,7 +295,7 @@ A estrutura do diretório ficou assim:
 ├── update.py
 ```
 
-## Deletando dados do banco
+### Delete: Deletando dados do banco
 
 Assim como as operações anteriores, também podemos deletar registros do banco de maneira bem prática. Como exemplo, vamos deletar o livro "Guerra dos Mundos" do nosso banco de dados.
 
@@ -305,7 +314,6 @@ book.delete_instance()
 
 Simples não?
 
-
 A estrutura do diretório ficou assim:
 
 ```sh
@@ -320,9 +328,7 @@ A estrutura do diretório ficou assim:
 
 ## Conclusão
 
-É isso pessoal. Este tutorial foi uma introdução bem enxuta sobre o Peewee. Ainda existem muitos tópicos que não abordei aqui, como a criação de *primary_key*, de campos *many2many* entre outros recursos, pois foge do escopo deste tutorial. Se você gostou do ORM, aconselho a dar uma olhada também na sua documentação, para conseguir extrair todo o potencial da ferramenta. A utilização de um ORM evita que o desenvolvedor perca tempo escrevendo *query* SQL e foque totalmente no desenolvimento de código.
-
-É isso pessoal. Obrigado pela leitura e até o próximo tutorial!
+É isso pessoal. Este tutorial foi uma introdução bem enxuta sobre o Peewee. Ainda existem muitos tópicos que não abordei aqui, como a criação de *primary_key*, de campos *many2many* entre outros recursos, pois foge do escopo deste tutorial. Se você gostou do ORM, aconselho a dar uma olhada também na sua documentação, para conseguir extrair todo o potencial da ferramenta. A utilização de um ORM evita que o desenvolvedor perca tempo escrevendo *query* SQL e foque totalmente no desenvolvimento de código.
 
 ## Referências
 

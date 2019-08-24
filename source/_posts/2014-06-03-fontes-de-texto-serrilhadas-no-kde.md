@@ -20,11 +20,11 @@ Inicialmente, vamos até o painel de configurações de fontes do KDE.
 
 Onde está escrito `"Use anti-aliasing"` selecione a opção `"Enable"`, como ilustra a figura a seguir.
 
-![Fonts](/assets/img/mstuttgart/snapshot_1.png)
+![Fonts](/images/mstuttgart/snapshot_1.png)
 
 Sem seguida, clique em `Configure..`. Uma janela com algumas opções vai abrir. Deixe as suas configurações iguais as mostradas na figura abaixo e depois clique em `OK`.
 
-![Configure](/assets/img/mstuttgart/snapshot_2.png)
+![Configure](/images/mstuttgart/snapshot_2.png)
 
 Terminada as configurações acima, clique no botão em `Apply` e feche a janela de configurações. Você pode perceber que mesmo configurando as fontes, elas ainda permanecem serrilhadas. Então, o próximo passo é ajustá-las manualmente.
 

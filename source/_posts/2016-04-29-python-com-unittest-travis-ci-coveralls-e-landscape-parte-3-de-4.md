@@ -25,21 +25,21 @@ Diferente do tutorial anterior, serei breve sobre o processo de inscrição do `
 
 Antes de começarmos a usar o `Coveralls` precisamos criar uma conta no serviço. Isso pode ser feito [aqui](https://coveralls.io/). O serviço é totalmente gratuíto para projetos `opensource`.
 
-![](/assets/img/mstuttgart/snapshot_17.png)
+![](/images/mstuttgart/snapshot_17.png)
 
 Após a inscrição, você será levado para uma nova página com uma listagem dos repositórios que você possui no `Github`.
 
-![](/assets/img/mstuttgart/snapshot_18.png)
+![](/images/mstuttgart/snapshot_18.png)
 
 Na imagem acima já podemos visualizar o projeto que estou usando neste tutorial: `codigo-avulso-test-tutorial`. Caso o seu repositório não esteja na lista, clique no botão `ADD REPOS` no canto superior direito da tela.
 
-![](/assets/img/mstuttgart/snapshot_19.png)
+![](/images/mstuttgart/snapshot_19.png)
 
 Ao clicar no botão, você será redirecionado a uma página onde é possível slecionar quais repositórios serão analisados pelo `Coveralls`. Caso o repositório desejado não esteja na lista, clique no botão `RE-SYNC REPOS` no canto superior direito. Ele vai realizar o escaneamento do seu perfil no `Github` e importar seus projetos.
 
 Clique no botão escrito `OFF` ao lado esquerdo do nome do repositório. Isso ativará o serviço para este repositório.
 
-![](/assets/img/mstuttgart/snapshot_20.png)
+![](/images/mstuttgart/snapshot_20.png)
 
 Clique no botão `DETAILS` ao lado direito do nome do repositório e você será redirecionado para uma tela de configuração. Aqui o passo mais interessante é pegar a *url* da `badge`para usarmos em nosso README.md.
 
@@ -48,11 +48,11 @@ Clique no botão `DETAILS` ao lado direito do nome do repositório e você será
 
 Na área superior da tela, temos o seguinte:
 
-![](/assets/img/mstuttgart/snapshot_21.png)
+![](/images/mstuttgart/snapshot_21.png)
 
 Clique em `EMBED` e uma janelá de dialogo irá se abrir, selecione e copie o código em `MARKDOWN`.
 
-![](/assets/img/mstuttgart/snapshot_22.png)
+![](/images/mstuttgart/snapshot_22.png)
 
 Agora cole o código no cabeçalho do seu arquivo README, semelhante ao que fizemos com o `Travis CI` no tutorial anterior.
 
@@ -108,7 +108,7 @@ after_success:
 
 Assim que terminar de fazer essas alterações você já pode enviar o seu código para o `Github`. Assim que subir o código, o `Travis CI` irá iniciar o processo de teste. Finalizando os testes, o `Coveralls`será iniciado. Se tudo ocorrer bem, a badge que adicionamos no aquivo README do projeto será atualizada exibindo a porcentagem do nosso código que está coberta por testes. Você pode clicar na badge ou ir até o seu perfil no site do [Coveralls](https://coveralls.io) e verificar com mais detalhes as informações sobre seu projeto.
 
-![](/assets/img/mstuttgart/snapshot_23.png)
+![](/images/mstuttgart/snapshot_23.png)
 
 Na seção `LATEST BUILDS` clique no último build disponível que será possível verificar a porcentagem cobertura de teste para cada arquivo do seu projeto.
 
