@@ -98,9 +98,6 @@ theme_config:
     Sobre: /about/
     Pesquisar: /search/
 
-gravatar:
-  email: michellstut@gmail.com
-
 google_analytics:
   enabled: true
   id: 'UA-75274475-1'
