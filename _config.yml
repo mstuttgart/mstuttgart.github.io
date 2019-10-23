@@ -76,6 +76,7 @@ theme: cactus
 theme_config:
   colorscheme: white
   highlight: gruvbox-dark
+  rss: atom.xml
   page_width: 59
   posts_overview:
     show_all_posts: false
@@ -101,11 +102,6 @@ theme_config:
 google_analytics:
   enabled: true
   id: 'UA-75274475-1'
-
-disqus_enabled: true
-disqus_shortname: codigoavulso
-
-rss: atom.xml
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
