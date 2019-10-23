@@ -92,6 +92,9 @@ theme_config:
     height: 50
     url: /images/logo.jpg
     gravatar: false
+  disqus:
+    enabled: true
+    shortname: codigoavulso
   nav:
     Home: /
     Blog: /archives/
