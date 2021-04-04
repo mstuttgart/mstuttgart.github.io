@@ -18,8 +18,8 @@
   
   <entry>
     <title>Python: Criando dicts a partir de outros dicts</title>
-    <link href="https://mstuttgart.github.io/2018/04/09/2018-04-09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/"/>
-    <id>https://mstuttgart.github.io/2018/04/09/2018-04-09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/</id>
+    <link href="https://mstuttgart.github.io/2018/2018-04-09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/"/>
+    <id>https://mstuttgart.github.io/2018/2018-04-09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/</id>
     <published>2018-04-09T13:02:29.000Z</published>
     <updated>2021-03-16T10:02:26.350Z</updated>
     
@@ -47,8 +47,8 @@
   
   <entry>
     <title>Mate e Cinnamon: como reiniciar a configuração dos painéis de menu</title>
-    <link href="https://mstuttgart.github.io/2018/01/21/2018-01-21-linux-mint-como-reiniciar-ambiente-grafico-mate-e-cinnamon/"/>
-    <id>https://mstuttgart.github.io/2018/01/21/2018-01-21-linux-mint-como-reiniciar-ambiente-grafico-mate-e-cinnamon/</id>
+    <link href="https://mstuttgart.github.io/2018/2018-01-21-linux-mint-como-reiniciar-ambiente-grafico-mate-e-cinnamon/"/>
+    <id>https://mstuttgart.github.io/2018/2018-01-21-linux-mint-como-reiniciar-ambiente-grafico-mate-e-cinnamon/</id>
     <published>2018-01-21T20:31:03.000Z</published>
     <updated>2021-04-04T11:04:54.332Z</updated>
     
@@ -75,8 +75,8 @@
   
   <entry>
     <title>Python: Calculando diferença de dias entre duas datas</title>
-    <link href="https://mstuttgart.github.io/2017/10/03/2017-10-03-python-calculando-dias-de-diferenca-entre-duas-datas/"/>
-    <id>https://mstuttgart.github.io/2017/10/03/2017-10-03-python-calculando-dias-de-diferenca-entre-duas-datas/</id>
+    <link href="https://mstuttgart.github.io/2017/2017-10-03-python-calculando-dias-de-diferenca-entre-duas-datas/"/>
+    <id>https://mstuttgart.github.io/2017/2017-10-03-python-calculando-dias-de-diferenca-entre-duas-datas/</id>
     <published>2017-10-03T10:16:57.000Z</published>
     <updated>2021-03-16T10:02:26.350Z</updated>
     
@@ -99,8 +99,8 @@
   
   <entry>
     <title>Python: Peewee - Um ORM Python minimalista</title>
-    <link href="https://mstuttgart.github.io/2017/07/27/2017-04-14-peewee-um-orm-python-minimalista/"/>
-    <id>https://mstuttgart.github.io/2017/07/27/2017-04-14-peewee-um-orm-python-minimalista/</id>
+    <link href="https://mstuttgart.github.io/2017/2017-04-14-peewee-um-orm-python-minimalista/"/>
+    <id>https://mstuttgart.github.io/2017/2017-04-14-peewee-um-orm-python-minimalista/</id>
     <published>2017-07-27T22:44:30.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -127,8 +127,8 @@
   
   <entry>
     <title>Git: Realizando o checkout de Pull Requests localmente</title>
-    <link href="https://mstuttgart.github.io/2017/07/27/2017-07-27-git-realizando-o-checkout-de-pull-requests-localmente/"/>
-    <id>https://mstuttgart.github.io/2017/07/27/2017-07-27-git-realizando-o-checkout-de-pull-requests-localmente/</id>
+    <link href="https://mstuttgart.github.io/2017/2017-07-27-git-realizando-o-checkout-de-pull-requests-localmente/"/>
+    <id>https://mstuttgart.github.io/2017/2017-07-27-git-realizando-o-checkout-de-pull-requests-localmente/</id>
     <published>2017-07-27T22:44:30.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -154,8 +154,8 @@
   
   <entry>
     <title>Consulta de CEP com PyCEPCorreios</title>
-    <link href="https://mstuttgart.github.io/2017/06/22/2016-07-31-consultando-cep-com-pycep-correios/"/>
-    <id>https://mstuttgart.github.io/2017/06/22/2016-07-31-consultando-cep-com-pycep-correios/</id>
+    <link href="https://mstuttgart.github.io/2017/2016-07-31-consultando-cep-com-pycep-correios/"/>
+    <id>https://mstuttgart.github.io/2017/2016-07-31-consultando-cep-com-pycep-correios/</id>
     <published>2017-06-23T01:42:36.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -180,8 +180,8 @@
   
   <entry>
     <title>Git: Como mover subdiretórios</title>
-    <link href="https://mstuttgart.github.io/2017/05/14/2016-05-26-como-clonar-um-subdiretorio-com-git/"/>
-    <id>https://mstuttgart.github.io/2017/05/14/2016-05-26-como-clonar-um-subdiretorio-com-git/</id>
+    <link href="https://mstuttgart.github.io/2017/2016-05-26-como-clonar-um-subdiretorio-com-git/"/>
+    <id>https://mstuttgart.github.io/2017/2016-05-26-como-clonar-um-subdiretorio-com-git/</id>
     <published>2017-05-14T18:13:46.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -204,8 +204,8 @@
   
   <entry>
     <title>Python: Transforme strings em objetos com literal_eval</title>
-    <link href="https://mstuttgart.github.io/2017/03/29/2017-03-29-literal-eval-como-transformar-strings-em-objetos-python/"/>
-    <id>https://mstuttgart.github.io/2017/03/29/2017-03-29-literal-eval-como-transformar-strings-em-objetos-python/</id>
+    <link href="https://mstuttgart.github.io/2017/2017-03-29-literal-eval-como-transformar-strings-em-objetos-python/"/>
+    <id>https://mstuttgart.github.io/2017/2017-03-29-literal-eval-como-transformar-strings-em-objetos-python/</id>
     <published>2017-03-29T23:53:56.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -233,8 +233,8 @@
   
   <entry>
     <title>Duplicando banco de dados no PostgreSQL</title>
-    <link href="https://mstuttgart.github.io/2017/03/05/2017-03-05-duplicando-base-de-dados-no-postgresql/"/>
-    <id>https://mstuttgart.github.io/2017/03/05/2017-03-05-duplicando-base-de-dados-no-postgresql/</id>
+    <link href="https://mstuttgart.github.io/2017/2017-03-05-duplicando-base-de-dados-no-postgresql/"/>
+    <id>https://mstuttgart.github.io/2017/2017-03-05-duplicando-base-de-dados-no-postgresql/</id>
     <published>2017-03-05T23:30:53.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -257,8 +257,8 @@
   
   <entry>
     <title>MkDocs - Documentação de Projetos com Markdown</title>
-    <link href="https://mstuttgart.github.io/2017/01/25/2017-01-22-mkdocs-documentacao-de-projetos-com-markdown/"/>
-    <id>https://mstuttgart.github.io/2017/01/25/2017-01-22-mkdocs-documentacao-de-projetos-com-markdown/</id>
+    <link href="https://mstuttgart.github.io/2017/2017-01-22-mkdocs-documentacao-de-projetos-com-markdown/"/>
+    <id>https://mstuttgart.github.io/2017/2017-01-22-mkdocs-documentacao-de-projetos-com-markdown/</id>
     <published>2017-01-25T16:02:40.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -283,8 +283,8 @@
   
   <entry>
     <title>Python: Abrangência de Listas e Dicionários</title>
-    <link href="https://mstuttgart.github.io/2017/01/12/2017-01-09-abrangencia-de-listas-e-dicts/"/>
-    <id>https://mstuttgart.github.io/2017/01/12/2017-01-09-abrangencia-de-listas-e-dicts/</id>
+    <link href="https://mstuttgart.github.io/2017/2017-01-09-abrangencia-de-listas-e-dicts/"/>
+    <id>https://mstuttgart.github.io/2017/2017-01-09-abrangencia-de-listas-e-dicts/</id>
     <published>2017-01-13T00:12:39.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -307,8 +307,8 @@
   
   <entry>
     <title>Personalize o seu terminal com ZSH + Prezto</title>
-    <link href="https://mstuttgart.github.io/2016/09/14/2016-08-30-terminal-zsh-com-prezto/"/>
-    <id>https://mstuttgart.github.io/2016/09/14/2016-08-30-terminal-zsh-com-prezto/</id>
+    <link href="https://mstuttgart.github.io/2016/2016-08-30-terminal-zsh-com-prezto/"/>
+    <id>https://mstuttgart.github.io/2016/2016-08-30-terminal-zsh-com-prezto/</id>
     <published>2016-09-14T23:27:15.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -335,8 +335,8 @@
   
   <entry>
     <title>Mint-X KDE colors</title>
-    <link href="https://mstuttgart.github.io/2016/07/07/2016-07-07-kde-colors/"/>
-    <id>https://mstuttgart.github.io/2016/07/07/2016-07-07-kde-colors/</id>
+    <link href="https://mstuttgart.github.io/2016/2016-07-07-kde-colors/"/>
+    <id>https://mstuttgart.github.io/2016/2016-07-07-kde-colors/</id>
     <published>2016-07-07T16:04:11.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -361,8 +361,8 @@
   
   <entry>
     <title>Desfazendo commits com git revert</title>
-    <link href="https://mstuttgart.github.io/2016/06/14/2016-06-14-desfazendo-com-commit-que-ja-foi-enviado-para-o-repositorio/"/>
-    <id>https://mstuttgart.github.io/2016/06/14/2016-06-14-desfazendo-com-commit-que-ja-foi-enviado-para-o-repositorio/</id>
+    <link href="https://mstuttgart.github.io/2016/2016-06-14-desfazendo-com-commit-que-ja-foi-enviado-para-o-repositorio/"/>
+    <id>https://mstuttgart.github.io/2016/2016-06-14-desfazendo-com-commit-que-ja-foi-enviado-para-o-repositorio/</id>
     <published>2016-06-14T17:02:11.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -387,8 +387,8 @@
   
   <entry>
     <title>Como distribuir sua aplicação com PyPI</title>
-    <link href="https://mstuttgart.github.io/2016/06/01/2016-06-01-como-distribuir-seu-projeto-python-com-pypi/"/>
-    <id>https://mstuttgart.github.io/2016/06/01/2016-06-01-como-distribuir-seu-projeto-python-com-pypi/</id>
+    <link href="https://mstuttgart.github.io/2016/2016-06-01-como-distribuir-seu-projeto-python-com-pypi/"/>
+    <id>https://mstuttgart.github.io/2016/2016-06-01-como-distribuir-seu-projeto-python-com-pypi/</id>
     <published>2016-06-01T16:47:24.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -415,8 +415,8 @@
   
   <entry>
     <title>Coveralls - Como gerar relatórios de testes</title>
-    <link href="https://mstuttgart.github.io/2016/05/18/2016-05-18-gerando-relatorios-de-teste-com-coveralls/"/>
-    <id>https://mstuttgart.github.io/2016/05/18/2016-05-18-gerando-relatorios-de-teste-com-coveralls/</id>
+    <link href="https://mstuttgart.github.io/2016/2016-05-18-gerando-relatorios-de-teste-com-coveralls/"/>
+    <id>https://mstuttgart.github.io/2016/2016-05-18-gerando-relatorios-de-teste-com-coveralls/</id>
     <published>2016-05-18T14:28:55.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -443,8 +443,8 @@
   
   <entry>
     <title>#4 - Python com Unittest, Travis CI, Coveralls e Landscape</title>
-    <link href="https://mstuttgart.github.io/2016/05/07/2016-05-07-python-com-unittest-travis-ci-coveralls-e-landscape-parte-4-de-4/"/>
-    <id>https://mstuttgart.github.io/2016/05/07/2016-05-07-python-com-unittest-travis-ci-coveralls-e-landscape-parte-4-de-4/</id>
+    <link href="https://mstuttgart.github.io/2016/2016-05-07-python-com-unittest-travis-ci-coveralls-e-landscape-parte-4-de-4/"/>
+    <id>https://mstuttgart.github.io/2016/2016-05-07-python-com-unittest-travis-ci-coveralls-e-landscape-parte-4-de-4/</id>
     <published>2016-05-08T00:09:18.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -473,8 +473,8 @@
   
   <entry>
     <title>#3 - Python com Unittest, Travis CI, Coveralls e Landscape</title>
-    <link href="https://mstuttgart.github.io/2016/04/29/2016-04-29-python-com-unittest-travis-ci-coveralls-e-landscape-parte-3-de-4/"/>
-    <id>https://mstuttgart.github.io/2016/04/29/2016-04-29-python-com-unittest-travis-ci-coveralls-e-landscape-parte-3-de-4/</id>
+    <link href="https://mstuttgart.github.io/2016/2016-04-29-python-com-unittest-travis-ci-coveralls-e-landscape-parte-3-de-4/"/>
+    <id>https://mstuttgart.github.io/2016/2016-04-29-python-com-unittest-travis-ci-coveralls-e-landscape-parte-3-de-4/</id>
     <published>2016-04-29T15:41:38.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -503,8 +503,8 @@
   
   <entry>
     <title>#2 - Python com Unittest, Travis CI, Coveralls e Landscape</title>
-    <link href="https://mstuttgart.github.io/2016/04/19/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/"/>
-    <id>https://mstuttgart.github.io/2016/04/19/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/</id>
+    <link href="https://mstuttgart.github.io/2016/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/"/>
+    <id>https://mstuttgart.github.io/2016/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/</id>
     <published>2016-04-19T23:34:44.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
@@ -533,8 +533,8 @@
   
   <entry>
     <title>#1 - Python com Unittest, Travis CI, Coveralls e Landscape</title>
-    <link href="https://mstuttgart.github.io/2016/04/12/2016-04-12-python-com-unittest-travis-e-coveralls-parte-1-de-4/"/>
-    <id>https://mstuttgart.github.io/2016/04/12/2016-04-12-python-com-unittest-travis-e-coveralls-parte-1-de-4/</id>
+    <link href="https://mstuttgart.github.io/2016/2016-04-12-python-com-unittest-travis-e-coveralls-parte-1-de-4/"/>
+    <id>https://mstuttgart.github.io/2016/2016-04-12-python-com-unittest-travis-e-coveralls-parte-1-de-4/</id>
     <published>2016-04-12T04:42:18.000Z</published>
     <updated>2021-03-16T10:02:26.346Z</updated>
     
