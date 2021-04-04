@@ -92,9 +92,14 @@ theme_config:
     height: 50
     url: images/logo.jpg
     gravatar: false
-  disqus:
+  # disqus:
+  #   enabled: false
+  #   shortname: codigoavulso
+  utteranc:
     enabled: true
-    shortname: codigoavulso
+    repo: mstuttgart/mstuttgart.github.io
+    issue_term: pathname
+    theme: github-dark
   nav:
     Home: /
     Blog: /archives/
