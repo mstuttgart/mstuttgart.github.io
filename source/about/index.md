@@ -1,6 +1,7 @@
 ---
 title: about
 date: 2018-10-28 10:34:20
+comments: false
 ---
 
 Sou graduado em Engenharia da Computação pela Universidade Federal de Itajubá (UNIFEI) e entusiasta da filosofia do software livre, contribuidor de diversos projetos Open Source (incluindo projetos próprios) e feliz usuário linux.
