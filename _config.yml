@@ -29,9 +29,9 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :year-:month-:day-:title.md # File name of new posts
+new_post_name: :year-:month-:title.md # File name of new posts
 default_layout: post
-titlecase: true # Transform title into titlecase
+titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
 filename_case: 0
@@ -75,10 +75,10 @@ theme: cactus
 
 # _config.yml
 theme_config:
-  colorscheme: white
+  colorscheme: dark
   highlight: gruvbox-dark
   rss: atom.xml
-  page_width: 59
+  page_width: 50
   posts_overview:
     show_all_posts: false
     post_count: 10
@@ -96,11 +96,11 @@ theme_config:
   # disqus:
   #   enabled: false
   #   shortname: codigoavulso
-  utteranc:
+  utterances:
     enabled: true
     repo: mstuttgart/mstuttgart.github.io
     issue_term: pathname
-    theme: github-light
+    theme: github-dark
   nav:
     Home: /
     Blog: /archives/
