@@ -5,17 +5,17 @@
 # Site
 title: Michell Stuttgart
 subtitle: $ sudo apt install faith hope love
-description:
-keywords: python git development
+description: Desenvolvedor Python, entusiasta de desenvolvimento de jogos, marido, cristão e feliz usuário Linux trabalhando no Brasil.
 author: Michell Stuttgart
+keywords: python git development
 language: pt-br
-timezone:
+# timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://mstuttgart.github.io/
 root: /
-permalink: :year/:title/
+permalink: :year/:month/:title/
 permalink_defaults:
 
 # Directory
@@ -35,7 +35,7 @@ titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
 filename_case: 0
-render_drafts: true
+render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
@@ -81,7 +81,7 @@ theme_config:
   page_width: 50
   posts_overview:
     show_all_posts: false
-    post_count: 10
+    post_count: 0
   social_links:
     github: https://github.com/mstuttgart
     linkedin: https://www.linkedin.com/in/mstuttgart/
@@ -105,8 +105,8 @@ theme_config:
     Home: /
     Blog: /archives/
     Categorias: /categories/
-    Sobre: /about/
-    Pesquisar: /search/
+    # Sobre: /about/
+    # Pesquisar: /search/
 
 google_analytics:
   enabled: true
