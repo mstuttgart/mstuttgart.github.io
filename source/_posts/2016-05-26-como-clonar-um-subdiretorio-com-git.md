@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git: Como mover subdiretórios"
+title: "Separar históricos de subdiretórios com Git"
 description: 'Vamos aprender a mover diretorios entre repositórios sem perder o histórico de commits'
 date: 2017-05-14 15:13:46
 main-class: 'git'

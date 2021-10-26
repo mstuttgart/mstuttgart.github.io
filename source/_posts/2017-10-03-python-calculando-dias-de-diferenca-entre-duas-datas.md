@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Python: Calculando diferença de dias entre duas datas"
+title: "Como calcular a diferença de dias entre duas datas com Python"
 date: 2017-10-03 07:16:57
 description: "Aprenda a calcular a quantidade de dias entre duas datas."
 tags:

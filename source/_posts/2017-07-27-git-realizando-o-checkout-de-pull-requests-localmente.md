@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git: Realizando o checkout de Pull Requests localmente"
+title: "Como realizar o checkout de um Pull Requests localmente"
 date: 2017-07-27 19:44:30
 main-class: 'git'
 tags:

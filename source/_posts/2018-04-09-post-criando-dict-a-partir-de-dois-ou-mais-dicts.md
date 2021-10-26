@@ -1,5 +1,5 @@
 ---
-title: "Python: Criando dicts a partir de outros dicts"
+title: "Crie dicts a partir de outros dicts com Python"
 date: 2018-04-09 10:02:29
 tags:
 - python

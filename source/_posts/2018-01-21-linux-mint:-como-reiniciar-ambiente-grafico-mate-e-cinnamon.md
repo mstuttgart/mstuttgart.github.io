@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: "Mate e Cinnamon: como reiniciar a configuração dos painéis de menu"
+title: "Como reiniciar a configuração dos painéis de menu no Mate/Cinnamon"
 date: 2018-01-21 18:31:03
 description: 'Aprenda a reiniciar os paineis de ambos para as configurações iniciais'
 tags:
