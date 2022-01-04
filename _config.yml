@@ -75,7 +75,7 @@ theme: cactus
 
 # _config.yml
 theme_config:
-  colorscheme: dark
+  colorscheme: white
   highlight: gruvbox-dark
   rss: atom.xml
   page_width: 50
