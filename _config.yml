@@ -78,9 +78,9 @@ theme_config:
   colorscheme: white
   highlight: gruvbox-dark
   rss: atom.xml
-  page_width: 50
+  page_width: 60
   posts_overview:
-    show_all_posts: false
+    show_all_posts: true
     post_count: 0
   social_links:
     github: https://github.com/mstuttgart
