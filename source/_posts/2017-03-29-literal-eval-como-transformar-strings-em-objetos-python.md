@@ -20,6 +20,7 @@ valor = ast.literal_eval('True')
 print(valor) # saida: True
 print(type(valor)) # saída: <type 'bool'>
 ```
+
 Ou convertendo uma *string* contendo uma lista em um objeto *list*.
 
 ```python
