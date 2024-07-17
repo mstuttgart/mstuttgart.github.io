@@ -1,5 +1,7 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import { SimpleSlug } from "./quartz/util/path"
+
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -7,7 +9,7 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/mstuttgart",
+      Blog: "https://github.com/mstuttgart",
     },
   }),
 }
@@ -49,7 +51,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.DesktopOnly(Component.Explorer({ folderClickBehavior: "link" })),
   ],
   right: [],
 }
