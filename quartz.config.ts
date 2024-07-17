@@ -8,11 +8,12 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "🪴 Wiki",
+    pageTitle: "Hey! It's MStuttgart's Digital Garden 🌱",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-    //   provider: "plausible",
+      //provider: "google",
+      //tagId: "G-FD48XZZQHK"
     },
     locale: "en-US",
     baseUrl: "mstuttgart.github.io/quartz",
@@ -56,19 +57,19 @@ const config: QuartzConfig = {
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter", "filesystem"],
       }),
-      Plugin.Latex({ renderEngine: "katex" }),
       Plugin.SyntaxHighlighting({
         theme: {
-          light: "one-dark-pro",
-          dark: "one-dark-pro",
+          light: "github-light",
+          dark: "github-dark",
         },
-        keepBackground: true,
+        keepBackground: false,
       }),
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
+      Plugin.Latex({ renderEngine: "katex" }),
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [
