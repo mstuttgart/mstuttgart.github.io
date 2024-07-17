@@ -12,7 +12,7 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+    //   provider: "plausible",
     },
     locale: "en-US",
     baseUrl: "mstuttgart.github.io/quartz",
@@ -22,9 +22,9 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        header: "Titillium Web",
+        body: "Bitter",
+        code: "JetBrains Mono",
       },
       colors: {
         lightMode: {
@@ -46,6 +46,7 @@ const config: QuartzConfig = {
           secondary: "#5E409D",
           tertiary: "#8B7EC8",
           highlight: "rgba(94, 64, 157, 0.15)",
+        },
       },
     },
   },
