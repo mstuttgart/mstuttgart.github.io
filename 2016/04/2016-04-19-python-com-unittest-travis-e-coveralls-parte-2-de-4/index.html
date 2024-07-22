@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Aprenda a configurar Unittest, Travis CI e Coveralls para o seu projeto Python.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="#2 - Python com Unittest, Travis CI, Coveralls e Landscape">
+<meta property="og:url" content="https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/index.html">
+<meta property="og:site_name" content="Michell Stuttgart">
+<meta property="og:description" content="Aprenda a configurar Unittest, Travis CI e Coveralls para o seu projeto Python.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_24.png">
+<meta property="og:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_25.png">
+<meta property="og:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_26.png">
+<meta property="og:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_27.png">
+<meta property="og:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_28.png">
+<meta property="og:image" content="https://travis-ci.org/mstuttgart/codigo-avulso-test-tutorial.svg?branch=master">
+<meta property="og:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_28.png">
+<meta property="og:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_30.png">
+<meta property="og:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_31.png">
+<meta property="article:published_time" content="2016-04-19T23:34:44.000Z">
+<meta property="article:modified_time" content="2024-05-02T16:32:14.907Z">
+<meta property="article:author" content="Michell Stuttgart">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="travis-ci">
+<meta property="article:tag" content="coveralls">
+<meta property="article:tag" content="landscape">
+<meta property="article:tag" content="tdd">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_24.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>#2 - Python com Unittest, Travis CI, Coveralls e Landscape</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Michell Stuttgart" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2016/04/2016-04-29-python-com-unittest-travis-ci-coveralls-e-landscape-parte-3-de-4/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2016/04/2016-04-12-python-com-unittest-travis-e-coveralls-parte-1-de-4/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&text=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&title=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&is_video=false&description=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=#2 - Python com Unittest, Travis CI, Coveralls e Landscape&body=Check out this article: https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&title=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&title=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&title=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&title=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&name=#2 - Python com Unittest, Travis CI, Coveralls e Landscape&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&t=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Sobre-o-Travis-CI"><span class="toc-number">1.</span> <span class="toc-text">Sobre o Travis CI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Criando-uma-conta"><span class="toc-number">2.</span> <span class="toc-text">Criando uma conta</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Configurando-o-Travis-CI-em-nosso-repositorio"><span class="toc-number">3.</span> <span class="toc-text">Configurando o Travis CI em nosso repositório</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Adicionado-uma-badge-para-o-repositorio"><span class="toc-number"></span> <span class="toc-text">Adicionado uma badge para o repositório</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Conclusao"><span class="toc-number">1.</span> <span class="toc-text">Conclusão</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        #2 - Python com Unittest, Travis CI, Coveralls e Landscape
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Michell Stuttgart</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2016-04-19T23:34:44.000Z" class="dt-published" itemprop="datePublished">2016-04-19</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Python-com-Unittest-Travis-CI-Coveralls-e-Landscape/">Python com Unittest, Travis CI, Coveralls e Landscape</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/coveralls/" rel="tag">coveralls</a>, <a class="p-category" href="/tags/landscape/" rel="tag">landscape</a>, <a class="p-category" href="/tags/python/" rel="tag">python</a>, <a class="p-category" href="/tags/tdd/" rel="tag">tdd</a>, <a class="p-category" href="/tags/travis-ci/" rel="tag">travis-ci</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>Title: Python com Unittest, Travis CI, Coveralls e Landscape (Parte 2 de 4)<br>Slug: python-com-unittest-travis-ci-coveralls-e-landscape-parte-2-de-4<br>Date: 2016-04-19 20:34:44<br>Category: Python<br>Tags: python, git, travis-ci, coveralls, landscape, unittest<br>Author: Michell Stuttgart<br>Summary: Nesta segunda parte do tutorial vamos aprender a utilizar o serviço de testes Travis CI, desde a inscrição no serviço, configuração e uso em nosso projeto no Github.</p>
+<p>Fala pessoal, tudo bem?</p>
+<p>Na <a href="python-com-unittest-travis-ci-coveralls-e-landscape-parte-1-de-4.html">primeira</a> parte deste tutorial, aprendemos como criar testes para nosso projeto. Nesta segunda parte, vamos configurar o serviço Travis CI para que o mesmo execute os testes do nosso projeto diretamente no github. Isso é especialmente útil quando possuímos várias pessoas trabalhando em um mesmo projeto, pois o <code>Travis CI</code> executa os testes após cada <em>push</em> ou <em>pull request</em>. Dessa forma garantimos que um determinado <em>commit</em> não irá “quebrar” nossa aplicação.</p>
+<p>Antes de inicarmos nosso trabalho de configuração do <code>Travis CI</code>, vamos aprender um pouco mais sobre esse serviço.</p>
+<h4 id="Sobre-o-Travis-CI"><a href="#Sobre-o-Travis-CI" class="headerlink" title="Sobre o Travis CI"></a>Sobre o Travis CI</h4><p><a target="_blank" rel="noopener" href="https://travis-ci.org/">Travis CI</a> é uma ferramenta online que permite executar o <em>deploy</em> de sua aplicação, rodando de maneira automática os testes do seu projeto hospedado no <a target="_blank" rel="noopener" href="https://github.com/">Github</a>. Através dele é possível manter um histórico dos testes para cada <em>commit</em> do seu projeto, executar testes em paralelo, além do suporte a diversas linguagens de programação. Você pode, por exemplo, verificar se seu projeto funciona corretamente tanto com Python 2.7, quanto com o Python 3.</p>
+<p>Após a execução do teste, recebemos um email nos informando se o teste foi bem sucedido ou se houve alguma falha. O serviço é totalmente gratuito para projetos <em>opensource</em>.</p>
+<p><img src="/images/mstuttgart/snapshot_24.png" alt="Alt Text"></p>
+<h4 id="Criando-uma-conta"><a href="#Criando-uma-conta" class="headerlink" title="Criando uma conta"></a>Criando uma conta</h4><p>Para utilizarmos o <code>Travis CI</code> em nosso projeto, precisamos primeiro realizar nosso cadastro no serviço. Para isso acesse <a target="_blank" rel="noopener" href="https://travis-ci.org/">https://travis-ci.org/</a>.</p>
+<p>Logo no topo direito da página, temos o botão abaixo, para nos inscrevermos usando nossa conta no Github.</p>
+<p><img src="/images/mstuttgart/snapshot_25.png"></p>
+<p>Ao pressionar o botão, você será direcionado para a página a seguir:</p>
+<p><img src="/images/mstuttgart/snapshot_26.png"></p>
+<p>Realize o login com seu usuário&#x2F;senha do <code>Github</code>. Assim que realizar o login, na canto superior direito da tela, clique no seu nome de usuário e, em seguida, em <code>&quot;Accounts&quot;</code>. Com isso, uma tela com todos os repositórios que você tem permissão de escrita (repositórios pessoais, de organização, forks e etc) será exibida.</p>
+<p><img src="/images/mstuttgart/snapshot_27.png"></p>
+<p>Agora vamos ativar o serviço para o repositório que criei na primeira parte do tutorial: <a target="_blank" rel="noopener" href="https://github.com/mstuttgart/codigo-avulso-test-tutorial">codigo-avulso-test-tutorial</a>. Basta clicar no botão “X” ao lado esquerdo do nome do seu repositório. Ele ficará assim:</p>
+<p><img src="/images/mstuttgart/snapshot_28.png"></p>
+<p>Bom, a partir de agora, seu repositório está pronto para o usar o <code>Travis CI</code>, porém antes precisamos configurar os parâmetros de teste do nosso projeto.</p>
+<h4 id="Configurando-o-Travis-CI-em-nosso-repositorio"><a href="#Configurando-o-Travis-CI-em-nosso-repositorio" class="headerlink" title="Configurando o Travis CI em nosso repositório"></a>Configurando o Travis CI em nosso repositório</h4><p>No diretório raiz do nosso projeto, vamos criar um arquivo chamado <code>.travis.yml</code>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> .travis.yml</span><br></pre></td></tr></table></figure>
+<p> Observe que o nome do arquivo obrigatoriamente deve inciar com ponto. Após criarmos o arquivo, teremos a seguinte estrutura de diretórios:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── codigo_avulso_test_tutorial</span><br><span class="line">│   ├── circulo.py</span><br><span class="line">│   ├── circulo.pyc</span><br><span class="line">│   ├── figura_geometrica.py</span><br><span class="line">│   ├── figura_geometrica.pyc</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── __init__.pyc</span><br><span class="line">│   ├── quadrado.py</span><br><span class="line">│   └── quadrado.pyc</span><br><span class="line">├── codigo_avulso_test_tutorial.egg-info</span><br><span class="line">│   ├── dependency_links.txt</span><br><span class="line">│   ├── PKG-INFO</span><br><span class="line">│   ├── SOURCES.txt</span><br><span class="line">│   └── top_level.txt</span><br><span class="line">├── LICENSE</span><br><span class="line">├── README.md</span><br><span class="line">├── setup.py</span><br><span class="line">├── test</span><br><span class="line">│   ├── circulo_test.py</span><br><span class="line">│   ├── circulo_test.pyc</span><br><span class="line">│   ├── figura_geometrica_test.py</span><br><span class="line">│   ├── figura_geometrica_test.pyc</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── __init__.pyc</span><br><span class="line">│   ├── quadrado_test.py</span><br><span class="line">│   └── quadrado_test.pyc</span><br><span class="line">└── .travis.yml</span><br></pre></td></tr></table></figure>
+
+<p>Esse é nosso arquivo de configuração. Nele vamos adicionar qual linguagen nosso projeto utiliza, de quais módulos e pacotes ele depende, entre outras inúmeros ajustes, dependendo do seu projeto. Aqui, vou mostrar as configurações básicas que utilizo, para que o tutorial não fique muito extenso. Então, abra o arquivo <code>.travis.yml</code> em seu editor preferido e adicione o seguinte código.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">language: python</span><br><span class="line"></span><br><span class="line">python:</span><br><span class="line">  - &quot;2.7&quot;</span><br><span class="line"></span><br><span class="line">sudo: required</span><br><span class="line"></span><br><span class="line">script:</span><br><span class="line">  - python setup.py test</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p> Agora vamos explicar cada tag do arquivo:</p>
+<ul>
+<li><code>language</code>: podemos definir qual linguagem nosso projeto utiliza. Se este parâmetro não for incluso, o <code>Travis CI</code> irá considerar a linguagem <code>ruby</code> como <em>default</em>.</li>
+<li><code>python</code>: aqui definimos que os testes serão executados usando o Python 2.7 e se desejarmos, também podemos adicionar outras versões do Python.</li>
+<li><code>sudo</code>: usado para executar o <code>Travis CI</code> como permissão de usuário <code>root</code>. Necessário caso você deseje instalar alguma dependência usando o comando <code>apt-get install nomepacote</code>.</li>
+<li><code>script</code>: nessa <code>tag</code>, finalmente vamos executar nosso <em>script</em> de teste.</li>
+</ul>
+<p>Dica: neste <a target="_blank" rel="noopener" href="http://lint.travis-ci.org/">link</a> você pode colar o código do seu arquivo <code>.travis.yml</code> para verificar se o mesmo está correto.</p>
+<h3 id="Adicionado-uma-badge-para-o-repositorio"><a href="#Adicionado-uma-badge-para-o-repositorio" class="headerlink" title="Adicionado uma badge para o repositório"></a>Adicionado uma badge para o repositório</h3><p>O próximo passo é é adicionar uma <code>badge</code> para o nosso repositório. Isso não é obrigatório, mas ajuda você, sua equipe e outras pessoas que se interessarem pelo seu repositório, a visualizar o <em>status</em> da execução dos testes e verificar se seu código está funcionando corretamente.</p>
+<p><a target="_blank" rel="noopener" href="https://travis-ci.org/mstuttgart/codigo-avulso-test-tutorial"><img src="https://travis-ci.org/mstuttgart/codigo-avulso-test-tutorial.svg?branch=master" alt="Build Status"></a></p>
+<p>Na tela onde você ativou o <code>Travis CI</code> para seu reposiorio, clique no símbolo da engrenagem.</p>
+<p><img src="/images/mstuttgart/snapshot_28.png"></p>
+<p>Na nova tela, podemos realizar algumas configurações, como por exemplo se o <code>Travis CI</code> será executado para <em>push</em> e para <em>pull requests</em> e também podemos pegar a <code>badge</code>. Ao clicarmos no botão logo ao lado do nome do repositório, uma janela será exibida.</p>
+<p><img src="/images/mstuttgart/snapshot_30.png"></p>
+<p>Selecione a <em>branch</em> a ser observada pelo Travis CI, escolha a opção <code>Markdown</code> e copie o código que aparecerá na caixa de texto para o arquivo <code>README.md</code> do seu repositório. O meu <code>README.md</code> ficou assim:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Codigo Avulso Test Tutorial</span></span><br><span class="line">[<span class="string">![Build Status</span>](<span class="link">https://travis-ci.org/mstuttgart/codigo-avulso-test-tutorial.svg?branch=master</span>)](<span class="link">https://travis-ci.org/mstuttgart/codigo-avulso-test-tutorial</span>)</span><br><span class="line"></span><br><span class="line">Tutorial de teste unitário em Python para o blog [<span class="string">Código Avulso</span>](<span class="link">http://codigoavulso.com.br/</span>).</span><br></pre></td></tr></table></figure>
+
+<p>Com esses passos, quando algum <em>push</em> ou <em>pull request</em> for enviado ao repositório, o <code>Travis CI</code> executará os testes, garantindo assim o funcionamento estável do nosso código e nos avisando caso alguma modificação venha causar algum erro em nossa aplicação.</p>
+<p><img src="/images/mstuttgart/snapshot_31.png"></p>
+<p>Vale lembrar que o tempo para <em>deploy</em> pode variar, dependendo da quantidade de testes do seu projeto, quantidade de dependências a serem instaladas e etc.</p>
+<h4 id="Conclusao"><a href="#Conclusao" class="headerlink" title="Conclusão"></a>Conclusão</h4><p>Aqui encerramos a segunda parte do nossa série de tutoriais sobre <code>Unittest</code>. Eu decidi separar a série em 4 partes para que cada uma fosse explicada com mais detalhes mas sem deixar o tutorial muito extenso. O <code>Travis IC</code> ainda possui muitas configurações não abordadas aqui, então se você se interessar, pode dar uma olhada na sua documentação oficial <a target="_blank" rel="noopener" href="https://docs.travis-ci.com/">aqui</a>. No próximo tutorial veremos como utilizar o <code>Coveralls</code> para gerar relatórios dos nossos testes.</p>
+<p>É isso pessoal. Obrigado por ler até aqui!</p>
+<p>Até o próximo tutorial!</p>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">./home</a></li>
+        
+          <li><a href="/archives/">./blog</a></li>
+        
+          <li><a href="/projects/">./projects</a></li>
+        
+          <li><a href="/categories/">./categories</a></li>
+        
+          <li><a href="/about/">./about</a></li>
+        
+          <li><a href="/search/">./search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Sobre-o-Travis-CI"><span class="toc-number">1.</span> <span class="toc-text">Sobre o Travis CI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Criando-uma-conta"><span class="toc-number">2.</span> <span class="toc-text">Criando uma conta</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Configurando-o-Travis-CI-em-nosso-repositorio"><span class="toc-number">3.</span> <span class="toc-text">Configurando o Travis CI em nosso repositório</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Adicionado-uma-badge-para-o-repositorio"><span class="toc-number"></span> <span class="toc-text">Adicionado uma badge para o repositório</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Conclusao"><span class="toc-number">1.</span> <span class="toc-text">Conclusão</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&text=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&title=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&is_video=false&description=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=#2 - Python com Unittest, Travis CI, Coveralls e Landscape&body=Check out this article: https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&title=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&title=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&title=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&title=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&name=#2 - Python com Unittest, Travis CI, Coveralls e Landscape&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2016/04/2016-04-19-python-com-unittest-travis-e-coveralls-parte-2-de-4/&t=#2 - Python com Unittest, Travis CI, Coveralls e Landscape"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Michell Stuttgart
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'mstuttgart/mstuttgart.github.io';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = '';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+</body>
+</html>

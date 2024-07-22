@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Exemplos de operações lógicas usando o operador AND">
+<meta property="og:type" content="article">
+<meta property="og:title" content="#1 - Operadores Bit-a-Bit: Operador AND">
+<meta property="og:url" content="https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/index.html">
+<meta property="og:site_name" content="Michell Stuttgart">
+<meta property="og:description" content="Exemplos de operações lógicas usando o operador AND">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2014-06-05T05:30:00.000Z">
+<meta property="article:modified_time" content="2024-05-02T16:32:14.907Z">
+<meta property="article:author" content="Michell Stuttgart">
+<meta property="article:tag" content="c">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="binario">
+<meta property="article:tag" content="bit-a-bit">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>#1 - Operadores Bit-a-Bit: Operador AND</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Michell Stuttgart" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2014/06/2014-06-05-operadores-bit-bit-parte-2-de-5/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&text=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&title=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&is_video=false&description=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=#1 - Operadores Bit-a-Bit: Operador AND&body=Check out this article: https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&title=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&title=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&title=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&title=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&name=#1 - Operadores Bit-a-Bit: Operador AND&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&t=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sobre"><span class="toc-number">1.</span> <span class="toc-text">Sobre</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Operador-AND"><span class="toc-number">2.</span> <span class="toc-text">Operador AND</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Exemplo"><span class="toc-number">2.1.</span> <span class="toc-text">Exemplo</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        #1 - Operadores Bit-a-Bit: Operador AND
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Michell Stuttgart</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2014-06-05T05:30:00.000Z" class="dt-published" itemprop="datePublished">2014-06-05</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Operadores-Bit-a-Bit/">Operadores Bit-a-Bit</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/binario/" rel="tag">binario</a>, <a class="p-category" href="/tags/bit-a-bit/" rel="tag">bit-a-bit</a>, <a class="p-category" href="/tags/c/" rel="tag">c</a>, <a class="p-category" href="/tags/c/" rel="tag">c++</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="Sobre"><a href="#Sobre" class="headerlink" title="Sobre"></a>Sobre</h2><p>Operadores Bit-a-Bit  são usados quando desejamos manipular diretamente os bits de um determinado número. Seu uso é muito fundamental em aplicações onde precisamos lidar diretamente com bits, como aplicações envolvendo hardware (Arduino, por exemplo) e até mesmo emuladores. Os exemplos estão em C++, mas podem ser facilmente adaptados para outras linguagens. Para fins de organização, pretendo dividir os tutoriais em 5 partes, cada um deles abordando um operador (AND, OR, XOR, NOT e SHIFT) e mostrando exemplos de uso.</p>
+<p>Para se trabalhar com os operadores bit-a-bit, nossos dados devem ser valores numéricos, não-negativos e inteiros. As variáveis devem ser do tipo unsigned, como por exemplo, unsigned short ( 16 bits ) e unsigned char (8 bits ou 1 byte), dependendo do número de bits que você precisar.</p>
+<h2 id="Operador-AND"><a href="#Operador-AND" class="headerlink" title="Operador AND"></a>Operador AND</h2><p>O operador <code>AND (&amp;)</code> é um operando binário que executa uma operação AND com cada par de bits dos operandos. O bit resultante é 1 se os dois bits operandos forem 1; caso contrário o resultante é 0.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Bit 1</th>
+<th align="center">Bit 2</th>
+<th align="center">Saida</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> a = <span class="number">5</span>;   <span class="comment">// 00000101</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> b = <span class="number">9</span>;   <span class="comment">// 00001001</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> c = a &amp; b;</span><br><span class="line">cout &gt;&gt; c</span><br></pre></td></tr></table></figure>
+
+<p>Saída: <code>1</code> ou <code>00000001</code> em binário.</p>
+<p>O operador AND também pode ser usado quando desejamos verificar se um determinado bit de um operando é 0 ou 1.  No exemplo abaixo, vamos verificar se o terceiro bit do valor armazenado em a é 0 ou 1.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> a = <span class="number">5</span>;   <span class="comment">// 00000101</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> b = <span class="number">4</span>;   <span class="comment">// 00000100</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> c = a &amp; b;</span><br><span class="line">cout &gt;&gt; c</span><br></pre></td></tr></table></figure>
+<p>Saída: <code>4</code> ou <code>00000100</code> em binário.</p>
+<p>Porque usamos o valor 4 para a variável <code>b</code>?</p>
+<p>Note que o valor 4 possui todos os seus bits iguais a 0 com exceção do terceiro bit, que é o que desejamos. Sempre devemos escolher um número que possua o bit <code>1</code> na posição dos bit(s) que desejamos verificar se é <code>0</code> ou <code>1</code>. Se o nosso objetivo fosse encontrar o valor do quarto bit de a, deveríamos fazer</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> a = <span class="number">5</span>; <span class="comment">// 00000101</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> b = <span class="number">8</span>; <span class="comment">// 00001000</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> c = a &amp; b;</span><br><span class="line">cout &gt;&gt; c</span><br></pre></td></tr></table></figure>
+
+<p>Saída: <code>8</code> ou <code>00000000</code> em binário.</p>
+<p>Com exemplo acima percebemos que, se o o digito em questão for <code>1</code>, o resultado de <code>a &amp; b</code> será igual a ao valor armazenado em <code>b</code>. Se o digito for <code>0</code>, o resultado da operação <code>a &amp; b</code> será <code>0</code>.</p>
+<p>Outra uso do operador <code>AND</code> é quando desejamos “desligar”, ou seja, tornar igual a <code>0</code> um determinado bit do número.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> a = <span class="number">5</span>; <span class="comment">// 00000101</span></span><br></pre></td></tr></table></figure>
+
+<p>Vamos supor que desejamos desligar o terceiro bit de a. Basta realizarmos uma operação <code>AND</code> com um operando que possua o valor <code>0</code> no digito que desejamos “desligar” e <code>1</code> nos demais bits.</p>
+<h3 id="Exemplo"><a href="#Exemplo" class="headerlink" title="Exemplo"></a>Exemplo</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> b = <span class="number">251</span>; <span class="comment">// 11111011</span></span><br></pre></td></tr></table></figure>
+<p>Realizando o <code>AND</code>, teremos:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = a &amp; b;</span><br><span class="line">cout &gt;&gt; a;</span><br></pre></td></tr></table></figure>
+<p>Saida: <code>1</code> ou <code>0000 0001</code> em binário.</p>
+<p>Como podemos observar, conseguimos “desligar” o terceiro bit do valor de <code>a</code>.<br>Uma pergunta que pode surgir é como saber que valor usar em <code>b</code>. No exemplo acima utilizamos <code>b = 251</code>, mas como sabemos que esse valor daria certo. A ideia aqui é se basear na representação binária e não na decimal, ou seja, você deve encontrar um valor em binário que satisfaça a operação que você deseja (no nosso caso, o valor <code>11111011</code>).</p>
+<p>Uma maneira de deixar esse raciocínio mais intuitivo é usar um valor diretamente na base binária ao invés da base decimal. No C++, a operação que fizemos logo acima ficaria assim:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> b = <span class="number">0b11111011</span>; <span class="comment">// 251</span></span><br><span class="line">a = a &amp; b;</span><br><span class="line">cout &gt;&gt; a;</span><br></pre></td></tr></table></figure>
+<p>Saida: <code>1</code> ou <code>00000001</code> em binário.</p>
+<p>Lembrando que o número de bits não deve ultrapassar a capacidade do tipo da variável. Acima utilizamos <code>unsigned char</code> que tem capacidade para <code>8 bits</code>. Se armazenarmos um valor que necessita de mais de 8 bits, esse valor será truncado (quebrado) para que possa ser armazenado em 8 bits. Provavelmente você terá uma valor errado como saída, então sempre se atente a isso, ok?</p>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">./home</a></li>
+        
+          <li><a href="/archives/">./blog</a></li>
+        
+          <li><a href="/projects/">./projects</a></li>
+        
+          <li><a href="/categories/">./categories</a></li>
+        
+          <li><a href="/about/">./about</a></li>
+        
+          <li><a href="/search/">./search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sobre"><span class="toc-number">1.</span> <span class="toc-text">Sobre</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Operador-AND"><span class="toc-number">2.</span> <span class="toc-text">Operador AND</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Exemplo"><span class="toc-number">2.1.</span> <span class="toc-text">Exemplo</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&text=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&title=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&is_video=false&description=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=#1 - Operadores Bit-a-Bit: Operador AND&body=Check out this article: https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&title=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&title=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&title=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&title=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&name=#1 - Operadores Bit-a-Bit: Operador AND&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/&t=#1 - Operadores Bit-a-Bit: Operador AND"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Michell Stuttgart
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'mstuttgart/mstuttgart.github.io';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = '';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+</body>
+</html>

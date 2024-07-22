@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Aprendar a configurar Sublime Text para desenvolver para Arduino">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ambiente de desenvolvimento com Sublime Text">
+<meta property="og:url" content="https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/index.html">
+<meta property="og:site_name" content="Michell Stuttgart">
+<meta property="og:description" content="Aprendar a configurar Sublime Text para desenvolver para Arduino">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_3.png">
+<meta property="og:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_4.png">
+<meta property="article:published_time" content="2014-06-04T03:18:00.000Z">
+<meta property="article:modified_time" content="2024-05-02T16:32:14.907Z">
+<meta property="article:author" content="Michell Stuttgart">
+<meta property="article:tag" content="arduino">
+<meta property="article:tag" content="sublimetext">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_3.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Ambiente de desenvolvimento com Sublime Text</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Michell Stuttgart" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2014/06/2014-06-04-operadores-bit-bit-parte-1-de-5/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2014/06/2014-06-03-fontes-de-texto-serrilhadas-no-kde/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&text=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&title=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&is_video=false&description=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Ambiente de desenvolvimento com Sublime Text&body=Check out this article: https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&title=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&title=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&title=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&title=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&name=Ambiente de desenvolvimento com Sublime Text&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&t=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Ambiente de desenvolvimento com Sublime Text
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Michell Stuttgart</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2014-06-04T03:18:00.000Z" class="dt-published" itemprop="datePublished">2014-06-04</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Arduino/">Arduino</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/arduino/" rel="tag">arduino</a>, <a class="p-category" href="/tags/sublimetext/" rel="tag">sublimetext</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>Há algum tempo, tive o prazer de participar de um minicurso abordando o básico sobre o desenvolvimento usando a plataforma Arduino. Após a instalação das bibliotecas necessárias, também foi necessário instalar a Arduino IDE, um ambiente de desenvolvimento próprio para programação nessa plataforma.</p>
+<p><img src="/images/mstuttgart/snapshot_3.png"></p>
+<p>Apesar da IDE oferecer suporte a todos os recursos do Arduino, o seu editor de texto era simples demais, sem funções que são comuns a muitos editores, como auto-completar, fechamento automático de <em>{}</em> e entre outras coisas básicas. Uma vez que eu estou acostumado a editores de texto mais avançados, acabei me sentindo bastante desconfortável e parti em busca de outra alternativa. Foi então que descobri a combinação <code>SublimeText + Stino</code>.</p>
+<p>O Sublime Text um editor de texto e IDE bem conhecido por programadores. Possui muitos recursos bacanas como auto-completar, suporte a múltiplas linguagens de programação e uma infinidade de plugins, temas e possui versões para diversos sistemas operacionais. O Sublime Text pode ser baixado aqui. Para Linux, temos um pacote com a extensão .deb. Para instalá-lo basta dar dois cliques no arquivo, inserir a senha de administrador e seguir com a instalação normalmente.</p>
+<p>Com o Sublime Text instalado, vamos dar prosseguimento a instalação do plugin Stino, para suporte ao Arduino.</p>
+<p>Inicialmente, vamos instalar o plugin que permite a instalação de packages no Sublime Text. Caso já o tenho instalado, pode ignorar estas etapas.</p>
+<p>Execute o Sublime Text e vá em:  </p>
+<blockquote>
+<p>View -&gt; Show Console.</p>
+</blockquote>
+<p>Na área inferior da janela do Sublime Text, irá aparecer um campo de texto onde você deve colar o código encontrado aqui, de acordo com a versão do Sublime Text. Após copiar e colar o texto no campo de texto do Sublime Text, tecle Enter. Após a instalação, reinicie o Sublime Text.</p>
+<p>Depois de reiniciar o Sublime Text, clique no menu:</p>
+<blockquote>
+<p>Preferences -&gt; Package Control</p>
+</blockquote>
+<p>No campo de texto Package Control, digite:</p>
+<blockquote>
+<p>Install Package</p>
+</blockquote>
+<p>Aguarde alguns segundo e irá aparecer outro campo de texto para você entrar com o nome do package.<br>Digite Arduino e irá aparecer um package chamado <code>Arduino Like IDE</code>. Selecione-o e aguarde alguns segundos para a instalação completar (você pode verificar o progresso da instalação na área inferior da janela do Sublime Text). Após completada a instalação, reinicie o Sublime Text.</p>
+<p>Depois de reiniciar o Sublime Text, vá em Preferences e selecione a opção <code>Show Arduino Menu</code> (se já não estiver selecionado). Fazendo isso, um novo menu chamado “Arduino” surgirá ao lado do menu Help.</p>
+<p>Para o próximo passo, clique em:</p>
+<blockquote>
+<p>Arduino -&gt; Preferences -&gt; Select Arduino Application Folder</p>
+</blockquote>
+<p>Insira a localização da instalação das bibliotecas do Arduino no seu sistema. A minha está em <code>/usr/share/arduino</code>.</p>
+<p>Uma que você tenha escolhido o diretório correto, uma mensagem do tipo</p>
+<blockquote>
+<p>Arduino x.x.x is found at &#x2F;usr&#x2F;share&#x2F;arduino</p>
+</blockquote>
+<p>irá aparecer.</p>
+<p>Agora você pode desenvolver seus programas usando o Sublime Text e utilizar as opções do menu Arduino, como compilar, fazer upload do seu código, selecionar o modelo do Arduino, a porta usada para comunicação e todos os outros recursos que a Arduino IDE possuía e muito mais. Você verá também que a velocidade de compilação e upload usando o Sublime Text é muito maior do que a realizada pela Arduino IDE.</p>
+<p><img src="/images/mstuttgart/snapshot_4.png"></p>
+<p>É isso pessoal. Agora você já pode se divertir com Arduino desenvolvendo seus códigos em um editor de texto profissional.</p>
+<p>Esse tutorial foi baseado nas informações contidas <a target="_blank" rel="noopener" href="https://github.com/Robot-Will/Stino">aqui</a>.</p>
+<p>Obrigado por ler e até o próximo post!</p>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">./home</a></li>
+        
+          <li><a href="/archives/">./blog</a></li>
+        
+          <li><a href="/projects/">./projects</a></li>
+        
+          <li><a href="/categories/">./categories</a></li>
+        
+          <li><a href="/about/">./about</a></li>
+        
+          <li><a href="/search/">./search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&text=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&title=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&is_video=false&description=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Ambiente de desenvolvimento com Sublime Text&body=Check out this article: https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&title=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&title=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&title=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&title=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&name=Ambiente de desenvolvimento com Sublime Text&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2014/06/2014-06-03-ambiente-de-desenvolvimento-arduino/&t=Ambiente de desenvolvimento com Sublime Text"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Michell Stuttgart
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'mstuttgart/mstuttgart.github.io';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = '';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+</body>
+</html>
