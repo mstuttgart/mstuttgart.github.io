@@ -1,3 +1,4 @@
+---
 # Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
@@ -5,10 +6,10 @@
 # Site
 title: Michell Stuttgart
 subtitle: $ sudo apt install faith hope love
-description: Desenvolvedor Python, entusiasta de desenvolvimento de jogos, marido, cristão e feliz usuário Linux trabalhando no Brasil.
+description: A computer engineer, fullstack developer, open source enthusiast, husband, christian and happy Linux user working from Brazil. 🇧🇷
 author: Michell Stuttgart
 keywords: python git development
-language: pt-br
+language: en
 # timezone:
 
 # URL
@@ -45,7 +46,7 @@ future: true
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 10
   order_by: -date
 
@@ -75,17 +76,24 @@ theme: cactus
 
 # _config.yml
 theme_config:
-  colorscheme: white
-  highlight: gruvbox-dark
+  colorscheme: everforest
+  highlight: everforest-dark
   rss: atom.xml
   page_width: 60
   posts_overview:
-    show_all_posts: true
-    post_count: 0
+    show_all_posts: false
+    post_count: 5
   social_links:
-    github: https://github.com/mstuttgart
-    linkedin: https://www.linkedin.com/in/mstuttgart/
-    mail: mailto:michellstut@gmail.com
+    - icon: github
+      link: https://github.com/mstuttgart
+    - icon: linkedin
+      link: https://www.linkedin.com/in/mstuttgart/
+    - icon: twitter
+      link: https://x.com/michellstut
+    - icon: itch-io
+      link: https://mstuttgart.itch.io/
+    - icon: mail
+      link: mailto:michellstut@gmail.com
   projects_url: http://github.com/mstuttgart
   logo:
     enabled: true
@@ -102,19 +110,20 @@ theme_config:
     issue_term: pathname
     theme: github-dark
   nav:
-    Home: /
-    Blog: /archives/
-    Categorias: /categories/
-    # Sobre: /about/
-    # Pesquisar: /search/
+    ./home: /
+    ./blog: /archives/
+    ./projects: /projects/
+    ./categories: /categories/
+    ./about: /about/
+    ./search: /search/
 
 google_analytics:
   enabled: true
-  id: 'UA-75274475-1'
+  id: "UA-75274475-1"
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   repo: git@github.com:mstuttgart/mstuttgart.github.io.git
-  branch: master
+  branch: main
