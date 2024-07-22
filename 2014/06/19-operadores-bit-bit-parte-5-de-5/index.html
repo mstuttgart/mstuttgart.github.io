@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Exemplos de operações lógicas usando o operador SHIFT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="#5 - Operadores Bit-a-Bit: Operador SHIFT">
+<meta property="og:url" content="https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/index.html">
+<meta property="og:site_name" content="Michell Stuttgart">
+<meta property="og:description" content="Exemplos de operações lógicas usando o operador SHIFT">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2014-06-19T19:30:00.000Z">
+<meta property="article:modified_time" content="2024-05-02T16:32:14.907Z">
+<meta property="article:author" content="Michell Stuttgart">
+<meta property="article:tag" content="c">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="binario">
+<meta property="article:tag" content="bit-a-bit">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>#5 - Operadores Bit-a-Bit: Operador SHIFT</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Michell Stuttgart" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2014/06/20-icon-theme-no-ubuntu-linux/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2014/06/09-operadores-bit-bit-parte-4-de-5/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&text=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&title=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&is_video=false&description=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=#5 - Operadores Bit-a-Bit: Operador SHIFT&body=Check out this article: https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&title=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&title=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&title=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&title=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&name=#5 - Operadores Bit-a-Bit: Operador SHIFT&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&t=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SHIFT-Esquerdo"><span class="toc-number">1.</span> <span class="toc-text">SHIFT Esquerdo (&lt;&lt;)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SHIFT-Direito"><span class="toc-number">2.</span> <span class="toc-text">SHIFT Direito (&gt;&gt;)</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        #5 - Operadores Bit-a-Bit: Operador SHIFT
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Michell Stuttgart</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2014-06-19T19:30:00.000Z" class="dt-published" itemprop="datePublished">2014-06-19</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Operadores-Bit-a-Bit/">Operadores Bit-a-Bit</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/binario/" rel="tag">binario</a>, <a class="p-category" href="/tags/bit-a-bit/" rel="tag">bit-a-bit</a>, <a class="p-category" href="/tags/c/" rel="tag">c</a>, <a class="p-category" href="/tags/c/" rel="tag">c++</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>Neste ultimo tutorial sobre os operadores Bit-a-Bit, vamos falar sobre o operador <code>SHIFT</code>. O operador SHIFT serve para deslocarmos os bits de um número para esquerda ou para direita uma determinada quantidade de vezes. Embora pareça algo sem simples, esse deslocamento possui muitas aplicações. É o que veremos a seguir.</p>
+<h2 id="SHIFT-Esquerdo"><a href="#SHIFT-Esquerdo" class="headerlink" title="SHIFT Esquerdo (&lt;&lt;)"></a>SHIFT Esquerdo (&lt;&lt;)</h2><p>O SHIFT Esquerdo (<code>&lt;&lt;</code>) desloca para esquerda todos os bits de um número um determinado número de vezes.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> a = <span class="number">5</span>; <span class="comment">// 00000101</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> c = a &lt;&lt; <span class="number">1</span>;</span><br><span class="line">cout &lt;&lt; c;</span><br></pre></td></tr></table></figure>
+<p>Valor de saída é <code>10</code> decimal ou <code>00001010</code> em binário.</p>
+<p>Ao observarmos o valor de <code>c</code>, percebemos que ele dobrou. Esse detalhe está relacionado com uma das aplicações mais comuns do operador <code>SHIFT Esquerdo</code>: a multiplicação.</p>
+<p>Toda vez que utilizamos o operador <code>&lt;&lt;</code> obtemos como resultado um valor equivalente ao operando multiplicado por 2 elevado ao número de deslocamentos, ou seja:</p>
+<blockquote>
+<p>x &lt;&lt; n* é o mesmo que x * 2^n</p>
+</blockquote>
+<p>As operações de multiplicação e divisão são operações custosas para o processador, sendo uma das que levam mais tempo (ou ciclos) para serem completadas. Quando necessitamos executar operações de multiplicação por valores que são potência de 2, podemos usar o operador <code>&lt;&lt;</code> que é uma operação mais rápida que a multiplicação usando o operador <code>*</code> e nos devolve o mesmo resultado.</p>
+<h2 id="SHIFT-Direito"><a href="#SHIFT-Direito" class="headerlink" title="SHIFT Direito (&gt;&gt;)"></a>SHIFT Direito (&gt;&gt;)</h2><p>O SHIFT para direita (<code>&gt;&gt;</code>) desloca para direita todos os bits de um número um determinado número de vezes.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> a = <span class="number">5</span>; <span class="comment">// 00000101</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> c = a &gt;&gt; <span class="number">1</span>;</span><br><span class="line">cout &lt;&lt; c;</span><br></pre></td></tr></table></figure>
+<p>A saída é <code>2</code> decimal ou <code>00000010</code> em binário.</p>
+<p>Assim como o SHIFT Esquerdo, o <code>SHIFT Direito</code> pode realizar operações aritméticas, porém neste caso ele realiza a divisão (inteira) do operando por uma potência de 2. No exemplo acima podemos perceber que a variável c recebeu o parte inteira da divisão de <code>5</code> por <code>2^1</code>.</p>
+<blockquote>
+<p>x &gt;&gt; n* é o mesmo que x &#x2F; 2^n</p>
+</blockquote>
+<p>O operador SHIFT ainda possui diversos exemplos de uso, então não deixe de procurá-los.</p>
+<p>Espero que essa série de tutoriais tenha lhe ajudado a entender mais sobre essas ferramentas interessante s que são os operadores Bit-a-Bit.</p>
+<p>Obrigado por ler! Até o próximo post.</p>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">./home</a></li>
+        
+          <li><a href="/archives/">./blog</a></li>
+        
+          <li><a href="/projects/">./projects</a></li>
+        
+          <li><a href="/categories/">./categories</a></li>
+        
+          <li><a href="/about/">./about</a></li>
+        
+          <li><a href="/search/">./search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SHIFT-Esquerdo"><span class="toc-number">1.</span> <span class="toc-text">SHIFT Esquerdo (&lt;&lt;)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SHIFT-Direito"><span class="toc-number">2.</span> <span class="toc-text">SHIFT Direito (&gt;&gt;)</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&text=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&title=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&is_video=false&description=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=#5 - Operadores Bit-a-Bit: Operador SHIFT&body=Check out this article: https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&title=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&title=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&title=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&title=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&name=#5 - Operadores Bit-a-Bit: Operador SHIFT&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2014/06/19-operadores-bit-bit-parte-5-de-5/&t=#5 - Operadores Bit-a-Bit: Operador SHIFT"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Michell Stuttgart
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'mstuttgart/mstuttgart.github.io';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = '';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+</body>
+</html>

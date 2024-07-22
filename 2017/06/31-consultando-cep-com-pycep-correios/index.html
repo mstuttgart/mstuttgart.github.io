@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Obtendo dados de um CEP diretamente do webservice dos Correios">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Consulta de CEP com PyCEPCorreios">
+<meta property="og:url" content="https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/index.html">
+<meta property="og:site_name" content="Michell Stuttgart">
+<meta property="og:description" content="Obtendo dados de um CEP diretamente do webservice dos Correios">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-06-23T01:42:36.000Z">
+<meta property="article:modified_time" content="2024-05-02T16:32:14.907Z">
+<meta property="article:author" content="Michell Stuttgart">
+<meta property="article:tag" content="projeto">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="correios">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Consulta de CEP com PyCEPCorreios</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Michell Stuttgart" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2017/07/27-git-realizando-o-checkout-de-pull-requests-localmente/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2017/05/26-como-clonar-um-subdiretorio-com-git/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&text=Consulta de CEP com PyCEPCorreios"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&title=Consulta de CEP com PyCEPCorreios"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&is_video=false&description=Consulta de CEP com PyCEPCorreios"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Consulta de CEP com PyCEPCorreios&body=Check out this article: https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&title=Consulta de CEP com PyCEPCorreios"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&title=Consulta de CEP com PyCEPCorreios"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&title=Consulta de CEP com PyCEPCorreios"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&title=Consulta de CEP com PyCEPCorreios"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&name=Consulta de CEP com PyCEPCorreios&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&t=Consulta de CEP com PyCEPCorreios"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Instalacao"><span class="toc-number">1.</span> <span class="toc-text">Instalação</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Como-usar"><span class="toc-number">2.</span> <span class="toc-text">Como usar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conclusao"><span class="toc-number">3.</span> <span class="toc-text">Conclusão</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Consulta de CEP com PyCEPCorreios
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Michell Stuttgart</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2017-06-23T01:42:36.000Z" class="dt-published" itemprop="datePublished">2017-06-22</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Meus-Projetos/">Meus Projetos</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/correios/" rel="tag">correios</a>, <a class="p-category" href="/tags/projeto/" rel="tag">projeto</a>, <a class="p-category" href="/tags/python/" rel="tag">python</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>Boa tarde, pessoal. Tudo certo?</p>
+<p>Atualização do <em>post</em> antigo. Neste <em>post</em> irei falar um pouco sobre a nova versão da <a target="_blank" rel="noopener" href="https://github.com/mstuttgart/pycep-correios">PyCEP Correios</a>.</p>
+<p>O <a target="_blank" rel="noopener" href="https://github.com/mstuttgart/pycep-correios">PyCEPCorreios</a> é uma api desenvolvida em Python que realiza a busca dos dados de um dado CEP diretamente no <em>webservice</em> dos Correios, sendo essa a principal diferença em relação a outras api’s de consulta de CEP. O retorno dessa consulta é um <em>dict</em> contendo os dados do endereço pertencente ao CEP. Este projeto foi iniciado por mim para fins de estudo, porém ele pode ser utilizado normalmente em projetos mais sérios.</p>
+<p><strong>UPDATE:</strong> A versão <em>2.0.0</em> trouxe melhorias consideráveis no código com o objetivo de tornar a API mais<br>fácil de ser utilizada. Porém, ela é incompatível com as versões anteriores. Houve<br>grandes melhorias na documentação, código e testes da API. Sendo assim,<br>decidi republicar esse <em>post</em> com novas informações sobre a lib.</p>
+<p><strong>UPDATE:</strong> A versão <em>2.1.0</em> trouxe suporte para python 2.7+</p>
+<h3 id="Instalacao"><a href="#Instalacao" class="headerlink" title="Instalação"></a>Instalação</h3><p>O PyCEP Correios pode ser facilmente instalado com o comando a seguir:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pycep-correios</span><br></pre></td></tr></table></figure>
+<p><strong>UPDATE</strong>: Atualmente, a PyCEPCorreios possui suporte para Python 2.7+ e 3.3+.</p>
+<h3 id="Como-usar"><a href="#Como-usar" class="headerlink" title="Como usar"></a>Como usar</h3><p>Consultar o endereço de um CEP é muito simples com a <a target="_blank" rel="noopener" href="https://github.com/mstuttgart/pycep-correios">PyCEPCorreios</a>. Não importa se o CEP fornecido possui hífen ou ponto. A <a target="_blank" rel="noopener" href="https://github.com/mstuttgart/pycep-correios">PyCEPCorreios</a> trata a entrada garantindo uma entrada válida para o <em>webservice</em> dos Correios.</p>
+<p>Veja os exemplos a seguir:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pycep_correios</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>endereco = pycep_correios.consultar_cep(<span class="string">&#x27;37503130&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(endereco)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&#x27;bairro&#x27;</span>: <span class="string">&#x27;Santo Antônio&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;cep&#x27;</span>: <span class="string">&#x27;37503130&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;cidade&#x27;</span>: <span class="string">&#x27;Itajubá&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;end&#x27;</span>: <span class="string">&#x27;Rua Geraldino Campista&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;id&#x27;</span>: <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;uf&#x27;</span>: <span class="string">&#x27;MG&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;complemento&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;complemento2&#x27;</span>: <span class="string">&#x27;- até 214/215&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Um exemplo alternativo, enviamos um CEP incorreto, com a quantidade de dígitos inferior a 8.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pycep_correios</span><br><span class="line"><span class="keyword">from</span> pycep_correios.excecao <span class="keyword">import</span> CEPInvalido</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    endereco = pycep_correios.consultar_cep(<span class="string">&#x27;00000000&#x27;</span>)</span><br><span class="line"><span class="keyword">except</span> CEPInvalido <span class="keyword">as</span> exc:</span><br><span class="line">    <span class="built_in">print</span>(exc)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Para outras exceções devemos utilizar as exceções da biblioteca <em>requests</em>, no qual a<br>PyCEPCorreios faz uso para comunicação com o <em>webservice</em>. As antigas exceções da biblioteca também foram removidas a fim de evitar redundância com as exceções da <em>requests</em> e toda a API agora possui comandos e documentação em postuguês.</p>
+<p>A PyCEPCorreios também possui funções para validar e formatar números de CEP. Para mais exemplos, veja a documentação <a target="_blank" rel="noopener" href="https://pycep-correios.readthedocs.io/pt/latest/usage.html">aqui</a>. Abaixo, segue alguns <em>links</em> úteis.</p>
+<ul>
+<li>Repositório: <a target="_blank" rel="noopener" href="https://github.com/mstuttgart/pycep-correios">https://github.com/mstuttgart/pycep-correios</a></li>
+<li>PyPi: <a target="_blank" rel="noopener" href="https://pypi.python.org/pypi/pycep-correios">https://pypi.python.org/pypi/pycep-correios</a></li>
+<li>Documentação: <a target="_blank" rel="noopener" href="https://pycep-correios.readthedocs.io/pt/latest/">https://pycep-correios.readthedocs.io/pt/latest/</a></li>
+</ul>
+<p>Se deseja contribuir, por favor dê uma olhada na documentação <a target="_blank" rel="noopener" href="https://pycep-correios.readthedocs.io/pt/latest/contributing.html">aqui</a>. Contribuições são sempre bem-vindas.</p>
+<h3 id="Conclusao"><a href="#Conclusao" class="headerlink" title="Conclusão"></a>Conclusão</h3><p>É isso pessoal. Este <em>post</em> foi feito simplesmente para apresentação da <a target="_blank" rel="noopener" href="https://github.com/mstuttgart/pycep-correios">PyCEP Correios</a> e mostrar exemplos<br>de utilização da versão <em>2.0.0</em> da API. Espero que o módulo seja útil a vocês. Se alguém possuir alguma crítica ou sugestão sinta-se livre para comentar.</p>
+<p>Obrigado por ler até aqui! Até o próximo <em>post</em>.</p>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">./home</a></li>
+        
+          <li><a href="/archives/">./blog</a></li>
+        
+          <li><a href="/projects/">./projects</a></li>
+        
+          <li><a href="/categories/">./categories</a></li>
+        
+          <li><a href="/about/">./about</a></li>
+        
+          <li><a href="/search/">./search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Instalacao"><span class="toc-number">1.</span> <span class="toc-text">Instalação</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Como-usar"><span class="toc-number">2.</span> <span class="toc-text">Como usar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conclusao"><span class="toc-number">3.</span> <span class="toc-text">Conclusão</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&text=Consulta de CEP com PyCEPCorreios"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&title=Consulta de CEP com PyCEPCorreios"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&is_video=false&description=Consulta de CEP com PyCEPCorreios"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Consulta de CEP com PyCEPCorreios&body=Check out this article: https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&title=Consulta de CEP com PyCEPCorreios"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&title=Consulta de CEP com PyCEPCorreios"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&title=Consulta de CEP com PyCEPCorreios"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&title=Consulta de CEP com PyCEPCorreios"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&name=Consulta de CEP com PyCEPCorreios&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2017/06/31-consultando-cep-com-pycep-correios/&t=Consulta de CEP com PyCEPCorreios"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Michell Stuttgart
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'mstuttgart/mstuttgart.github.io';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = '';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+</body>
+</html>

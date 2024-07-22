@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Crie documentação para seus projetos com stilo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coveralls - Como gerar relatórios de testes">
+<meta property="og:url" content="https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/index.html">
+<meta property="og:site_name" content="Michell Stuttgart">
+<meta property="og:description" content="Crie documentação para seus projetos com stilo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_41.png">
+<meta property="og:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_42.png">
+<meta property="og:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_43.png">
+<meta property="article:published_time" content="2016-05-18T14:28:55.000Z">
+<meta property="article:modified_time" content="2024-05-02T16:32:14.907Z">
+<meta property="article:author" content="Michell Stuttgart">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="coveralls">
+<meta property="article:tag" content="testes">
+<meta property="article:tag" content="teste">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mstuttgart.github.io/images/mstuttgart/snapshot_41.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Coveralls - Como gerar relatórios de testes</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Michell Stuttgart" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2016/06/01-como-distribuir-seu-projeto-python-com-pypi/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2016/05/07-python-com-unittest-travis-ci-coveralls-e-landscape-parte-4-de-4/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&text=Coveralls - Como gerar relatórios de testes"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&title=Coveralls - Como gerar relatórios de testes"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&is_video=false&description=Coveralls - Como gerar relatórios de testes"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Coveralls - Como gerar relatórios de testes&body=Check out this article: https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&title=Coveralls - Como gerar relatórios de testes"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&title=Coveralls - Como gerar relatórios de testes"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&title=Coveralls - Como gerar relatórios de testes"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&title=Coveralls - Como gerar relatórios de testes"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&name=Coveralls - Como gerar relatórios de testes&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&t=Coveralls - Como gerar relatórios de testes"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Instalacao"><span class="toc-number">1.</span> <span class="toc-text">Instalação</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gerando-relatorios"><span class="toc-number">2.</span> <span class="toc-text">Gerando relatórios</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Gerando-relatorio-em-HTML"><span class="toc-number">2.1.</span> <span class="toc-text">Gerando relatório em HTML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gerando-relatorio-em-XML"><span class="toc-number">2.2.</span> <span class="toc-text">Gerando relatório em XML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Criando-o-arquivo-coveragerc"><span class="toc-number">2.3.</span> <span class="toc-text">Criando o arquivo coveragerc</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conclusao"><span class="toc-number">3.</span> <span class="toc-text">Conclusão</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Coveralls - Como gerar relatórios de testes
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Michell Stuttgart</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2016-05-18T14:28:55.000Z" class="dt-published" itemprop="datePublished">2016-05-18</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Dev/">Dev</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/coveralls/" rel="tag">coveralls</a>, <a class="p-category" href="/tags/python/" rel="tag">python</a>, <a class="p-category" href="/tags/teste/" rel="tag">teste</a>, <a class="p-category" href="/tags/testes/" rel="tag">testes</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>Na <a target="_blank" rel="noopener" href="http://mstuttgart.com.br/python-com-unittest-travis-ci-coveralls-e-landscape-parte-3-de-4.html">terceira parte</a> do tutorial sobre <em>unittest</em>, vimos como utilizar o serviço <a target="_blank" rel="noopener" href="https://coveralls.io/">Coveralls</a> para gerar relatórios sobre o testes do nosso projeto. Entretanto, uma “desvantagem” do serviço é que o processo de análise é iniciado apenas quando executarmos um <em>push</em> ou um <em>pull request</em>. Sendo assim, não seria interessante termos a liberdade de executar esses testes localmente?</p>
+<p>Felizmente, os desenvolvedores do <a target="_blank" rel="noopener" href="https://coveralls.io/">Coveralls</a> pensaram nisso e criaram um conjunto de comandos que nos permite executá-lo pelo terminal.</p>
+<h3 id="Instalacao"><a href="#Instalacao" class="headerlink" title="Instalação"></a>Instalação</h3><p>Então, antes de iniciarmos, vamos a instalação do módulo, que pode ser feito pelo comando a seguir:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install coveralls</span><br></pre></td></tr></table></figure>
+
+<p>Quando você instala o módulo, um <em>script</em> de linha de comando chamado <code>coverage</code> é adicionado ao diretório de <em>scripts</em> python no seu sistema. Para suportar diferentes versões do Python, o módulo vem com um conjunto de <em>scripts</em>. Então, para a versão 2.7 do Python, você pode utilizar o comando <code>coverage</code> ou <code>coverage2</code>. Para a versão 3, utilize <code>coverage3</code>.</p>
+<h3 id="Gerando-relatorios"><a href="#Gerando-relatorios" class="headerlink" title="Gerando relatórios"></a>Gerando relatórios</h3><p>O comando usado para obtermos um relatório sobre os testes do nosso projeto é simples. No diretório do projeto, basta executar:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coverage run --<span class="built_in">source</span>=nomedopacote setup.py <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<p>o comando <code>run</code> irá coletar dados sobre nosso código fonte. No nosso caso, usaremos o repositorio que criamos para o tutorial anterior: <a target="_blank" rel="noopener" href="https://github.com/mstuttgart/codigo-avulso-test-tutorial">codigo-avulso-test-tutorial</a>. Assim, o comando seria:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coverage run --<span class="built_in">source</span>=codigo_avulso_test_tutorial setup.py <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<p>Se você executar o comando <code>ls -la</code> no terminal, verá que um arquivo chamando <code>.coverage</code> foi criado. Esse arquivo contém algumas informações sobre o seu código. Vale alertar que para gerar os relatórios precisamos, obrigatoriamente, executar o comando acima, quando formos gerar o relatórios pela primeira vez ou quando o código sofrer alguma modificação.</p>
+<p>Uma vez que o arquivo <code>.coverage</code> foi gerado, execute o seguinte comando:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coverage report</span><br></pre></td></tr></table></figure>
+
+<p>Um relatório com a porcentagem de cobertura de testes (entre outras informações) de cada arquivo de código fonte será exibido no terminal.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Name                                               Stmts   Miss  Cover</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">codigo_avulso_test_tutorial/__init__.py                0      0   100%</span><br><span class="line">codigo_avulso_test_tutorial/circulo.py                 9      0   100%</span><br><span class="line">codigo_avulso_test_tutorial/figura_geometrica.py       5      0   100%</span><br><span class="line">codigo_avulso_test_tutorial/quadrado.py                8      0   100%</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">TOTAL                                                 22      0   100%</span><br></pre></td></tr></table></figure>
+
+<p>As colunas exibidas no relatório possuem informações interessantes. São elas:</p>
+<ul>
+<li>Stmts: indica o total de trechos do código que, segundo o Coveralls, devem ser testados.</li>
+<li>Miss: coluna que indica quantos trechos do código ainda não estão sob testes.</li>
+<li>Cover: talvez a coluna mais importante, ela indica a porcentagem de cobertura de testes do arquivo fonte.</li>
+</ul>
+<p>Em <code>TOTAL</code> temos a cobertura total de testes do nosso projeto. Nesse projeto em especial, temos 100% porque o mesmo possui pouco código e os códigos existentes são simples de testar. Entretanto, em projeto mais complexos, nem sempre é possível chegar nessa porcentagem, então vale a pena se focar em escrever testes para as partes mais críticas do seu código e conseguir uma porcentagem perto dos 80%, considerado pelo <code>Coveralls</code> como satisfatório.</p>
+<h4 id="Gerando-relatorio-em-HTML"><a href="#Gerando-relatorio-em-HTML" class="headerlink" title="Gerando relatório em HTML"></a>Gerando relatório em HTML</h4><p>Uma opção interessante é gerar o relatório em formato <code>html</code> com o comando:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coverage html</span><br></pre></td></tr></table></figure>
+
+<p>Um diretório chamado <code>htmlcov</code> será criado no diretório do projeto. Dentro desse diretório existe um arquivo de nome <code>index.html</code>, que pode ser aberto no navegador.</p>
+<p>Para o Google Chrome, usamos:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">google-chrome htmlcov/index.html</span><br></pre></td></tr></table></figure>
+<p>ou com o Firefox</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firefox htmlcov/index.html</span><br></pre></td></tr></table></figure>
+
+<p>Abaixo temos o <code>index.html</code> aberto. Nele podemos ver a lista dos arquivos que estão cobertos pelo <code>Coveralls</code>.</p>
+<p><img src="/images/mstuttgart/snapshot_41.png"></p>
+<p>Vamos analisar os dados do arquivo <code>circulo.py</code>. Assim, temos as seguintes colunas:</p>
+<ul>
+<li><code>statements</code>: indica o total de trechos do código que, segundo o Coveralls, devem ser testadas. No caso do arquivo <code>circulo.py</code>,  o valor da coluna é 9, indicando que existem 9 trechos do código quem devem estar sob teste.</li>
+<li><code>missing</code>: coluna que indica quantos trechos do código ainda não estão sob testes.</li>
+<li><code>excluded</code>: coluna que indica quantos trechos do código foram ignorados pelo Coveralls. Algumas vezes pode ser necessário excluir alguns trechos de código do relatório devido ao tipo de código nele contido ou porque você simplesmente não deseja que aquele trecho seja incluido no relatorio. Isso é feito através de um arquivo de configuração, visto mais adiante.</li>
+<li><code>coverage</code>: indica a porcentagem de cobertura de testes do nosso código.</li>
+</ul>
+<p>Na imagem abaixo, logo após clicarmos em <code>codigo_avulso_test_tutorial/circulo.py</code>, podemos ver os pontos do código que devem ser testados.</p>
+<p><img src="/images/mstuttgart/snapshot_42.png"></p>
+<p>Ao clicarmos nos três botões no cabeçalho da página:</p>
+<p><img src="/images/mstuttgart/snapshot_43.png"></p>
+<p>A página irá destacar, respectivamente, os trechos cobertos por testes, trechos sem testes ou que foram excluídos do <code>Coveralls</code>.</p>
+<h4 id="Gerando-relatorio-em-XML"><a href="#Gerando-relatorio-em-XML" class="headerlink" title="Gerando relatório em XML"></a>Gerando relatório em XML</h4><p>Os relatórios em XML podem ser facilmente gerados por:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coverage xml</span><br></pre></td></tr></table></figure>
+<p>Um arquivo chamado <code>coverage.xml</code> será criado.</p>
+<h4 id="Criando-o-arquivo-coveragerc"><a href="#Criando-o-arquivo-coveragerc" class="headerlink" title="Criando o arquivo coveragerc"></a>Criando o arquivo coveragerc</h4><p>O arquivo <code>.coveragesrc</code> é usado para determinar parâmetros de funcionamento do comando <code>coverage</code>. Nele podemos incluir e excluir aquivos da analise do <code>Coveralls</code> entre outras configurações. Abaixo temos um exemplo de arquivo de configuração.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[run]</span><br><span class="line">source = codigo_avulso_test_tutorial</span><br><span class="line">omit =</span><br><span class="line">    codigo_avulso_test_tutorial/__init__.py</span><br><span class="line">    codigo_avulso_test_tutorial/main.py</span><br></pre></td></tr></table></figure>
+
+<p>Na configuração acima, vamos omitir da análise o arquivo <code>__init__.py</code> e um arquivo <code>main.py</code>. Indicamos o <em>source</em> que é onde o <code>Coveralls</code> deve executar a análise.</p>
+<p>O arquivo de configuração ainda pode receber várias informações. Você pode ver mais delas <a target="_blank" rel="noopener" href="http://coverage.readthedocs.io/en/latest/source.html#source">aqui</a>.</p>
+<h3 id="Conclusao"><a href="#Conclusao" class="headerlink" title="Conclusão"></a>Conclusão</h3><p>Neste tutorial vimos um pouco mais sobre o <code>Coveralls</code>. Evitei colocar as informações deste tutorial nos tutoriais anteriores a fim de simplificá-los. Você pode aprender mais sobre o módulo consultando sua documentação <a target="_blank" rel="noopener" href="http://coverage.readthedocs.io/en/latest/index.html">aqui</a>.</p>
+<p>É isso pessoal, obrigado pela leitura e até o próximo tutorial.</p>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">./home</a></li>
+        
+          <li><a href="/archives/">./blog</a></li>
+        
+          <li><a href="/projects/">./projects</a></li>
+        
+          <li><a href="/categories/">./categories</a></li>
+        
+          <li><a href="/about/">./about</a></li>
+        
+          <li><a href="/search/">./search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Instalacao"><span class="toc-number">1.</span> <span class="toc-text">Instalação</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gerando-relatorios"><span class="toc-number">2.</span> <span class="toc-text">Gerando relatórios</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Gerando-relatorio-em-HTML"><span class="toc-number">2.1.</span> <span class="toc-text">Gerando relatório em HTML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gerando-relatorio-em-XML"><span class="toc-number">2.2.</span> <span class="toc-text">Gerando relatório em XML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Criando-o-arquivo-coveragerc"><span class="toc-number">2.3.</span> <span class="toc-text">Criando o arquivo coveragerc</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conclusao"><span class="toc-number">3.</span> <span class="toc-text">Conclusão</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&text=Coveralls - Como gerar relatórios de testes"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&title=Coveralls - Como gerar relatórios de testes"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&is_video=false&description=Coveralls - Como gerar relatórios de testes"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Coveralls - Como gerar relatórios de testes&body=Check out this article: https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&title=Coveralls - Como gerar relatórios de testes"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&title=Coveralls - Como gerar relatórios de testes"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&title=Coveralls - Como gerar relatórios de testes"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&title=Coveralls - Como gerar relatórios de testes"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&name=Coveralls - Como gerar relatórios de testes&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2016/05/18-gerando-relatorios-de-teste-com-coveralls/&t=Coveralls - Como gerar relatórios de testes"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Michell Stuttgart
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'mstuttgart/mstuttgart.github.io';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = '';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+</body>
+</html>

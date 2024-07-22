@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Neste tutorial, será abordado o processo de criação de um dict ou dicionário, a partir de um ou mais dicts em Python.  Como já é de costume da linguagem, isso pode ser feito de várias maneiras diferen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Crie dicts a partir de outros dicts com Python">
+<meta property="og:url" content="https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/index.html">
+<meta property="og:site_name" content="Michell Stuttgart">
+<meta property="og:description" content="Neste tutorial, será abordado o processo de criação de um dict ou dicionário, a partir de um ou mais dicts em Python.  Como já é de costume da linguagem, isso pode ser feito de várias maneiras diferen">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-04-09T13:02:29.000Z">
+<meta property="article:modified_time" content="2024-05-02T16:32:14.911Z">
+<meta property="article:author" content="Michell Stuttgart">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="tutorial">
+<meta property="article:tag" content="dict">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Crie dicts a partir de outros dicts com Python</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Michell Stuttgart" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2021/04/04-o-que-aprendi-na-minha-primeira-Game-Jam/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2018/01/21-linux-mint:-como-reiniciar-ambiente-grafico-mate-e-cinnamon/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&text=Crie dicts a partir de outros dicts com Python"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&title=Crie dicts a partir de outros dicts com Python"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&is_video=false&description=Crie dicts a partir de outros dicts com Python"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Crie dicts a partir de outros dicts com Python&body=Check out this article: https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&title=Crie dicts a partir de outros dicts com Python"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&title=Crie dicts a partir de outros dicts com Python"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&title=Crie dicts a partir de outros dicts com Python"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&title=Crie dicts a partir de outros dicts com Python"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&name=Crie dicts a partir de outros dicts com Python&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&t=Crie dicts a partir de outros dicts com Python"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Abordagem-inicial"><span class="toc-number">1.</span> <span class="toc-text">Abordagem inicial</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Novidades-do-Python-3"><span class="toc-number">1.1.</span> <span class="toc-text">Novidades do Python 3</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copia-real-de-dicts"><span class="toc-number">2.</span> <span class="toc-text">Cópia real de dicts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusao"><span class="toc-number">3.</span> <span class="toc-text">Conclusão</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Referencias"><span class="toc-number">4.</span> <span class="toc-text">Referências</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Crie dicts a partir de outros dicts com Python
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Michell Stuttgart</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-04-09T13:02:29.000Z" class="dt-published" itemprop="datePublished">2018-04-09</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Python/">Python</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/dict/" rel="tag">dict</a>, <a class="p-category" href="/tags/python/" rel="tag">python</a>, <a class="p-category" href="/tags/tutorial/" rel="tag">tutorial</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>Neste tutorial, será abordado o processo de criação de um <em>dict</em> ou dicionário, a partir de um ou mais <em>dicts</em> em Python. </p>
+<p>Como já é de costume da linguagem, isso pode ser feito de várias maneiras diferentes.</p>
+<h2 id="Abordagem-inicial"><a href="#Abordagem-inicial" class="headerlink" title="Abordagem inicial"></a>Abordagem inicial</h2><p>Pra começar, vamos supor que temos os seguintes dicionários:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dict_1 = &#123;</span><br><span class="line">    <span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dict_2 = &#123;</span><br><span class="line">    <span class="string">&#x27;b&#x27;</span>: <span class="number">3</span>,</span><br><span class="line">    <span class="string">&#x27;c&#x27;</span>: <span class="number">4</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Como exemplo, vamos criar um novo dicionário chamado <strong>new_dict</strong> com os valores de <strong>dict_1</strong> e <strong>dict_2</strong> logo acima. Uma abordagem bem conhecida é utilizar o método <em>update</em>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new_dict = &#123;&#125;</span><br><span class="line"></span><br><span class="line">new_dcit.update(dict_1)</span><br><span class="line">new_dcit.update(dict_2)</span><br></pre></td></tr></table></figure>
+
+<p>Assim, temos que <strong>new_dict</strong> será:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; <span class="built_in">print</span>(new_dict)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&#x27;b&#x27;</span>: <span class="number">3</span>,</span><br><span class="line">    <span class="string">&#x27;c&#x27;</span>: <span class="number">4</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Este método funciona bem, porém temos de chamar o método <em>update</em> para cada <em>dict</em> que desejamos mesclar em <strong>new_dict</strong>. Não seria interessante se fosse possível passar todos os <em>dicts</em> necessários já na inicialização de <strong>new_dict</strong>?</p>
+<h3 id="Novidades-do-Python-3"><a href="#Novidades-do-Python-3" class="headerlink" title="Novidades do Python 3"></a>Novidades do Python 3</h3><p>O Python 3 introduziu uma maneira bem interessante de se fazer isso, utilizando os operadores <code>**</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">new_dict = &#123;</span><br><span class="line">    **dict_1,</span><br><span class="line">    **dict_2,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Assim, de maneira semelhante ao exemplo anterior, temos que <strong>new_dict</strong> será :</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; <span class="built_in">print</span>(new_dict[<span class="string">&#x27;a&#x27;</span>])</span><br><span class="line"><span class="number">1</span></span><br><span class="line">&gt;&gt; <span class="built_in">print</span>(new_dict[<span class="string">&#x27;b&#x27;</span>])</span><br><span class="line"><span class="number">3</span></span><br><span class="line">&gt;&gt; <span class="built_in">print</span>(new_dict[<span class="string">&#x27;c&#x27;</span>])</span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Copia-real-de-dicts"><a href="#Copia-real-de-dicts" class="headerlink" title="Cópia real de dicts"></a>Cópia real de <em>dicts</em></h2><p>Ao utilizamos o procedimento de inicialização acima, devemos tomar conseiderar alguns fatores. Apenas os valores do primeiro nível serão realmente duplicados no novo dicionário. Como exemplo, vamos alterar uma chave presente em ambos os <em>dicts</em> e verificar se as mesmas possuem o mesmo valor:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; dict_1[<span class="string">&#x27;a&#x27;</span>] = <span class="number">10</span></span><br><span class="line">&gt;&gt; new_dict[<span class="string">&#x27;a&#x27;</span>] = <span class="number">11</span></span><br><span class="line">&gt;&gt; <span class="built_in">print</span>(dict_1[<span class="string">&#x27;a&#x27;</span>])</span><br><span class="line"><span class="number">10</span></span><br><span class="line">&gt;&gt; <span class="built_in">print</span>(new_dict[<span class="string">&#x27;a&#x27;</span>])</span><br><span class="line"><span class="number">11</span></span><br></pre></td></tr></table></figure>
+
+<p>Porém isso muda quando um dos valores de <strong>dict_1</strong> for uma <em>list</em>, outro <em>dict</em> ou algum objeto complexo. Por exemplo:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dict_3 = &#123;</span><br><span class="line">    <span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">&#x27;c&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;d&#x27;</span>: <span class="number">5</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>e agora, vamos criar um novo <em>dict</em> a partir desse:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new_dict = &#123;</span><br><span class="line">    **dict_3,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Como no exemplo anterior, podemos imaginar que foi realizado uma cópia de todos os elementos de <strong>dict_3</strong>, porém isso não é totalmente verdade. O que realmente aconteceu é que foi feita uma cópia <em>superficial</em> dos valores de <strong>dict_3</strong>, ou seja, apenas os valores de <em>primeiro nível</em> foram duplicados. Observe o que acontece quando alteramos o valor do <em>dict</em> presente na chave <strong>c</strong>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; new_dict[<span class="string">&#x27;c&#x27;</span>][<span class="string">&#x27;d&#x27;</span>] = <span class="number">11</span></span><br><span class="line">&gt;&gt; <span class="built_in">print</span>(new_dict[<span class="string">&#x27;c&#x27;</span>][<span class="string">&#x27;d&#x27;</span>])</span><br><span class="line"><span class="number">11</span></span><br><span class="line">&gt;&gt; <span class="built_in">print</span>(dict_3[<span class="string">&#x27;c&#x27;</span>][<span class="string">&#x27;d&#x27;</span>])</span><br><span class="line"><span class="number">11</span> </span><br><span class="line"><span class="comment"># valor anterior era 5</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>No caso da chave <strong>c</strong>, ela contem uma referência para outra estrutura de dados (um <em>dict</em>, no caso). Quando alteramos algum valor de <strong>dict_3[‘c’]</strong>, isso reflete em todos os <em>dict</em> que foram inicializados com <strong>dict_3</strong>. Em outras palavras, deve-se ter cuidado ao inicializar um <em>dict</em> a partir de outros <strong>dicts</strong> quando os mesmos possuírem valores complexos, como <em>list</em>, <em>dict</em> ou outros objetos (os atributos deste objeto não serão duplicados).</p>
+<p>De modo a contornar este inconveniente, podemos utilizar o método <em>deepcopy</em> da <em>lib</em> nativa <a target="_blank" rel="noopener" href="https://docs.python.org/2/library/copy.html">copy</a>. Agora, ao inicializarmos <strong>new_dict</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line">dict_3 = &#123;</span><br><span class="line">    <span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">&#x27;c&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;d&#x27;</span>: <span class="number">5</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">new_dict = copy.deepcopy(dict_3)</span><br></pre></td></tr></table></figure>
+
+<p>O método <em>deepcopy</em> realiza uma cópia recursiva de cada elemento de <strong>dict_3</strong>, resolvendo nosso problema. Veja mais um exemplo:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; new_dict[<span class="string">&#x27;c&#x27;</span>][<span class="string">&#x27;d&#x27;</span>] = <span class="number">11</span></span><br><span class="line">&gt;&gt; <span class="built_in">print</span>(new_dict[<span class="string">&#x27;c&#x27;</span>][<span class="string">&#x27;d&#x27;</span>])</span><br><span class="line"><span class="number">11</span></span><br><span class="line">&gt;&gt; <span class="built_in">print</span>(dict_3[<span class="string">&#x27;c&#x27;</span>][<span class="string">&#x27;d&#x27;</span>])</span><br><span class="line"><span class="number">5</span> </span><br><span class="line"><span class="comment"># valor não foi alterado</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Conclusao"><a href="#Conclusao" class="headerlink" title="Conclusão"></a>Conclusão</h2><p>Este artigo tenta demonstrar de maneira simples a criação de <em>dicts</em>, utilizando os diversos recursos que a linguagem oferece bem como os prós e contras de cada abordagem. </p>
+<h2 id="Referencias"><a href="#Referencias" class="headerlink" title="Referências"></a>Referências</h2><p>Para mais detalhes e outros exemplos, deem uma olhada neste <em>post</em> do forum da Python Brasil <a target="_blank" rel="noopener" href="https://groups.google.com/forum/#!topic/python-brasil/OhUqYQ32M7E">aqui</a>.</p>
+<p>É isso pessoal. Espero que esta dica seja útil para vocês!</p>
+<p>Até o próximo post!</p>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">./home</a></li>
+        
+          <li><a href="/archives/">./blog</a></li>
+        
+          <li><a href="/projects/">./projects</a></li>
+        
+          <li><a href="/categories/">./categories</a></li>
+        
+          <li><a href="/about/">./about</a></li>
+        
+          <li><a href="/search/">./search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Abordagem-inicial"><span class="toc-number">1.</span> <span class="toc-text">Abordagem inicial</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Novidades-do-Python-3"><span class="toc-number">1.1.</span> <span class="toc-text">Novidades do Python 3</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copia-real-de-dicts"><span class="toc-number">2.</span> <span class="toc-text">Cópia real de dicts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusao"><span class="toc-number">3.</span> <span class="toc-text">Conclusão</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Referencias"><span class="toc-number">4.</span> <span class="toc-text">Referências</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&text=Crie dicts a partir de outros dicts com Python"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&title=Crie dicts a partir de outros dicts com Python"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&is_video=false&description=Crie dicts a partir de outros dicts com Python"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Crie dicts a partir de outros dicts com Python&body=Check out this article: https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&title=Crie dicts a partir de outros dicts com Python"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&title=Crie dicts a partir de outros dicts com Python"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&title=Crie dicts a partir de outros dicts com Python"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&title=Crie dicts a partir de outros dicts com Python"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&name=Crie dicts a partir de outros dicts com Python&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2018/04/09-post-criando-dict-a-partir-de-dois-ou-mais-dicts/&t=Crie dicts a partir de outros dicts com Python"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Michell Stuttgart
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'mstuttgart/mstuttgart.github.io';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = '';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+</body>
+</html>

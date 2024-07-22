@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Conheça o Peewee - Um ORM Python minimalista.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Peewee - Um ORM Python minimalista">
+<meta property="og:url" content="https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/index.html">
+<meta property="og:site_name" content="Michell Stuttgart">
+<meta property="og:description" content="Conheça o Peewee - Um ORM Python minimalista.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-07-27T22:44:30.000Z">
+<meta property="article:modified_time" content="2024-05-02T16:32:14.907Z">
+<meta property="article:author" content="Michell Stuttgart">
+<meta property="article:tag" content="banco de dados">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="orm">
+<meta property="article:tag" content="peewee">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Peewee - Um ORM Python minimalista</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Michell Stuttgart" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2017/10/03-python-calculando-dias-de-diferenca-entre-duas-datas/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2017/07/27-git-realizando-o-checkout-de-pull-requests-localmente/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&text=Peewee - Um ORM Python minimalista"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&title=Peewee - Um ORM Python minimalista"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&is_video=false&description=Peewee - Um ORM Python minimalista"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Peewee - Um ORM Python minimalista&body=Check out this article: https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&title=Peewee - Um ORM Python minimalista"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&title=Peewee - Um ORM Python minimalista"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&title=Peewee - Um ORM Python minimalista"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&title=Peewee - Um ORM Python minimalista"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&name=Peewee - Um ORM Python minimalista&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&t=Peewee - Um ORM Python minimalista"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Instalacao"><span class="toc-number">1.</span> <span class="toc-text">Instalação</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Criando-o-banco-de-dados"><span class="toc-number">2.</span> <span class="toc-text">Criando o banco de dados</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Realizando-o-CRUD"><span class="toc-number">3.</span> <span class="toc-text">Realizando o CRUD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-Inserindo-dados-no-banco"><span class="toc-number">3.1.</span> <span class="toc-text">Create: Inserindo dados no banco</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Read-Consultando-dados-no-banco"><span class="toc-number">3.2.</span> <span class="toc-text">Read: Consultando dados no banco</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Update-Alterando-dados-no-banco"><span class="toc-number">3.3.</span> <span class="toc-text">Update: Alterando dados no banco</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Delete-Deletando-dados-do-banco"><span class="toc-number">3.4.</span> <span class="toc-text">Delete: Deletando dados do banco</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusao"><span class="toc-number">4.</span> <span class="toc-text">Conclusão</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Referencias"><span class="toc-number">5.</span> <span class="toc-text">Referências</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Peewee - Um ORM Python minimalista
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Michell Stuttgart</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2017-07-27T22:44:30.000Z" class="dt-published" itemprop="datePublished">2017-07-27</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Python/">Python</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/banco-de-dados/" rel="tag">banco de dados</a>, <a class="p-category" href="/tags/orm/" rel="tag">orm</a>, <a class="p-category" href="/tags/peewee/" rel="tag">peewee</a>, <a class="p-category" href="/tags/python/" rel="tag">python</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p><a target="_blank" rel="noopener" href="http://peewee.readthedocs.io/en/latest/index.html">Peewee</a> é um ORM destinado a criar e gerenciar tabelas de banco de dados relacionais através de objetos Python. Segundo a <a target="_blank" rel="noopener" href="https://pt.wikipedia.org/wiki/Mapeamento_objeto-relacional">wikipedia</a>, um ORM é:</p>
+<blockquote>
+<p>Mapeamento objeto-relacional (ou ORM, do inglês: Object-relational mapping) é uma técnica de desenvolvimento &gt; utilizada para reduzir a impedância da programação orientada aos objetos utilizando bancos de dados relacionais. As tabelas do banco de dados são representadas através de classes e os registros de cada tabela são representados como instâncias das classes correspondentes.</p>
+</blockquote>
+<p>O que um ORM faz é, basicamente, transformar classes Python em tabelas no banco de dados, além de permitir construir <em>querys</em> usando diretamente objetos Python ao invés de SQL.</p>
+<p>O Peewee é destinado a projetos de pequeno&#x2F;médio porte e se destaca pela simplicidade quando comparado a outros ORM mais conhecidos, como o SQLAlchemy. Uma analogia utilizada pelo autor da API e que acho muito interessante é que Peewee está para o SQLAlchemy assim como SQLite está para o PostgreSQL.</p>
+<p>Em relação aos recursos por ele oferecidos, podemos citar que ele possui suporte nativo a SQLite, PostgreSQL e MySQL, embora seja necessário a instalação de <em>drivers</em> para utilizá-lo com PostgreSQL e MySQL e suporta tanto Python 2.6+ quanto Python 3.4+.</p>
+<p>Neste tutorial, utilizaremos o SQLite, por sua simplicidade de uso e pelo Python possuir suporte nativo ao mesmo (usaremos o Python 3.5).</p>
+<h2 id="Instalacao"><a href="#Instalacao" class="headerlink" title="Instalação"></a>Instalação</h2><p>O Peewee pode ser facilmente instalado com o gerenciador de pacotes <em>pip</em> (recomendo a instalação em um virtualenv):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install peewee</span><br></pre></td></tr></table></figure>
+
+<h2 id="Criando-o-banco-de-dados"><a href="#Criando-o-banco-de-dados" class="headerlink" title="Criando o banco de dados"></a>Criando o banco de dados</h2><p>Para criar o banco de dados é bem simples. Inicialmente passamos o nome do nosso banco de dados (a extensão <code>*.db</code> indica um arquivo do SQLite).</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> peewee</span><br><span class="line"></span><br><span class="line"><span class="comment"># Aqui criamos o banco de dados</span></span><br><span class="line">db = peewee.SqliteDatabase(<span class="string">&#x27;codigo_avulso.db&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Diferente de outros bancos de dados que funcionam através um servidor, o SQLite cria um arquivo de extensão <code>*.db</code>, onde todos os nossos dados são armazenados.</p>
+<blockquote>
+<p>   Caso deseje ver as tabelas existentes no arquivo <code>codigo_avulso.db</code>, instale o aplicativo <code>SQLiteBrowser</code>. Com ele fica fácil monitorar as tabelas criadas e acompanhar o tutorial.</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install sqlitebrowser</span><br></pre></td></tr></table></figure>
+
+<p>A título de exemplo, vamos criar um banco destinado a armazenar nomes de livros e de seus respectivos autores. Iremos chamá-lo de <code>models.py</code>.</p>
+<p>Inicialmente, vamos criar a classe base para todos os nossos <code>models</code>. Esta é uma abordagem recomendada pela documentação e é considerada uma boa prática. Também adicionaremos um log para acompanharmos as mudanças que são feitas no banco:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># models.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> peewee</span><br><span class="line"></span><br><span class="line"><span class="comment"># Criamos o banco de dados</span></span><br><span class="line">db = peewee.SqliteDatabase(<span class="string">&#x27;codigo_avulso.db&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BaseModel</span>(peewee.Model):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Classe model base&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        <span class="comment"># Indica em qual banco de dados a tabela</span></span><br><span class="line">        <span class="comment"># &#x27;author&#x27; sera criada (obrigatorio). Neste caso,</span></span><br><span class="line">        <span class="comment"># utilizamos o banco &#x27;codigo_avulso.db&#x27; criado anteriormente</span></span><br><span class="line">        database = db</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>A class <code>BaseModel</code> é responsável por criar a conexão com nosso banco de dados.</p>
+<p>Agora, vamos criar a model que representa os autores:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># models.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Author</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Classe que representa a tabela Author</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># A tabela possui apenas o campo &#x27;name&#x27;, que receberá o nome do autor sera unico</span></span><br><span class="line">    name = peewee.CharField(unique=<span class="literal">True</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Se observamos a model <code>Author</code>, veremos que não foi especificado nenhuma coluna como <em>primary key</em> (chave primaria), sendo assim o Peewee irá criar um campo chamado <code>id</code> do tipo inteiro com auto incremento para funcionar como chave primária.<br>Em seguida, no mesmo arquivo <code>models.py</code> criamos a classe que representa os livros. Ela possui uma relação de “muitos para um” com a tabela de autores, ou seja, cada livro possui apenas um autor, mas um autor pode possuir vários livros.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># models.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Book</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Classe que representa a tabela Book</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># A tabela possui apenas o campo &#x27;title&#x27;, que receberá o nome do livro</span></span><br><span class="line">    title = peewee.CharField(unique=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Chave estrangeira para a tabela Author</span></span><br><span class="line">    author = peewee.ForeignKeyField(Author)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Agora, adicionamos o código que cria as tabelas <code>Author</code> e <code>Book</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># models.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        Author.create_table()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Tabela &#x27;Author&#x27; criada com sucesso!&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> peewee.OperationalError:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Tabela &#x27;Author&#x27; ja existe!&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        Book.create_table()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Tabela &#x27;Book&#x27; criada com sucesso!&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> peewee.OperationalError:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Tabela &#x27;Book&#x27; ja existe!&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>excerpt<br>Agora executamos o <code>models.py</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python models.py</span><br></pre></td></tr></table></figure>
+
+<p>A estrutura do diretório ficou assim:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── codigo_avulso.db</span><br><span class="line">├── models.py</span><br></pre></td></tr></table></figure>
+
+<p>Após executarmos o código, será criado um arquivo de nome <code>codigo_avulso.db</code> no mesmo diretório do nosso arquivo <code>models.py</code>, contendo as tabelas <code>Author</code> e <code>Book</code>.</p>
+<h2 id="Realizando-o-CRUD"><a href="#Realizando-o-CRUD" class="headerlink" title="Realizando o CRUD"></a>Realizando o CRUD</h2><p>Agora vamos seguir com as 4 principais operações que podemos realizar em um banco de dados, também conhecida como CRUD.</p>
+<p>A sigla <code>CRUD</code> é comumente utilizada para designar as quatro operações básicas que pode-se executar em um banco de dados, sendo elas: </p>
+<pre><code>- Create (criar um novo registro no banco)
+- Read (ler/consultar um registro)
+- Update (atualizar um registro)
+- Delete (excluir um registro do banco)
+</code></pre>
+<p>Iremos abordar cada uma dessas operações.</p>
+<h3 id="Create-Inserindo-dados-no-banco"><a href="#Create-Inserindo-dados-no-banco" class="headerlink" title="Create: Inserindo dados no banco"></a>Create: Inserindo dados no banco</h3><p>Agora, vamos popular nosso banco com alguns autores e seus respectivos livros. Para isso criamos um arquivo <code>create.py</code>. A estrutura do diretório ficou assim:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── codigo_avulso.db</span><br><span class="line">├── models.py</span><br><span class="line">├── create.py</span><br></pre></td></tr></table></figure>
+
+<p>A criação dos registros no banco pode ser feito através do método <code>create</code>, quando desejamos inserir um registro apenas; ou pelo método <code>insert_many</code>, quando desejamos inserir vários registros de uma vez em uma mesma tabela.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># create.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> models <span class="keyword">import</span> Author, Book</span><br><span class="line"></span><br><span class="line"><span class="comment"># Inserimos um autor de nome &quot;H. G. Wells&quot; na tabela &#x27;Author&#x27;</span></span><br><span class="line">author_1 = Author.create(name=<span class="string">&#x27;H. G. Wells&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Inserimos um autor de nome &quot;Julio Verne&quot; na tabela &#x27;Author&#x27;</span></span><br><span class="line">author_2 = Author.create(name=<span class="string">&#x27;Julio Verne&#x27;</span>)</span><br><span class="line"></span><br><span class="line">book_1 = &#123;</span><br><span class="line">    <span class="string">&#x27;title&#x27;</span>: <span class="string">&#x27;A Máquina do Tempo&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;author_id&#x27;</span>: author_1,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">book_2 = &#123;</span><br><span class="line">    <span class="string">&#x27;title&#x27;</span>: <span class="string">&#x27;Guerra dos Mundos&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;author_id&#x27;</span>: author_1,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">book_3 = &#123;</span><br><span class="line">    <span class="string">&#x27;title&#x27;</span>: <span class="string">&#x27;Volta ao Mundo em 80 Dias&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;author_id&#x27;</span>: author_2,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">book_4 = &#123;</span><br><span class="line">    <span class="string">&#x27;title&#x27;</span>: <span class="string">&#x27;Vinte Mil Leguas Submarinas&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;author_id&#x27;</span>: author_1,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">books = [book_1, book_2, book_3, book_4]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Inserimos os quatro livros na tabela &#x27;Book&#x27;</span></span><br><span class="line">Book.insert_many(books).execute()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Read-Consultando-dados-no-banco"><a href="#Read-Consultando-dados-no-banco" class="headerlink" title="Read: Consultando dados no banco"></a>Read: Consultando dados no banco</h3><p>O Peewee possui comandos destinados a realizar consultas no banco. De maneira semelhante ao conhecido <code>SELECT</code>. Podemos fazer essa consulta de duas maneiras. Se desejamos o primeiro registro que corresponda a nossa pesquisa, podemos utilizar o método <code>get()</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># read.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> models <span class="keyword">import</span> Author, Book</span><br><span class="line"></span><br><span class="line">book = Book.get(Book.title == <span class="string">&quot;Volta ao Mundo em 80 Dias&quot;</span>).get()</span><br><span class="line"><span class="built_in">print</span>(book.title)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Resultado</span></span><br><span class="line"><span class="comment"># * Volta ao Munto em 80 Dias</span></span><br></pre></td></tr></table></figure>
+
+<p>Porém, se desejamos mais de um registro, utilizamos o método <code>select</code>. Por exemplo, para consultar todos os livros escritos pelo autor “H. G. Wells”.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># read.py</span></span><br><span class="line"></span><br><span class="line">books = Book.select().join(Author).where(Author.name==<span class="string">&#x27;H. G. Wells&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Exibe a quantidade de registros que corresponde a nossa pesquisa</span></span><br><span class="line"><span class="built_in">print</span>(books.count())</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> book <span class="keyword">in</span> books:</span><br><span class="line">    <span class="built_in">print</span>(book.title)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Resultado:</span></span><br><span class="line"><span class="comment"># * A Máquina do Tempo</span></span><br><span class="line"><span class="comment"># * Guerra dos Mundos</span></span><br><span class="line"><span class="comment"># * Vinte Mil Leguas Submarinas</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Também podemos utilizar outras comandos do SQL como <code>limit</code> e <code>group</code> (para mais detalhes, ver a documentação <a target="_blank" rel="noopener" href="http://peewee.readthedocs.io/en/latest/index.html">aqui</a>).</p>
+<p>A estrutura do diretório ficou assim:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── codigo_avulso.db</span><br><span class="line">├── models.py</span><br><span class="line">├── create.py</span><br><span class="line">├── read.py</span><br></pre></td></tr></table></figure>
+
+<h3 id="Update-Alterando-dados-no-banco"><a href="#Update-Alterando-dados-no-banco" class="headerlink" title="Update: Alterando dados no banco"></a>Update: Alterando dados no banco</h3><p>Alterar dados também é bem simples. No exemplo anterior, se observarmos o resultado da consulta dos livros do autor “H. G. Wells”, iremos nos deparar com o livro de título “Vinte Mil Léguas Submarinas”. Se você, caro leitor, gosta de contos de ficção-científica, sabe que esta obra foi escrito por “Julio Verne”, coincidentemente um dos autores que também estão cadastrados em nosso banco. Sendo assim, vamos corrigir o autor do respectivo livro.</p>
+<p>Primeiro vamos buscar o registro do autor e do livro:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># update.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> models <span class="keyword">import</span> Author, Book</span><br><span class="line"></span><br><span class="line">new_author = Author.get(Author.name == <span class="string">&#x27;Julio Verne&#x27;</span>)</span><br><span class="line">book = Book.get(Book.title==<span class="string">&quot;Vinte Mil Leguas Submarinas&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Agora vamos alterar o autor e gravar essa alteração no banco.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># update.py</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Alteramos o autor do livro</span></span><br><span class="line">book.author = new_author</span><br><span class="line"></span><br><span class="line"><span class="comment"># Salvamos a alteração no banco</span></span><br><span class="line">book.save()</span><br></pre></td></tr></table></figure>
+
+<p>A estrutura do diretório ficou assim:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── codigo_avulso.db</span><br><span class="line">├── models.py</span><br><span class="line">├── create.py</span><br><span class="line">├── read.py</span><br><span class="line">├── update.py</span><br></pre></td></tr></table></figure>
+
+<h3 id="Delete-Deletando-dados-do-banco"><a href="#Delete-Deletando-dados-do-banco" class="headerlink" title="Delete: Deletando dados do banco"></a>Delete: Deletando dados do banco</h3><p>Assim como as operações anteriores, também podemos deletar registros do banco de maneira bem prática. Como exemplo, vamos deletar o livro “Guerra dos Mundos” do nosso banco de dados.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># delete.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> models <span class="keyword">import</span> Author, Book</span><br><span class="line"></span><br><span class="line"><span class="comment"># Buscamos o livro que desejamos excluir do banco</span></span><br><span class="line">book = Book.get(Book.title==<span class="string">&quot;Guerra dos Mundos&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Excluimos o livro do banco</span></span><br><span class="line">book.delete_instance()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Simples não?</p>
+<p>A estrutura do diretório ficou assim:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── codigo_avulso.db</span><br><span class="line">├── models.py</span><br><span class="line">├── create.py</span><br><span class="line">├── read.py</span><br><span class="line">├── update.py</span><br><span class="line">├── delete.py</span><br></pre></td></tr></table></figure>
+
+<h2 id="Conclusao"><a href="#Conclusao" class="headerlink" title="Conclusão"></a>Conclusão</h2><p>É isso pessoal. Este tutorial foi uma introdução bem enxuta sobre o Peewee. Ainda existem muitos tópicos que não abordei aqui, como a criação de <em>primary_key</em>, de campos <em>many2many</em> entre outros recursos, pois foge do escopo deste tutorial. Se você gostou do ORM, aconselho a dar uma olhada também na sua documentação, para conseguir extrair todo o potencial da ferramenta. A utilização de um ORM evita que o desenvolvedor perca tempo escrevendo <em>query</em> SQL e foque totalmente no desenvolvimento de código.</p>
+<h2 id="Referencias"><a href="#Referencias" class="headerlink" title="Referências"></a>Referências</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://peewee.readthedocs.io/en/latest/index.html">Documentação do Peewee (em inglês)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.blog.pythonlibrary.org/2014/07/17/an-intro-to-peewee-another-python-orm/">An Intro to peewee – Another Python ORM</a></li>
+<li><a target="_blank" rel="noopener" href="http://jonathansoma.com/tutorials/webapps/intro-to-peewee/">Introduction to peewee</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.novatec.com.br/livros/introducao-sql/">Introdução à Linguagem SQL</a></li>
+</ul>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">./home</a></li>
+        
+          <li><a href="/archives/">./blog</a></li>
+        
+          <li><a href="/projects/">./projects</a></li>
+        
+          <li><a href="/categories/">./categories</a></li>
+        
+          <li><a href="/about/">./about</a></li>
+        
+          <li><a href="/search/">./search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Instalacao"><span class="toc-number">1.</span> <span class="toc-text">Instalação</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Criando-o-banco-de-dados"><span class="toc-number">2.</span> <span class="toc-text">Criando o banco de dados</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Realizando-o-CRUD"><span class="toc-number">3.</span> <span class="toc-text">Realizando o CRUD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-Inserindo-dados-no-banco"><span class="toc-number">3.1.</span> <span class="toc-text">Create: Inserindo dados no banco</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Read-Consultando-dados-no-banco"><span class="toc-number">3.2.</span> <span class="toc-text">Read: Consultando dados no banco</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Update-Alterando-dados-no-banco"><span class="toc-number">3.3.</span> <span class="toc-text">Update: Alterando dados no banco</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Delete-Deletando-dados-do-banco"><span class="toc-number">3.4.</span> <span class="toc-text">Delete: Deletando dados do banco</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusao"><span class="toc-number">4.</span> <span class="toc-text">Conclusão</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Referencias"><span class="toc-number">5.</span> <span class="toc-text">Referências</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&text=Peewee - Um ORM Python minimalista"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&title=Peewee - Um ORM Python minimalista"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&is_video=false&description=Peewee - Um ORM Python minimalista"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Peewee - Um ORM Python minimalista&body=Check out this article: https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&title=Peewee - Um ORM Python minimalista"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&title=Peewee - Um ORM Python minimalista"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&title=Peewee - Um ORM Python minimalista"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&title=Peewee - Um ORM Python minimalista"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&name=Peewee - Um ORM Python minimalista&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2017/07/14-peewee-um-orm-python-minimalista/&t=Peewee - Um ORM Python minimalista"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Michell Stuttgart
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'mstuttgart/mstuttgart.github.io';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = '';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+</body>
+</html>

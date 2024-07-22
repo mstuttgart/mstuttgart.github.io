@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Instale ferramentas de desenvolvimento com apenas um clique com Ubuntu Make">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Configure seu ambiente de desenvolvimento com Ubuntu Make">
+<meta property="og:url" content="https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/index.html">
+<meta property="og:site_name" content="Michell Stuttgart">
+<meta property="og:description" content="Instale ferramentas de desenvolvimento com apenas um clique com Ubuntu Make">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-03-29T21:46:01.000Z">
+<meta property="article:modified_time" content="2024-05-02T16:32:14.907Z">
+<meta property="article:author" content="Michell Stuttgart">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="ferramentas">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Configure seu ambiente de desenvolvimento com Ubuntu Make</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Michell Stuttgart" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2016/04/12-python-com-unittest-travis-e-coveralls-parte-1-de-4/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2016/03/20-sobre-o-livro-guia-manga-de-banco-de-dados/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&text=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&title=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&is_video=false&description=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Configure seu ambiente de desenvolvimento com Ubuntu Make&body=Check out this article: https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&title=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&title=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&title=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&title=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&name=Configure seu ambiente de desenvolvimento com Ubuntu Make&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&t=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Instalacao"><span class="toc-number">1.</span> <span class="toc-text">Instalação</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Utilizando-o-Ubuntu-Make"><span class="toc-number">2.</span> <span class="toc-text">Utilizando o Ubuntu Make</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Categorias"><span class="toc-number">2.1.</span> <span class="toc-text">Categorias</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Exemplos-de-uso"><span class="toc-number">2.2.</span> <span class="toc-text">Exemplos de uso</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conclusao"><span class="toc-number">3.</span> <span class="toc-text">Conclusão</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Configure seu ambiente de desenvolvimento com Ubuntu Make
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Michell Stuttgart</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2016-03-29T21:46:01.000Z" class="dt-published" itemprop="datePublished">2016-03-29</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Dev/">Dev</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/ferramentas/" rel="tag">ferramentas</a>, <a class="p-category" href="/tags/ubuntu/" rel="tag">ubuntu</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p><a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/ubuntu-make">Ubuntu Make</a> é uma ferramenta de linha de comando que permite que você faça o download e instalação de das ferramentas de desenvolvimento mais populares, instalando também todas as suas dependências. O objetivo do <a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/ubuntu-make">Ubuntu Make</a> é possibilitar que, através de um comando, você tenha seu ambiente de desenvolvimento pronto para uso.<br>Ele possui suporte a instalação de IDE’s de diversas linguagens, ferramentas para desenvolvimento web frontend(javascript e dart), backend (go and dart), mobile (java e android sdk) e etc.</p>
+<h3 id="Instalacao"><a href="#Instalacao" class="headerlink" title="Instalação"></a>Instalação</h3><p>A instalação depende da inclusão do ppa abaixo. Então, basta abrir o termial e entrar com os comando a seguir:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ubuntu-make</span><br></pre></td></tr></table></figure>
+
+<h3 id="Utilizando-o-Ubuntu-Make"><a href="#Utilizando-o-Ubuntu-Make" class="headerlink" title="Utilizando o Ubuntu Make"></a>Utilizando o Ubuntu Make</h3><h4 id="Categorias"><a href="#Categorias" class="headerlink" title="Categorias"></a>Categorias</h4><p>O <a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/ubuntu-make">Ubuntu Make</a> possui uma lista de plataformas suportadas que foram separadas por categorias para facilitar a vida do desenvolvedor na hora de instalar suas ferramentas preferidas.</p>
+<p>As categorias existentes podem ser visualizadas com o comando abaixo.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umake --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+
+<p>No presente momento, temos as seguites categorias. Novas ferramentas sempre estão sendo incluídas pela comunidade:</p>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>games</td>
+<td>Ambiente de desenvolvimento de games</td>
+</tr>
+<tr>
+<td>web</td>
+<td>Ambiente de desenvolvimento web</td>
+</tr>
+<tr>
+<td>go</td>
+<td>Suporte a linguagem Go</td>
+</tr>
+<tr>
+<td>dart</td>
+<td>Ambiente de desenvolvimento Dartlang</td>
+</tr>
+<tr>
+<td>ide</td>
+<td>IDE genéricas</td>
+</tr>
+<tr>
+<td>android</td>
+<td>Ambiente de desenvolvimento Android</td>
+</tr>
+<tr>
+<td>swift</td>
+<td>Suporte a linguagem Swift</td>
+</tr>
+<tr>
+<td>scala</td>
+<td>Suporte a linguagem Scala</td>
+</tr>
+<tr>
+<td>rust</td>
+<td>Suporte a linguagem  Rust</td>
+</tr>
+<tr>
+<td>nodejs</td>
+<td>Versão estável do Nodejs</td>
+</tr>
+</tbody></table>
+<p>Se você desejar verificar as opções de uma sub-categoria, basta usar o comando a seguir:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umake android --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+
+<p>Você encontrará as seguintes opções:</p>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>android-ndk</td>
+<td>Android NDK</td>
+</tr>
+<tr>
+<td>android-sdk</td>
+<td>Android SDK</td>
+</tr>
+<tr>
+<td>android-studio</td>
+<td>Android Studio (padrão)</td>
+</tr>
+</tbody></table>
+<p>E assim você pode ir navegando nas subcategorias da ferramenta.</p>
+<h4 id="Exemplos-de-uso"><a href="#Exemplos-de-uso" class="headerlink" title="Exemplos de uso"></a>Exemplos de uso</h4><p>O uso do Ubuntu Make é muito simples, o que o torna uma ferramenta muito valiosa. Como exemplo vamos realizar a instalação da IDE Netbeans. Basta executar o comando a seguir.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umake ide netbeans</span><br></pre></td></tr></table></figure>
+
+<p>Basta aceitar os termos de uso, entrando com o texto “Eu aceito” e esperar download e instalação da IDE. Depois disso você já pode usá-la. As IDE e SDK’s normalmente são instalados nbo diretório <code>.local/share/umake/</code></p>
+<p>A instalação do ambiente de desenvolvimento do Android também segue o mesmo princípio, porém possui uma categoria própria.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">umake android android-sdk</span><br><span class="line">umake android android-studio</span><br></pre></td></tr></table></figure>
+
+<p>Instalando a versão estável do nodejs</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umake nodejs</span><br></pre></td></tr></table></figure>
+
+<h3 id="Conclusao"><a href="#Conclusao" class="headerlink" title="Conclusão"></a>Conclusão</h3><p>Bom, esses são alguns exemplos de uso do Ubuntu Make. Para mais informações você pode consultar a página oficial <a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/ubuntu-make">aqui</a>.</p>
+<p>Obrigado por ler e até o próximo post! t+</p>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">./home</a></li>
+        
+          <li><a href="/archives/">./blog</a></li>
+        
+          <li><a href="/projects/">./projects</a></li>
+        
+          <li><a href="/categories/">./categories</a></li>
+        
+          <li><a href="/about/">./about</a></li>
+        
+          <li><a href="/search/">./search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Instalacao"><span class="toc-number">1.</span> <span class="toc-text">Instalação</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Utilizando-o-Ubuntu-Make"><span class="toc-number">2.</span> <span class="toc-text">Utilizando o Ubuntu Make</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Categorias"><span class="toc-number">2.1.</span> <span class="toc-text">Categorias</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Exemplos-de-uso"><span class="toc-number">2.2.</span> <span class="toc-text">Exemplos de uso</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conclusao"><span class="toc-number">3.</span> <span class="toc-text">Conclusão</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&text=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&title=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&is_video=false&description=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Configure seu ambiente de desenvolvimento com Ubuntu Make&body=Check out this article: https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&title=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&title=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&title=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&title=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&name=Configure seu ambiente de desenvolvimento com Ubuntu Make&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mstuttgart.github.io/2016/03/29-configurando-seu-ambiente-de-desenvolvimento-com-ubuntu-make/&t=Configure seu ambiente de desenvolvimento com Ubuntu Make"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Michell Stuttgart
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">./home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">./blog</a></li><!--
+     --><!--
+       --><li><a href="/projects/">./projects</a></li><!--
+     --><!--
+       --><li><a href="/categories/">./categories</a></li><!--
+     --><!--
+       --><li><a href="/about/">./about</a></li><!--
+     --><!--
+       --><li><a href="/search/">./search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'mstuttgart/mstuttgart.github.io';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = '';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+</body>
+</html>
