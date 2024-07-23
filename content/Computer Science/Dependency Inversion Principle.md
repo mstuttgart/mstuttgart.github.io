@@ -1,0 +1,1 @@
+The Dependency Inversion Principle is represented by the `D` in [[SOLID]]
