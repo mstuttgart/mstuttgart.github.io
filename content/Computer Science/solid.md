@@ -94,6 +94,10 @@ Este postulado define o seguinte:
 
 > Entidades de software devem ser abertas para extensão, mas fechadas para modificação.
 
+Em outras palavras:
+
+* "aberta para ext"
+
 Isso quer dizer que uma classe deve ser construída de modo que seja possivel estender seu comportamento, sem que precisemos alterar o conteúdo da classe em si. Considere que temos as seguintes classes que representam figuras geométricas:
 
 ```python
@@ -110,6 +114,7 @@ class GeometricShape:
 		self.radius = radius
 ```
 
-A primeira vista, podemos detectar doi
+A primeira vista, podemos detectar dois problemas nessa classe:
+1. Ela é muito genérica. Possui um atributo `radius`, que somente é usado quando a figura é um circulo
 [^srp]: https://web.archive.org/web/20150202200348/http://www.objectmentor.com/resources/articles/srp.pdf
 [^ocp]: https://web.archive.org/web/20150415215806/http://www.objectmentor.com/resources/articles/ocp.pdf
