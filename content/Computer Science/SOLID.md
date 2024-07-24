@@ -31,7 +31,7 @@ O `Single Responsability Principle` é um dos princípios mais dificieis de sere
 A título de exemplo, vamos analisar a seguinte classe:
 
 ```python
-class ServerInterface: 
+class : 
 
 	def create_connection(self):
 		pass
@@ -50,7 +50,19 @@ class ServerInterface:
 	
 ```
 
-A classe `ServerInterface`  é utilizada por duas classes diferentes
+A classe `BaseInterface` é herdada por duas classes diferentes:
+
+```python
+class ConnectionManager(BaseInterface)
+```
+
+e 
+
+```python
+class PackagerManager(BaseInterface)
+```
+
+
 ## Referências
 
 [^srp]: https://web.archive.org/web/20150202200348/http://www.objectmentor.com/resources/articles/srp.pdf
