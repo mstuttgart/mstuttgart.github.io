@@ -1,6 +1,6 @@
 ---
 title: SOLID
-draft: true
+draft: false
 tags:
   - solid 
   - poo 
@@ -141,7 +141,13 @@ class ShapeCalculator:
 	
 ```
 
-O problema da classe `ShapeCalculator`é que, cada vez que uma nova figura geométrica for adicionada, temos que adicionar um novo `if` a classe verificando essa figura, fazendo com que o método `calc_area` fique cada vez maior. Em outras palavras, a classe `ShapeCalculator` não esta fechada para modificação e classes de figuras 
+O problema da classe `ShapeCalculator`é que, cada vez que uma nova figura geométrica for adicionada, temos que adicionar um novo `if` para verificar o tipo da figura, fazendo com que o método `calc_area` fique cada vez maior. Em outras palavras, a classe `ShapeCalculator` não esta fechada para modificação.
+Inicialmente, vamos melhorar as classes de figuras geométricas criando uma classe base `Shape`, no qual toda figura irá extender:
+
+```python
+class Shape
+
+```
 
 
 [^srp]: https://web.archive.org/web/20150202200348/http://www.objectmentor.com/resources/articles/srp.pdf
