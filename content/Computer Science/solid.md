@@ -107,7 +107,6 @@ class Square:
 	def __init__(self, lenght):
 		super().__init__()
 		self.lenght = lenght
-
 ```
 
 e
@@ -118,7 +117,6 @@ class Circle:
 	def __init__(self, radius):
 		super().__init__()
 		self.radius = radius
-
 ```
 
 Também temos uma classe que calcula a área dessas figuras e imprimem o resultado na tela:
@@ -137,18 +135,45 @@ class ShapeCalculator:
 		elif isinstance(shape, Circle):
 			area = math.pi * shape.radius ** 2
 			print(area)
-			
-	
 ```
 
 O problema da classe `ShapeCalculator`é que, cada vez que uma nova figura geométrica for adicionada, temos que adicionar um novo `if` para verificar o tipo da figura, fazendo com que o método `calc_area` fique cada vez maior. Em outras palavras, a classe `ShapeCalculator` não esta fechada para modificação.
-Inicialmente, vamos melhorar as classes de figuras geométricas criando uma classe base `Shape`, no qual toda figura irá extender:
+Inicialmente, vamos melhorar as classes de figuras geométricas criando uma classe base `Shape`, que irá possuir um método `area`, que será herdado por todas as figuras que extender essa classe:
 
 ```python
-class Shape
+class Shape:
 
+	def area(self):
+		pass
 ```
 
+Atualizando `Square` e `Circle`:
+
+```python
+class Square(Shape):
+	
+	def __init__(self, lenght):
+		super().__init__()
+		self.lenght = lenght
+
+	def area(self):
+		return self.lenght ** 2
+```
+
+e
+
+```python
+import math
+
+class Circle(Shape):
+	
+	def __init__(self, radius):
+		super().__init__()
+		self.radius = radius
+
+	def area(self):
+		return math.pi * self.radius ** 2
+```
 
 [^srp]: https://web.archive.org/web/20150202200348/http://www.objectmentor.com/resources/articles/srp.pdf
 [^ocp]: https://web.archive.org/web/20150415215806/http://www.objectmentor.com/resources/articles/ocp.pdf
