@@ -22,7 +22,7 @@ Este postulado define o seguinte:
 
 Por que uma classe ter mais de uma responsibilidade é um problema? 
 
-Porque cada resposabilidade é algo passível de sofrer mudanças, e quanto mais responsabilidades nossa classe tiver, mais impacto ela irá causar nas classes que dependem dela quando houver uma alteração em uma ou mais das responsabilidades. Isso causa um auto acoplamento nas classes que interagem com a nossa classe multi-resposabilidade.
+Porque cada resposabilidade é algo passível de sofrer mudanças, e quanto mais responsabilidades nossa classe tiver, mais acoplada ela será, ou seja, mais impacto ela irá causar nas classes que dependem dela quando houver uma alteração em uma das responsabilidades. 
 
 ## Referências
 
