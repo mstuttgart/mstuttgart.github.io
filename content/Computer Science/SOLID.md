@@ -4,7 +4,7 @@
 
 As letras do acrônimo possuem o seguinte siginificado:
 
-* S - [Single Responsability Principle](#single-responsability-principle-1)
+* S - [Single Responsability Principle](#single-responsability-principle-srp-1)
 * O - [Open Close Principle]
 * L - [Liskov Substitution Principle]
 * I - [Interface Segregation Principle]
@@ -12,7 +12,7 @@ As letras do acrônimo possuem o seguinte siginificado:
 
 Estes principios (ou postulados) auxiliam o desenvolvedor a projetar e escrever softwares Orientado a Objetos com baixo acoplamento, alta coesão e facilitando a manutenção e refatoração do código, quando necessárias.
 
-## Single Responsability Principle [^srp]
+## Single Responsability Principle (SRP) [^srp]
 
 *Princípio da Responsábilidade Única, em pt-BR.* 
 
@@ -24,7 +24,7 @@ Dizemos que a classe deve ser coesa. Em outras palavras, ela deve ter uma *únic
  
 Por que uma classe ter mais de uma responsibilidade é um problema? 
 
-Porque cada resposabilidade é algo passível de sofrer mudanças, e quanto mais responsabilidades nossa classe tiver, mais acoplada ela será, ou seja, mais impacto ela irá causar nas classes que dependem dela quando houver uma alteração em uma das responsabilidades e mais dificil será extendê-la, caso seja necessário. 
+Porque cada resposabilidade é algo passível de sofrer mudanças, e quanto mais responsabilidades nossa classe tiver, mais acoplada ela será, ou seja, mais impacto ela irá causar nas classes que dependem dela quando houver uma alteração em uma das responsabilidades e mais dificil será extendê-la, caso seja necessário. É um dos princípos 
 
 ## Referências
 
