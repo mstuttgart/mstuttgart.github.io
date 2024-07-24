@@ -10,7 +10,7 @@ As letras do acrônimo possuem o seguinte siginificado:
 * I - [Interface Segregation Principle]
 * D - [Dependency Inversion Principle]
 
-Estes principios (ou postulados) auxiliam o desenvolvedor a projetar e escrever softwares Orientado a Objetos mais concisos, com baixo acoplamento, alta coesão e facilitando a manutenção e refatoração do código, quando necessárias.
+Estes principios (ou postulados) auxiliam o desenvolvedor a projetar e escrever softwares Orientado a Objetos com baixo acoplamento, alta coesão e facilitando a manutenção e refatoração do código, quando necessárias.
 
 ## Single Responsability Principle [^srp]
 
