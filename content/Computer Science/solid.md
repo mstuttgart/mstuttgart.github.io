@@ -12,7 +12,7 @@ tags:
 As letras do acrônimo possuem o seguinte siginificado:
 
 * S - [Single Responsability Principle](#single-responsability-principle-srp-1)
-* O - [Open Close Principle](#)
+* O - [Open Close Principle](#open-closed-principle-ocp-2)
 * L - [Liskov Substitution Principle]
 * I - [Interface Segregation Principle]
 * D - [Dependency Inversion Principle]
@@ -88,7 +88,17 @@ O `Single Responsability Principle` é um dos princípios mais dificieis de sere
 
 ## Open-Closed Principle (OCP) [^ocp]
 
+*Princípio do Aberto-Fechado, em pt-BR.*
 
+Este postulado define o seguinte:
+
+> Entidades de software devem ser abertas para extensão, mas fechadas para modificação.
+
+Isso quer dizer que uma classe deve ser construída de modo que seja possivel estender seu comportamento, sem que precisemos alterar o conteúdo da classe em si. Considere que temos as seguintes classes que representam figuras geométricas:
+
+```python
+class Recta
+```
 
 [^srp]: https://web.archive.org/web/20150202200348/http://www.objectmentor.com/resources/articles/srp.pdf
 [^ocp]: https://web.archive.org/web/20150415215806/http://www.objectmentor.com/resources/articles/ocp.pdf
