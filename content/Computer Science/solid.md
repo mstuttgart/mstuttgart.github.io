@@ -39,10 +39,10 @@ A título de exemplo, vamos analisar a seguinte classe:
 class Server: 
 
 	def create_connection(self):
-		pass
+	    pass
 
 	def check_connection(self):
-		pass
+	    pass
 
 	def close_connection(self):
 	    pass
@@ -51,7 +51,7 @@ class Server:
 	    pass
 
 	def receive_package(self):
-		pass
+	    pass
 	
 ```
 
@@ -62,10 +62,10 @@ class ConnectionManager:
 	"""Gerencia apenas a conexao"""
 
 	def create_connection(self):
-		pass
+	    pass
 
 	def check_connection(self):
-		pass
+	    pass
 
 	def close_connection(self):
 	    pass	
@@ -81,7 +81,7 @@ class PackageManager:
 	    pass
 
 	def receive_package(self):
-		pass	
+	    pass	
 ```
 
 O `Single Responsability Principle` é um dos princípios mais dificieis de serem aplicados, porque a definição da resposabilidade da classe pode variar de desenvolvedor para desenvolvedor, onde o mesmo define se algo esta ou não dentro do escopo da classe. Então, de modo a tornar mais fácil a aplicação deste princípio, devemos sempre ter em mente o domínio do problema que estamos tentando resolver e a arquitetura que iremos utilizar no design do software.
@@ -104,9 +104,9 @@ Com exemplo, vamos considerar a seguinte classe que representa as figuras geomé
 ```python
 class Square:
 	
-	def __init__(self, lenght):
-		super().__init__()
-		self.lenght = lenght
+    def __init__(self, lenght):
+	    super().__init__()
+	    self.lenght = lenght
 ```
 
 e
@@ -115,8 +115,8 @@ e
 class Circle:
 	
 	def __init__(self, radius):
-		super().__init__()
-		self.radius = radius
+	    super().__init__()
+	    self.radius = radius
 ```
 
 Também temos uma classe que calcula a área dessas figuras e imprimem o resultado na tela:
@@ -127,24 +127,26 @@ import math
 class ShapeCalculator:
 
 	def calc_area(self, shape):
+	"""Calcule area of shape"""
 
-		if isinstance(shape, Square):
-			area = shape.lenght ** 2
-			print(area)
+	     if isinstance(shape, Square):
+		    area = shape.lenght ** 2
+		   print(area)
 			
-		elif isinstance(shape, Circle):
-			area = math.pi * shape.radius ** 2
-			print(area)
+	     elif isinstance(shape, Circle):
+		    area = math.pi * shape.radius ** 2
+		    print(area)
 ```
 
 O problema da classe `ShapeCalculator`é que, cada vez que uma nova figura geométrica for adicionada, temos que adicionar um novo `if` para verificar o tipo da figura, fazendo com que o método `calc_area` fique cada vez maior. Em outras palavras, a classe `ShapeCalculator` não esta fechada para modificação.
-Inicialmente, vamos melhorar as classes de figuras geométricas criando uma classe base `Shape`, que irá possuir um método `area`, que será herdado por todas as figuras que extender essa classe:
+
+Para iniciar os ajustes, vamos melhorar as classes de figuras geométricas criando uma classe base `Shape`, que irá possuir um método `area`, que será herdado por todas as figuras que extender essa classe:
 
 ```python
 class Shape:
 
 	def area(self):
-		pass
+	    pass
 ```
 
 Atualizando `Square` e `Circle`:
@@ -153,11 +155,11 @@ Atualizando `Square` e `Circle`:
 class Square(Shape):
 	
 	def __init__(self, lenght):
-		super().__init__()
-		self.lenght = lenght
+	    super().__init__()
+	    self.lenght = lenght
 
 	def area(self):
-		return self.lenght ** 2
+	    return self.lenght ** 2
 ```
 
 e
@@ -168,12 +170,14 @@ import math
 class Circle(Shape):
 	
 	def __init__(self, radius):
-		super().__init__()
-		self.radius = radius
+	    super().__init__()
+	    self.radius = radius
 
 	def area(self):
-		return math.pi * self.radius ** 2
+	    return math.pi * self.radius ** 2
 ```
 
+Agora, qualquer nova figura geométrica deve extender a classe 
+Agora, vamos corrigir o método de modo a deixá-lo
 [^srp]: https://web.archive.org/web/20150202200348/http://www.objectmentor.com/resources/articles/srp.pdf
 [^ocp]: https://web.archive.org/web/20150415215806/http://www.objectmentor.com/resources/articles/ocp.pdf
