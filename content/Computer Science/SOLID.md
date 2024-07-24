@@ -4,16 +4,22 @@
 
 As letras do acrônimo possuem o seguinte siginificado:
 
-* S - [[Single Responsability Principle]]
-* O - [[Open Close Principle]]
-* L - [[Liskov Substitution Principle]]
-* I - [[Interface Segregation Principle]]
-* D - [[Dependency Inversion Principle]]
+* S - [Single Responsability Principle](#single-responsability-principle-1)
+* O - [Open Close Principle]
+* L - [Liskov Substitution Principle]
+* I - [Interface Segregation Principle]
+* D - [Dependency Inversion Principle]
 
 Estes principios (ou postulados) auxiliam o desenvolvedor a projetar e escrever softwares Orientado a Objetos mais concisos, com baixo acoplamento, alta coesão e facilitando a manutenção e refatoração do código, quando necessárias.
 
-## Single Responsability Principle ^1
+## Single Responsability Principle [^srp]
 
 Este postulado define o seguinte:
-> Uma classe deve ter um, e somente um, motivo para mudar, significando que uma 
 
+> Uma classe deve ter um, e somente um, motivo para mudar. Em outras palavras, uma clase deve ter somente uma responsabilidade
+
+
+
+## Referências
+
+[^srp]: https://web.archive.org/web/20150202200348/http://www.objectmentor.com/resources/articles/srp.pdf
