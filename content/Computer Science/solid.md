@@ -97,8 +97,19 @@ Este postulado define o seguinte:
 Isso quer dizer que uma classe deve ser construída de modo que seja possivel estender seu comportamento, sem que precisemos alterar o conteúdo da classe em si. Considere que temos as seguintes classes que representam figuras geométricas:
 
 ```python
-class Recta
+class GeometricShape:
+
+	lenght = 0
+	radius = 0
+	name = ''
+
+	def __init__(self, name, lenght=0, radius=0):
+		super().__init__()
+		self.name = name
+		self.lenght = lenght
+		self.radius = radius
 ```
 
+A primeira vista, podemos detectar doi
 [^srp]: https://web.archive.org/web/20150202200348/http://www.objectmentor.com/resources/articles/srp.pdf
 [^ocp]: https://web.archive.org/web/20150415215806/http://www.objectmentor.com/resources/articles/ocp.pdf
