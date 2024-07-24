@@ -14,9 +14,11 @@ Estes principios (ou postulados) auxiliam o desenvolvedor a projetar e escrever 
 
 ## Single Responsability Principle [^srp]
 
+*Princípio da Responsábilidade Única, em pt-BR.* 
+
 Este postulado define o seguinte:
 
-> Uma classe deve ter um, e somente um, motivo para mudar. Em outras palavras, uma clase deve ter somente uma responsabilidade
+> Uma classe deve ter um, e somente um, motivo para mudar. Em outras palavras, uma classe deve ter somente uma responsabilidade.
 
 
 
