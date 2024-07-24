@@ -119,26 +119,28 @@ class Circle:
 	    self.radius = radius
 ```
 
-Também temos uma classe que calcula a área dessas figuras e imprimem o resultado na tela:
+Também temos uma classe que calcula a área dessas figuras e retornar o resultado na tela:
 
 ```python
 import math
 
-class ShapeCalculator:
+class ShapeAreaCalculator:
 
 	def calc_area(self, shape):
-	"""Calcule area of shape"""
+	    """Calcule area of shape"""
 
-	     if isinstance(shape, Square):
+		area = 0
+
+	    if isinstance(shape, Square):
 		    area = shape.lenght ** 2
-		   print(area)
 			
-	     elif isinstance(shape, Circle):
+        elif isinstance(shape, Circle):
 		    area = math.pi * shape.radius ** 2
-		    print(area)
+
+        return area
 ```
 
-O problema da classe `ShapeCalculator`é que, cada vez que uma nova figura geométrica for adicionada, temos que adicionar um novo `if` para verificar o tipo da figura, fazendo com que o método `calc_area` fique cada vez maior. Em outras palavras, a classe `ShapeCalculator` não esta fechada para modificação.
+O problema da classe `ShapeAreaCalculator`é que, cada vez que uma nova figura geométrica for adicionada, temos que adicionar um novo `if` para verificar o tipo da figura, fazendo com que o método `calc_area` fique cada vez maior. Em outras palavras, a classe `ShapeAreaCalculator` não esta fechada para modificação.
 
 Para iniciar os ajustes, vamos melhorar as classes de figuras geométricas criando uma classe base `Shape`, que irá possuir um método `area`, que será herdado por todas as figuras que extender essa classe:
 
@@ -177,7 +179,28 @@ class Circle(Shape):
 	    return math.pi * self.radius ** 2
 ```
 
-Agora, qualquer nova figura geométrica deve extender a classe 
-Agora, vamos corrigir o método de modo a deixá-lo
+Agora, qualquer nova figura geométrica deve extender a classe `Shape` e implementar seu próprio método `area`. As classes de figura agora estão abertas para extensão e fechadas para modificação (não será necessário alterar nenhuma delas quando uma nova figura for adicionada).
+
+Agora, vamos corrigir o método `calc_area` de modo a deixá-lo fechado para modificação:
+
+```python
+import math
+
+class ShapeAreaCalculator:
+
+	def calc_area(self, shape):
+	    """Calcule area of shape"""
+	    area = shape.area()
+	    return area
+
+	    if isinstance(shape, Square):
+		    area = shape.lenght ** 2
+		    print(area)
+			
+        elif isinstance(shape, Circle):
+		    area = math.pi * shape.radius ** 2
+		    print(area)
+```
+
 [^srp]: https://web.archive.org/web/20150202200348/http://www.objectmentor.com/resources/articles/srp.pdf
 [^ocp]: https://web.archive.org/web/20150415215806/http://www.objectmentor.com/resources/articles/ocp.pdf
