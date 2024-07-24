@@ -96,9 +96,10 @@ Este postulado define o seguinte:
 
 Em outras palavras:
 
-* "aberta para ext"
+* "aberta para extensão": significa que o comportamento da classe pode ser extendido. Podemos fazer um método da classe se comportar de forma diferente de acordo com as mudanças exigidas pela aplicação ao qual ele pertence, ou para ir de encontro as necessidades de novas aplicações.
+* "fechadas para modificação": o código fonte da classe é inviolável. Ninguém tem a permissão de alterar o código fonte original da classe para atender a novos requisitos da aplicação. O risco de alterar o código fonte da classe é que isso pode impactar no funcionamento de outras rotinas que dependem do comportamento dessa classe.
 
-Isso quer dizer que uma classe deve ser construída de modo que seja possivel estender seu comportamento, sem que precisemos alterar o conteúdo da classe em si. Considere que temos as seguintes classes que representam figuras geométricas:
+Com exemplo, vamos considerar a seguinte classe que calcula a comissão de um vendedor de acordo com
 
 ```python
 class GeometricShape:
