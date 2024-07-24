@@ -99,23 +99,21 @@ Em outras palavras:
 * "aberta para extensão": significa que o comportamento da classe pode ser extendido. Podemos fazer um método da classe se comportar de forma diferente de acordo com as mudanças exigidas pela aplicação ao qual ele pertence, ou para ir de encontro as necessidades de novas aplicações.
 * "fechadas para modificação": o código fonte da classe é inviolável. Ninguém tem a permissão de alterar o código fonte original da classe para atender a novos requisitos da aplicação. O risco de alterar o código fonte da classe é que isso pode impactar no funcionamento de outras rotinas que dependem do comportamento dessa classe.
 
-Com exemplo, vamos considerar a seguinte classe que calcula a comissão de um vendedor de acordo com
+Com exemplo, vamos considerar a seguinte classe que calcula o bonus de um funcionário, de acordo com seu cargo. Para isso vamos inicialmente definir a classe `Employee` (funcionario):
 
 ```python
-class GeometricShape:
+class Employee:
 
-	lenght = 0
-	radius = 0
-	name = ''
-
-	def __init__(self, name, lenght=0, radius=0):
+	salary = 0
+	role = ''
+	
+	def __init__(self, salary, role):
 		super().__init__()
-		self.name = name
-		self.lenght = lenght
-		self.radius = radius
+		self.salary = salary
+		self.role = role
 ```
 
-A primeira vista, podemos detectar dois problemas nessa classe:
-1. Ela é muito genérica. Possui um atributo `radius`, que somente é usado quando a figura é um circulo
+Em seguida, definimos
+
 [^srp]: https://web.archive.org/web/20150202200348/http://www.objectmentor.com/resources/articles/srp.pdf
 [^ocp]: https://web.archive.org/web/20150415215806/http://www.objectmentor.com/resources/articles/ocp.pdf
