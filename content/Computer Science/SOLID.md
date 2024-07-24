@@ -1,1 +1,1 @@
-`SOLID` é um acronomo cunhado por Robert c. Martin para descrever os 5 principios da [[ProgramOrientado a Objetos]]
+`SOLID` é um acrônimo para descrever os 5 principios desgines para projetos de softwares usando linguagens de [[Programação Orientada a Objetos (POO)]]. Esses princípios são agnośticos em relação a linguagem de programação, ou seja, independem da linguagem de programação escolhida (desde que a mesma siga o paradigma POO). Os princípios foram apresentados por Robert C. Martin
