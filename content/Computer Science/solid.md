@@ -121,7 +121,7 @@ class Circle:
 
 ```
 
-Também temos uma classe que calcula a área e o perímetro dessas figuras e imprimem o resultado na tela:
+Também temos uma classe que calcula a área dessas figuras e imprimem o resultado na tela:
 
 ```python
 import math
@@ -136,32 +136,13 @@ class ShapeCalculator:
 			
 		elif isinstance(shape, Circle):
 			area = math.pi * shape.radius ** 2
+			print(area)
 			
 	
 ```
 
+O problema da classe `ShapeCalculator`é que, cada vez que uma nova figura geométrica for adicionada, temos que adicionar um novo `if` a classe verificando essa figura, fazendo com que o método `calc_area` fique cada vez maior. Em outras palavras, a classe `ShapeCalculator` não esta fechada para modificação e classes de figuras 
 
-
-que calcula o bonus de um funcionário, de acordo com seu cargo. Para isso vamos inicialmente definir a classe `Employee` (funcionario):
-
-```python
-class Employee:
-
-	salary = 0
-	role = ''
-	
-	def __init__(self, salary, role):
-		super().__init__()
-		self.salary = salary
-		self.role = role
-```
-
-Em seguida, definimos a classe que calcula o bonus de cada funcionário de acordo com seu cargo:
-
-```python
-
-
-```
 
 [^srp]: https://web.archive.org/web/20150202200348/http://www.objectmentor.com/resources/articles/srp.pdf
 [^ocp]: https://web.archive.org/web/20150415215806/http://www.objectmentor.com/resources/articles/ocp.pdf
