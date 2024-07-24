@@ -31,7 +31,7 @@ O `Single Responsability Principle` é um dos princípios mais dificieis de sere
 A título de exemplo, vamos analisar a seguinte classe:
 
 ```python
-class : 
+class Server: 
 
 	def create_connection(self):
 		pass
@@ -50,7 +50,14 @@ class :
 	
 ```
 
+Analisando a classe acima, percebemos claramente que ela possui duas responsabilidades: uma relacionada a conexões (criar, destruir e checar) e outra relacionado ao gerenciamento de pacotes de dados (envio e recebimento)
+
 A classe `BaseInterface` é herdada por duas classes diferentes:
+
+* `ConnectionManager`: cria, destroi e avalia conexão de um servidor impotético.
+* `PackageManager`: envia e recebe pacote de dados.
+
+O problema de utilizarmos a classe `BaseInterface` como está, é que a classe `ConnectionManager`  receberá os metodos relacionados a envio e recebimento de pacotes dados 
 
 ```python
 class ConnectionManager(BaseInterface)
