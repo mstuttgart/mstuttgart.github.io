@@ -1,0 +1,1 @@
+`SOLID` é um acronomo cunhado por Robert c. Martin para descrever os 5 principios da [[ProgramOrientado a Objetos]]
