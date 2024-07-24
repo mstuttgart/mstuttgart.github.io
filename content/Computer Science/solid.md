@@ -1,6 +1,6 @@
 ---
 title: SOLID
-draft: false
+draft: true
 tags:
   - solid 
   - poo 
@@ -121,7 +121,27 @@ class Circle:
 
 ```
 
-Tamb-é
+Também temos uma classe que calcula a área e o perímetro dessas figuras e imprimem o resultado na tela:
+
+```python
+import math
+
+class ShapeCalculator:
+
+	def calc_area(self, shape):
+
+		if isinstance(shape, Square):
+			area = shape.lenght ** 2
+			print(area)
+			
+		elif isinstance(shape, Circle):
+			area = math.pi * shape.radius ** 2
+			
+	
+```
+
+
+
 que calcula o bonus de um funcionário, de acordo com seu cargo. Para isso vamos inicialmente definir a classe `Employee` (funcionario):
 
 ```python
