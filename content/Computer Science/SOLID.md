@@ -18,8 +18,10 @@ Estes principios (ou postulados) auxiliam o desenvolvedor a projetar e escrever 
 
 Este postulado define o seguinte:
 
-> Uma classe deve ter um, e somente um, motivo para mudar. Em outras palavras, uma classe deve ter somente uma responsabilidade.
+> Uma classe deve ter um, e somente um, motivo para mudar.
 
+Dizemos que a classe deve ser coesa. Em outras palavras, ela deve ter uma *única* responsabilidade.
+ 
 Por que uma classe ter mais de uma responsibilidade é um problema? 
 
 Porque cada resposabilidade é algo passível de sofrer mudanças, e quanto mais responsabilidades nossa classe tiver, mais acoplada ela será, ou seja, mais impacto ela irá causar nas classes que dependem dela quando houver uma alteração em uma das responsabilidades. 
